@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('birthdate') ? ' has-error' : '' }}">
-                            <label for="birthdate" class="col-md-4 control-label">F. Nacimiento</label>
+                            <label for="birthdate" class="col-md-4 control-label">Fecha Nacimiento</label>
 
                             <div class="col-md-6">
                                 <input id="birthdate" type="date" class="form-control" name="birthdate" value="{{ old('birthdate') }}" required>
