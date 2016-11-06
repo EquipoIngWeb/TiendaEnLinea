@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/principal', 'principalController@index');
+Route::get('/inicio', 'principalController@inicio');
