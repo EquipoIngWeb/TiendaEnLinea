@@ -1,97 +1,70 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{asset('favi.ico')}}"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<title>Best Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+	<!-- for-mobile-apps -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-    <title>{{ config('app.name', 'Lara-Shop') }}</title>
+		<!-- //for-mobile-apps -->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
-    <!-- Styles -->
-    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
-    <link href="{{asset('/css/stylelog.css')}}" rel="stylesheet">
+		<!-- cart -->
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}">
+		<!-- //for bootstrap working -->
+		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<!-- animation-effect -->
+		<link href="css/animate.min.css" rel="stylesheet">
+		<!-- //animation-effect -->
+	</head>
 
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-</head>
-<body>
-    <div class="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                <!-- <h1>Login</h1> -->
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+	<body>
+		@include('layouts.section.navbar')
 
+		@yield('content')
 
-                    <!-- <form method="post">
-                        <input type="text" name="u" placeholder="Username" required="required" />
-                        <input type="password" name="p" placeholder="Password" required="required" />
-                        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
-                    </form> -->
+		@include('layouts.section.footer')
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+		<script src="{{ asset('/js/jquery.min.js') }}"></script>
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);function hideURLbar(){ window.scrollTo(0,1); } </script>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
+		<script src="{{ asset('js/simpleCart.min.js') }}"></script>
+		<script src="{{ asset('js/bootstrap-3.1.1.min.js') }}"></script>
+		<script src="{{ asset('js/jquery.countdown.js') }}"></script>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Ingresar</a></li>
-                            <li><a href="{{ url('/register') }}">Registrarse</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+		<script src="{{ asset('js/wow.min.js') }}"></script>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+		<script src="{{ asset('js/classie.js') }}"></script>
+		<script src="{{ asset('js/uisearch.js') }}"></script>
+		<script src="{{ asset('js/imagezoom.js') }}"></script>
+		<script src="{{ asset('js/jquery.wmuSlider.js') }}"></script>
+		<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+		<script src="{{ asset('js/jquery.flexslider.js') }}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+		<script>
+			$(document).ready(function(){
+				/* ---- Countdown timer ---- */
+				var comming = new Date(2016,10,14);
+				$('#counter').countdown({
+					timestamp : comming.getTime()
+				});
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
+				$('.example1').wmuSlider();
+				new UISearch( document.getElementById( 'sb-search' ) );
 
-        @yield('content')
-    </div>
+				window.Laravel = <?php echo json_encode(['csrfToken' => csrf_token()]); ?>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
-</body>
-</html>
+				new WOW().init();
+
+			});
+		</script>
+		<script src="{{ asset('js/script.js') }}"></script>
+	</body>
+	</html>
