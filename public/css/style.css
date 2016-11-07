@@ -1,0 +1,105 @@
+#log
+{
+	padding-top: 10px;
+	color: white;
+	font-family: 'Lobster Two';
+	font-size: 30px;
+}
+/*#log h1
+{
+	font-size: 100px;
+}*/
+
+#total
+{
+	background-image: url("../img/fondo1.jpg");
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+}
+.opacidad
+{
+	position: fixed;
+    opacity: 1;
+    background-color: rgba(0,0,0,.6);
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.azul
+{
+	background-color: rgba(5, 31, 60, 0.6);
+}
+.rojo
+{
+	background-color: rgba(215, 46, 44, 0.6);
+}
+.negro
+{
+	background-color: rgba(0, 0, 0, 0.6);
+}
+#titulo
+{
+	padding-top: 70px;
+	color: white;
+	font-family: 'Lobster Two';
+}
+#titulo h1
+{
+	font-size: 70px;
+}
+#descripcion
+{
+	padding-top: 50px;
+	color: white;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+}
+#engrane
+{
+	color: white;
+	font-size: 20px;
+}
+#fecha
+{
+	color: white;
+	font-size: 80px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+#textosociales
+{
+	padding-top: 80px; 
+	color: white;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	font-size: 20px;
+	padding-bottom: 10px;
+}
+#redessociales a
+{
+	color: white;
+	font-size: 16.5px;
+	text-decoration: none;
+}
+#redessociales a:hover
+{
+	color: white;
+}
+.footer
+{
+	color: white;
+	position: fixed;
+    bottom: 30px;
+    font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+
+.footer a
+{
+	color: #d8e789;
+}
