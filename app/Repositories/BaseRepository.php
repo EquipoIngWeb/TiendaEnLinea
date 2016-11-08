@@ -30,7 +30,7 @@ abstract class BaseRepository
 		return $this->getModel()->where($field, 'LIKE', '%'.$value.'%');
 	}
 
-	public function insert(Array $data){
+	public function create(Array $data){
 		return $this->getModel()->create($data);
 	}
 
@@ -41,7 +41,7 @@ abstract class BaseRepository
 		 return $model;
 	}
 
-	public function delete($id){
+	public function remove($id){
 		$model = $this->findOrFail($id);
 		$model->delete();
 		return $model ;

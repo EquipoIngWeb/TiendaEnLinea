@@ -1,9 +1,9 @@
 <?php
 namespace App\Repositories;
-use  App\Category as Model;
+use  App\User as Model;
 use Illuminate\Http\Request;
 
-class Categories  extends BaseRepository
+class Users  extends BaseRepository
 {
 	private $model;
 	function __construct(Model $model){
@@ -14,6 +14,7 @@ class Categories  extends BaseRepository
 	}
 }
  ?>
+
  <!--
 		getModel()
 		getAll()
