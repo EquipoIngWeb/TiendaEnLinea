@@ -13,10 +13,12 @@ class CreateClothesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clothes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+    	Schema::create('clothes', function (Blueprint $table) {
+    		$table->increments('id');
+    		$table->string('name');
+    		$table->string('description');
+    		$table->timestamps();
+    	});
     }
 
     /**
@@ -26,6 +28,6 @@ class CreateClothesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clothes');
+    	Schema::dropIfExists('clothes');
     }
 }

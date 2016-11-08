@@ -11,18 +11,20 @@ class AddRelationsClothesCategoriesTable extends Migration
      *
      * @return void
      */
-    public function up()
-    {
-        //
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-    }
+ 	public function up()
+	{
+		Schema::table('clothes_categories', function ($table) {
+			$table->foreign('clothes_id')->references('id')->on('clothes');
+			$table->foreign('category_id')->references('id')->on('categories');
+		});
+	}
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::disableForeignKeyConstraints();
+	}
 }

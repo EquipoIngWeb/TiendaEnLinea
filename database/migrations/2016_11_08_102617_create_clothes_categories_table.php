@@ -13,16 +13,21 @@ class CreateClothesCategoriesTable extends Migration
      */
     public function up()
     {
-        //
+    	Schema::create('clothes_categories', function (Blueprint $table) {
+    		$table->increments('id');
+    		$table->integer('clothes_id')->unsigned();
+    		$table->integer('category_id')->unsigned();
+    		$table->timestamps();
+    	});
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        //
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('clothes_categories');
+	}
 }
