@@ -5,7 +5,7 @@
 	<div class="breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li><a href="{{url ('/inicio')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
 				<li class="active">Inicio de Sesión</li>
 			</ol>
 		</div>
@@ -50,7 +50,7 @@
 			</div>
 			<h4 class="animated wow slideInUp" data-wow-delay=".5s">Para nuevos clientes</h4>
 			<div class="register-home animated wow slideInUp" data-wow-delay=".5s">
-				<a href="{{ url('register') }}">Registrese Aqui</a>
+				<a href="{{ url('register') }}">Registrese Aquí</a>
 			</div>
 		</div>
 	</div>
