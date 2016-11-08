@@ -5,7 +5,7 @@
 	<div class="breadcrumbs">
 		<div class="container">
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-				<li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li><a href="{{url('/inicio')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
 				<li class="active">Register Page</li>
 			</ol>
 		</div>
@@ -29,7 +29,7 @@
 					<input type="password" name="password_confirmation" placeholder="Confirmación Contraseña" required=" " >
 					<div class="register-check-box">
 						<div class="check">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Acepto los terminos y condiciones</label>
+							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Acepto los términos y condiciones</label>
 						</div>
 					</div>
 					@if (count($errors) > 0)
@@ -44,7 +44,7 @@
 				</form>
 			</div>
 			<div class="register-home animated wow slideInUp" data-wow-delay=".5s">
-				<a href="index.html">Inicio</a>
+				<a href="{{url('/inicio')}}">Inicio</a>
 			</div>
 		</div>
 	</div>

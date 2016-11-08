@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Best Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Login :: w3layouts</title>
+	<title>Lara - Shop</title>
 	<!-- for-mobile-apps -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -22,7 +22,8 @@
 		<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 		<!-- animation-effect -->
 		<link href="css/animate.min.css" rel="stylesheet">
-		<!-- //animation-effect -->
+		<!-- //favicon -->
+		<link rel="shortcut icon" href="{{asset('favi.ico')}}"/>
 	</head>
 
 	<body>
