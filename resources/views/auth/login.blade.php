@@ -25,8 +25,39 @@
 			<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
 				<form  role="form" method="POST" action="{{ url('/login') }}">
 					{{ csrf_field() }}
-					<input type="text" name="username" placeholder="Usuario" value="{{ old('username') }}" required autofocus>
-					<input type="password" name="password" placeholder="Contraseña" required >
+
+					<div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <!-- <label for="username" class="col-md-4 control-label">Usuario</label> -->
+
+                            <!-- <div class="col-md-6"> -->
+                                <input id="username" type="text" class="form-control" name="username" placeholder="Usuario" value="{{ old('username') }}" required autofocus>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            <!-- </div> -->
+                        </div>
+
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <!-- <label for="password" class="col-md-4 control-label">Contraseña</label>
+
+                            <div class="col-md-6"> -->
+                                <input id="password" type="password" class="form-control" name="password" placeholder="Contraseña" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            <!-- </div> -->
+                        </div>
+
+
+					<!-- <input type="text" name="username" placeholder="Usuario" value="{{ old('username') }}" required autofocus> -->
+					<!-- <input type="password" name="password" placeholder="Contraseña" required > -->
 					<div class="register-check-box animated wow slideInUp" data-wow-delay=".5s">
 						<div class="check">
 							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Recordarme</label>
