@@ -4,20 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRelationsClothesCategoriesTable extends Migration
+class AddRelationsDescountsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
- 	public function up()
-	{
-		Schema::table('clothes_categories', function ($table) {
-			$table->foreign('clothes_id')->references('id')->on('clothes');
-			$table->foreign('category_id')->references('id')->on('categories');
-		});
-	}
+    public function up()
+    {
+    	Schema::table('discounts', function ($table) {
+    		$table->foreign('product_id')->references('id')->on('products');
+    	});
+    }
 	/**
 	 * Reverse the migrations.
 	 *
