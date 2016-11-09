@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('principal');
+	return view('principal');
 });
+Route::get('/category','CategoryController@index');
+
 
 Auth::routes();
 
