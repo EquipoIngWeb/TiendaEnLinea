@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Lara - Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link rel="shortcut icon" href="{{asset('favi.ico')}}"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Lobster+Two:400,400italic' rel='stylesheet' type='text/css'>
@@ -47,8 +47,8 @@
                 <div class="title m-b-md">
                     Laravel
                 </div> -->
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap-3.1.1.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/js/bootstrap-3.1.1.min.js') }}"></script>
 	<script src="{{ asset('js/jquery.countdown.js') }}"></script>
     <script>
 			$(document).ready(function(){
