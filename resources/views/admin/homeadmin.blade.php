@@ -61,11 +61,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="special_items">
-					<li><a href="events.html">Usuarios</a><i>/</i></li>
-					<li><a href="about.html">Categorias</a><i>/</i></li>
-					<li><a href="products.html">Productos</a><i>/</i></li>
-					<li><a href="services.html">Pagos</a></li>
-					<li><a href="services.html">Banco de Imagenes</a></li>
+					<li><a href="">Usuarios</a><i>/</i></li>
+					<li><a href="">Productos</a><i>/</i></li>
+					<li><a href="">Categorias</a><i>/</i></li>
+					<li><a href="">Pagos</a></li>
+					<li><a href="">About Us</a><i>/</i></li>
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left1">
@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				  </button>
 			   </div> 
 			   <!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+<!-- 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="products.html">Branded Foods</a></li>
 						<li><a href="household.html">Households</a></li>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</li>
 						<li><a href="bread.html">Bread & Bakery</a></li>
 					</ul>
-				 </div><!-- /.navbar-collapse -->
+				 </div> --><!-- /.navbar-collapse -->
 			</nav>
 		</div>
 		<div class="w3l_banner_nav_right">
@@ -219,7 +219,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 	</div> -->
 <!-- top-brands -->
-<!-- 	<div class="top-brands">
+	<!-- <div class="top-brands">
 		<div class="container">
 			<h3>Hot Offers</h3>
 			<div class="agile_top_brands_grids">
@@ -368,7 +368,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div> -->
 <!-- //top-brands -->
 <!-- fresh-vegetables -->
-<!-- 	<div class="fresh-vegetables">
+	<!-- <div class="fresh-vegetables">
 		<div class="container">
 			<h3>Top Products</h3>
 			<div class="w3l_fresh_vegetables_grids">
@@ -458,12 +458,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="col-md-3 w3_footer_grid">
 				<h3>information</h3>
 				<ul class="w3_footer_grid_list">
-					<li><a href="events.html">Usuarios</a><i>/</i></li>
-					<li><a href="about.html">Categorias</a><i>/</i></li>
-					<li><a href="products.html">Productos</a><i>/</i></li>
-					<li><a href="services.html">Pagos</a></li>
-					<li><a href="services.html">Banco de Imagenes</a></li>
-					<li><a href="services.html">Acerca de</a></li>
+					<li><a href="">Usuarios</a><i>/</i></li>
+					<li><a href="">Productos</a><i>/</i></li>
+					<li><a href="">Categorias</a><i>/</i></li>
+					<li><a href="">Pagos</a></li>
+					<li><a href="">About Us</a><i>/</i></li>
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
