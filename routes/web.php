@@ -14,11 +14,12 @@
 Route::get('/', function () {
 	return view('principal');
 });
-Route::get('/category','CategoryController@index');
+
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/principal', 'principalController@index');
-Route::get('/inicio', 'principalController@inicio');
+Route::get('/inicio', 'principalController@inicio'); //Vista principal
+Route::get('/category','CategoryController@index'); //Categorias
