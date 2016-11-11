@@ -23,7 +23,7 @@ class Users  extends BaseRepository
 		find($id)
 		count()
 		searchFor($field,$value)
-		create(Array $data)
+		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
   -->

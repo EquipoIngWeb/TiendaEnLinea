@@ -20,38 +20,8 @@ class CategoryController extends Controller
 	 */
 	public function index()
 	{
-		dd($this->categories->getMenu());
-	}
-	public function menu($list,$parents = [])
-	{
-		$string = "<ul>";
-		foreach ($list as $category) {
-			$flat= false;
-			foreach ($list as $brother) {
-				if ($category->isParent($brother->id)) {
-					$flat=true;
-					break;
-				}
-			}
-			if (!$flat) {
-				if (sizeof($parents)>0) {
-					$count=0;
-					foreach ($parents as $parent) {
-						if ($category->isParent($parent)) {
-							$count++;
-						}
-					}
-					if ($count == sizeof($parents)) {
-						$string.= "<li> $category->name</li>";
-						$string.= $this->menu($category->children()->get(),array_merge($parents,[$category->id]));
-					}
-				}else{
-					$string.= "<li> $category->name</li>";
-					$string.= $this->menu($category->children()->get(),array_merge($parents,[$category->id]));
-				}
-			}
-		}
-		return $string.= "</ul>";
+		$categories = $this->categories->getMenu();
+		return view('admin.category.index',compact('categories'));
 	}
 	/**
 	 * Show the form for creating a new resource.
@@ -60,9 +30,8 @@ class CategoryController extends Controller
 	 */
 	public function create()
 	{
-		//
+		return view('admin.category.create');
 	}
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -71,7 +40,8 @@ class CategoryController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		//
+		$this->categories->save($request->all());
+		return redirect('admin/categories')->with('message','Categoria agregada satistactoriamente');
 	}
 
 	/**
@@ -82,7 +52,7 @@ class CategoryController extends Controller
 	 */
 	public function show($id)
 	{
-		//
+		// return view('admin.category.create');
 	}
 
 	/**
@@ -93,7 +63,7 @@ class CategoryController extends Controller
 	 */
 	public function edit($id)
 	{
-		//
+		return view('admin.category.create');
 	}
 
 	/**

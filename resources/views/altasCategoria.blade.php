@@ -2,7 +2,6 @@
 @section('encabezado')
     <h2>Alta de Categoria</h2>
 @stop
-
 @section('contenido')
     <div class="container" style="background-color:#81DAF5 ; border-radius: 20px; color:black">
     <form action="{{url('/guardarCategoria')}}" method="POST">
@@ -20,6 +19,4 @@
             <a href="{{url('/altasCategoria')}}" class="btn btn-danger">Cancelar</a>
         </div>
     </form>
-
-
 @stop

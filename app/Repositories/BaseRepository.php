@@ -30,7 +30,7 @@ abstract class BaseRepository
 		return $this->getModel()->where($field, 'LIKE', '%'.$value.'%');
 	}
 
-	public function create(Array $data){
+	public function save(Array $data){
 		return $this->getModel()->create($data);
 	}
 

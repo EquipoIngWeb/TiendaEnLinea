@@ -3228,13 +3228,16 @@ button.note-color-btn {
 .help-block {
     margin-top: 10px;
 }
+.btn {
+  text-transform: uppercase;
+  padding: .5em 1.5em;
+  border-radius: inherit;
+}
 .forms button.btn.btn-default {
     background-color:#252525;
     color: #fff;
-    padding: .5em 1.5em;
-	border: none;
-	outline:none;
-	border-radius: inherit;
+    border: none;
+    outline:none;
 }
 .inline-form.widget-shadow {
     margin-top: 0;
