@@ -86,8 +86,8 @@
 			{{-- <li><a href="short-codes.html">Short Codes</a></li> --}}
 			<li><a href="mail.html">Mail Us</a></li>
 			@if (Auth::guest())
-			<li><a href="{{ url('/login') }}">Ingresar</a></li>
-			<li><a href="{{ url('/register') }}">Registrarse</a></li>
+				<li><a href="{{ url('/login') }}">Ingresar</a></li>
+				<li><a href="{{ url('/register') }}">Registrarse</a></li>
 			@else
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

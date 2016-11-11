@@ -11,12 +11,7 @@ return [
     | framework needs to place the application's name in a notification or
     | any other location as required by the application or its packages.
     */
-
-<<<<<<< HEAD
-    'name' => 'App',
-=======
     'name' => 'Lara-Shop',
->>>>>>> f8d15e9fb90b43a03b3505d7b87f76792736eb02
 
     /*
     |--------------------------------------------------------------------------
