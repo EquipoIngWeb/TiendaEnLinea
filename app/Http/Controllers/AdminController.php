@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
     public function homeadmin()
     {
-    	return view ('homeadmin');
+    	return view ('admin.homeadmin');
     }
 }
 
