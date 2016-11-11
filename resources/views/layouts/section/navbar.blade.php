@@ -60,7 +60,7 @@
 							</div>
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="{url ('/inicio')}" class="act">Inicio</a></li>
+									<li class="active"><a href="{{url ('/inicio')}}" class="act">Inicio</a></li>
 									<!-- Mega Menu -->
 									@foreach ($categories->getMenu() as $category_first => $seconds_categories)
 										<li class="dropdown">
