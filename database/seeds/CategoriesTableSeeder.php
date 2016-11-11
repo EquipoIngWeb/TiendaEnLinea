@@ -24,6 +24,7 @@ class CategoriesTableSeeder extends Seeder
 		'Caballero',
 		'Dama',
 		'Infantil'];
+
 		$categories_caballero = [
 		'Bota',
 		'Sandalia',
@@ -39,6 +40,7 @@ class CategoriesTableSeeder extends Seeder
 		$caballero->save();
 		$caballero->parents()->attach($ropa->id);
 		$caballero->parents()->attach($zapatos->id);
+
 
 		foreach ($categories_caballero as $category) {
 			$c = App\Category::firstOrCreate(['name'=> $category ]);
@@ -107,6 +109,18 @@ class CategoriesTableSeeder extends Seeder
 			$c = App\Category::firstOrCreate(['name'=> $category ]);
 			$c->parents()->attach($ropa->id);
 			$caballero->children()->attach($c->id);
+		}
+		$categories_ropa_infantil = ['Ropa de Niña','Ropa de Niño'];
+		$infantil = new App\Category();
+		$infantil->name="Infantil";
+		$infantil->save();
+		$infantil->parents()->attach($ropa->id);
+		$infantil->parents()->attach($zapatos->id);
+
+		foreach ($categories_ropa_infantil as $category) {
+			$c = App\Category::firstOrCreate(['name'=> $category ]);
+			$c->parents()->attach($ropa->id);
+			$infantil->children()->attach($c->id);
 		}
 
 	}

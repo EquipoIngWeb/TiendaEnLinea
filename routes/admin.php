@@ -13,8 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function (Request $request) {
-    return $request->user();
-});
+Route::get('/','AdminController@homeadmin');
 
+<<<<<<< HEAD
 Route::get('/homeadmin', 'administrador\AdminController@homeadmin');
+=======
+>>>>>>> 033c9fc8515b4703a49a5e92c3bfcd821b216e6a
