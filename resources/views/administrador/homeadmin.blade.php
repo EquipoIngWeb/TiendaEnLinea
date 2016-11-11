@@ -65,13 +65,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="">Productos</a><i>/</i></li>
 					<li><a href="">Categorias</a><i>/</i></li>
 					<li><a href="">Pagos</a></li>
-					<li><a href="">About Us</a><i>/</i></li>
+					<li><a href="{{url('/about')}}">About Us</a><i>/</i></li>
 				</ul>
 			</div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="phone_email">
 					<li><i class="fa fa-phone" aria-hidden="true"></i>(+0123) 234 567</li>
-					<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:store@grocery.com">store@grocery.com</a></li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:lara.shop9@gmail.com">lara.shop9@gmail.com</a></li>
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
