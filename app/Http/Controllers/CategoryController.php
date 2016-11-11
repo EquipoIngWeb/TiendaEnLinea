@@ -3,9 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Categories;
+
 
 class CategoryController extends Controller
 {
+	protected $categories;
+	function __construct(Categories $categories)
+	{
+		$this->categories = $categories;
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -13,9 +20,9 @@ class CategoryController extends Controller
 	 */
 	public function index()
 	{
-		echo $this->printF(\App\Category::get());
+		dd($this->categories->getMenu());
 	}
-	public function printF($list)
+	public function menu($list,$parents = [])
 	{
 		$string = "<ul>";
 		foreach ($list as $category) {
@@ -27,8 +34,21 @@ class CategoryController extends Controller
 				}
 			}
 			if (!$flat) {
-				$string.= "<li> $category->name</li>";
-				$string.= $this->printF($category->children()->get());
+				if (sizeof($parents)>0) {
+					$count=0;
+					foreach ($parents as $parent) {
+						if ($category->isParent($parent)) {
+							$count++;
+						}
+					}
+					if ($count == sizeof($parents)) {
+						$string.= "<li> $category->name</li>";
+						$string.= $this->menu($category->children()->get(),array_merge($parents,[$category->id]));
+					}
+				}else{
+					$string.= "<li> $category->name</li>";
+					$string.= $this->menu($category->children()->get(),array_merge($parents,[$category->id]));
+				}
 			}
 		}
 		return $string.= "</ul>";

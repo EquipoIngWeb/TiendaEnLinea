@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Collection;
 class Category extends Model
 {
 	 protected $fillable = [
@@ -37,8 +37,34 @@ class Category extends Model
 	{
 		return $this->parents()->find($parent);
 	}
-	public function scopeBase($query)
-    {
-        return $query->with('parents');
-    }
+ 	public function getChildren($parents = [])
+ 	{
+ 		$children = collect([]);
+ 		$subcategories= $this->children()->get();
+ 		foreach ($subcategories as $subcategory) {
+ 			$flat=false;
+ 			foreach ($subcategories as $brother) {
+ 				if ($subcategory->isParent($brother->id)) {
+ 					$flat=true;
+ 					break;
+ 				}
+ 			}
+ 			if (!$flat) {
+				if (sizeof($parents)>0) {
+					$count=0;
+					foreach ($parents as $parent) {
+						if ($subcategory->isParent($parent)) {
+							$count++;
+						}
+					}
+					if ($count == sizeof($parents)) {
+						$children->push($subcategory);
+					}
+				}else{
+					$children->push($subcategory);
+				}
+ 			}
+ 		}
+ 		return $children;
+ 	}
 }
