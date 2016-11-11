@@ -12,12 +12,33 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
-
     return [
-        'name' => $faker->name,
+        'username' => $faker->userName,
+        'full_name' => $faker->name,
+        'full_name' => $faker->dateTimeThisCentury,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => 'asd123',
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Brand::class, function (Faker\Generator $faker) {
+    return [
+        'url' => $faker->domainName,
+        'name' => $faker->company
+    ];
+});
+
+$factory->define(App\Color::class, function (Faker\Generator $faker) {
+    return [
+        'example' => $faker->hexColor,
+        'name' => $faker->colorName
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'description' => $faker->paragraph
     ];
 });

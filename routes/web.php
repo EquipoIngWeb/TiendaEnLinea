@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('principal');
+	return view('principal');
 });
+
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/principal', 'principalController@index');
+Route::get('/inicio', 'principalController@inicio'); //Vista principal
+Route::get('/category','CategoryController@index'); //Categorias
