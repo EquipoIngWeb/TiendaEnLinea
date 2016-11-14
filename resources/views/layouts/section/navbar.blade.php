@@ -1,6 +1,9 @@
-@inject('categories', 'App\Repositories\Categories')
-
-
+@if (!session()->has('categories'))
+	@inject('categories', 'App\Repositories\Categories')
+	@php
+		session()->put('categories',$categories->getMenu());
+	@endphp
+@endif
 
 <!-- header -->
 <div class="header">
@@ -9,6 +12,7 @@
 					<div class="header-grid-left animated wow slideInLeft" data-wow-delay=".5s">
 						<ul>
 							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">@example.com</a></li>
+
 							<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 892</li>
 							@if (Auth::guest())
 								<li><a href="{{ url('/login') }}"><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i>Ingresar</a></li>
@@ -62,7 +66,7 @@
 								<ul class="nav navbar-nav">
 									<li class="active"><a href="{{url ('/inicio')}}" class="act">Inicio</a></li>
 									<!-- Mega Menu -->
-									@foreach ($categories->getMenu() as $category_first => $seconds_categories)
+									@foreach (session()->get('categories') as $category_first => $seconds_categories)
 										<li class="dropdown">
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$category_first}} <b class="caret"></b></a>
 											<ul class="dropdown-menu multi-column columns-3">
