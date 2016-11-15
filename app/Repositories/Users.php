@@ -12,13 +12,16 @@ class Users  extends BaseRepository
 	function getModel(){
 		return $this->model;
 	}
+	public function create($data){
+		return $this->insert($data);
+	}
 }
  ?>
 
  <!--
 		getModel()
 		getAll()
-		paginate($total=15)
+		pag
 		findOrFail($id)
 		find($id)
 		count()

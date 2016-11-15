@@ -40,7 +40,9 @@ abstract class BaseRepository
 		 $model->save();
 		 return $model;
 	}
-
+	public function insert(Array $data){
+		return $this->getModel()->create($data);
+	}
 	public function remove($id){
 		$model = $this->findOrFail($id);
 		$model->delete();
