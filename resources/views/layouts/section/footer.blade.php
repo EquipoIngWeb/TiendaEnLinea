@@ -3,21 +3,21 @@
 	<div class="container">
 		<div class="footer-grids">
 			<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".5s">
-				<h3>Acerca de</h3>
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.<span>Excepteur sint occaecat cupidatat
-					non proident, sunt in culpa qui officia deserunt mollit.</span>
+				<h3>Acerca de Nosotros</h3>
+				<p>Somos una empresa confiable en donde tu podras encontras todo lo que estés bucando
+				sin perder tu tiempo, rápido y seguro.</span>
 				</p>
 			</div>
 			<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".6s">
 				<h3>Contáctanos</h3>
 				<ul>
-					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Tec de Culiacan, <span>Culiacan Sinaloa.</span></li>
+					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">lara.shop9@gmail.com</a></li>
 					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".7s">
-				<h3>Flickr Posts</h3>
+				<h3>Galeria</h3>
 				<div class="footer-grid-left">
 					<a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
 				</div>
@@ -56,7 +56,7 @@
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
+			<!-- <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
 				<h3>Blog Posts</h3>
 				<div class="footer-grid-sub-grids">
 					<div class="footer-grid-sub-grid-left">
@@ -78,11 +78,11 @@
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-			</div>
+			</div> -->
 			<div class="clearfix"> </div>
 		</div>
 		<div class="footer-logo animated wow slideInUp" data-wow-delay=".5s">
-			<h2><a href="{{url ('/inicio')}}">Lara - Shop <span>Todo lo que necesites a tu alcance</span></a></h2>
+			<h2><a href="{{url ('/')}}">Lara - Shop <span>Todo lo que necesites a tu alcance</span></a></h2>
 		</div>
 		<div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
 			<p>&copy 2016 Lara - Shop. Derechos Reservados | Diseñado por <a href="http://w3layouts.com/">w3layouts</a></p>
