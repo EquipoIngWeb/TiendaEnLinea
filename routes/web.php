@@ -12,14 +12,16 @@
 */
 
 Route::get('/', function () {
-	return view('principal');
+	return view('main');
 });
 
+Route::get('products', function () {
+	return view('products');
+});
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 Route::get('/principal', 'principalController@index');
 Route::get('/inicio', 'principalController@inicio'); //Vista principal
 Route::get('/category','CategoryController@index'); //Categorias

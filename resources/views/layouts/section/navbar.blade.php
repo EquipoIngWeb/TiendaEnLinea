@@ -1,9 +1,3 @@
-@if (!session()->has('categories'))
-	@inject('categories', 'App\Repositories\Categories')
-	@php
-		session()->put('categories',$categories->getMenu());
-	@endphp
-@endif
 
 <!-- header -->
 <div class="header">
@@ -66,17 +60,17 @@
 								<ul class="nav navbar-nav">
 									<li class="active"><a href="{{url ('/inicio')}}" class="act">Inicio</a></li>
 									<!-- Mega Menu -->
-									@foreach (session()->get('categories') as $category_first => $seconds_categories)
+									@foreach ($categories->getMenu() as $category_first)
 										<li class="dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$category_first}} <b class="caret"></b></a>
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$category_first['name']}} <b class="caret"></b></a>
 											<ul class="dropdown-menu multi-column columns-3">
 												<div class="row">
-													@foreach ($seconds_categories as $category_second => $third_categories)
+													@foreach ($category_first['children'] as $category_second)
 														<div class="col-sm-4">
 															<ul class="multi-column-dropdown">
-																<h6>{{$category_second}}</h6>
-																@foreach ($third_categories as $category_third => $fourth_categories)
-																	<li><a href="products.html">{{$category_third}}</a></li>
+																<h6><a href="{{ url('/category/'.$category_first['id'].'/'.$category_second['id']) }}"></a></h6>
+																@foreach ($category_second['children'] as $category_third )
+																	<li><a href="{{ url('/category/'.$category_first['id'].'/'.$category_second['id'].'/'.$category_third['id']) }}">{{$category_third['name']}}</a></li>
 																@endforeach
 															</ul>
 														</div>

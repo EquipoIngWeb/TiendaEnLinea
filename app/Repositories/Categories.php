@@ -14,7 +14,10 @@ class Categories  extends BaseRepository
 	}
 	public function getMenu()
 	{
-		return $this->menu($this->getModel()->get());
+		if (!session()->has('categories')) {
+			session()->put('categories',$this->menu($this->getModel()->get()));
+		}
+		return session()->get('categories');
 	}
 	// $children = collect([]);
 
@@ -40,10 +43,18 @@ class Categories  extends BaseRepository
 						}
 					}
 					if ($count == sizeof($parents)) {
-						$children->put($category->name,$this->menu($category->children()->get(),array_merge($parents,[$category->id])));
+						$children->put($category->name,[
+						               'name'=>$category->name,
+									   'children'=> $this->menu($category->children()->get(),array_merge($parents,[$category->id]))
+									   ,'id'=>$category->id
+									   ]);
 					}
 				}else{
-					$children->put($category->name,$this->menu($category->children()->get(),array_merge($parents,[$category->id])));
+					$children->put($category->name,[
+					               'name'=>$category->name,
+								   'children'=> $this->menu($category->children()->get(),array_merge($parents,[$category->id]))
+								   ,'id'=>$category->id
+								   ]);
 				}
 			}
 		}
