@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Repositories\Products;
+use App\Repositories\Categories;
 class ProductController extends Controller
 {
+	protected $products;
+	protected $categories;
+	function __construct(Products $products,Categories $categories)
+	{
+		$this->products = $products;
+		$this->categories = $categories;
+	}
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $categories = $this->categories->getFirsts();
+        return view('admin.article.index',compact('categories'));
     }
 
     /**

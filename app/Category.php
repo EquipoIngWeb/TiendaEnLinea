@@ -7,8 +7,12 @@ use Illuminate\Support\Collection;
 class Category extends Model
 {
 	 protected $fillable = [
-		'id', 'name','description'
+		'id', 'name','description','image'
 	];
+	public function products()
+	{
+	    return $this->belongsToMany('App\Product', 'products_categories', 'category_id', 'product_id');
+	}
 	public function parents()
 	{
 		return $this->belongsToMany('App\Category', 'subcategories', 'parent_id', 'child_id');

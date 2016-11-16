@@ -14,7 +14,7 @@ class AddRelationsProductsTable extends Migration
     public function up()
     {
     	Schema::table('products', function ($table) {
-    		$table->foreign('type_id')->references('id')->on('types');
+    		$table->foreign('brand_id')->references('id')->on('brands');
     	});
     }
 	/**

@@ -14,98 +14,108 @@ class ProductsTableSeeder extends Seeder
 		$articles=[[
 					'name'=>'Tank Top Negro Mickey',
 					'price'=>'519',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Blanca Manga V',
 					'price'=>'199',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Azul Rayas',
 					'price'=>'248',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Beige',
 					'price'=>'298',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Azul Marino',
 					'price'=>'332',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Gris Jaspe',
 					'price'=>'248',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Blanca Manga ColorsTableSeeder.php',
 					'price'=>'199',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Azul Marino sin Mangas',
 					'price'=>'199',
-					'type_id'=>'2'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Blusa Gris Cuello Redondo',
 					'price'=>'259',
-					'type_id'=>'2'
-					],
-					[
+					'brand_id'=>App\Brand::all()->random(1)->id,
+					]
+				];
+		$category = App\Category::where('name','Ropa')->first();
+		foreach ($articles as $article) {
+			$product = new App\Product();
+			$product->fill($article);
+			$product->save();
+			$product->categories()->attach($category->id);
+		}
+		$articles=[[
 					'name'=>'Tenis Blanco',
 					'price'=>'339',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Xssr',
 					'price'=>'699',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Bg3',
 					'price'=>'699',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Mnt',
 					'price'=>'699',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Blk',
 					'price'=>'699',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Negro',
 					'price'=>'429',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Rosa',
 					'price'=>'339',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Con Plataforma DANNICA',
 					'price'=>'2199',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis ELLIAS',
 					'price'=>'1449',
-					'type_id'=>'1'
+					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 			];
+			$category = App\Category::where('name','Calzado')->first();
 			foreach ($articles as $article) {
 				$product = new App\Product();
 				$product->fill($article);
 				$product->save();
+				$product->categories()->attach($category->id);
 			}
 	}
 }

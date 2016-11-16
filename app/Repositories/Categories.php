@@ -64,7 +64,14 @@ class Categories  extends BaseRepository
 		}
 		return $children;
 	}
-
+	public function getFirsts()
+	{
+		$categories = $this->getModel()->withCount('parents')->with('products')->get();
+		$categories = $categories->reject(function ($category) {
+		    return $category->parents_count <> 0;
+		});
+		return $categories;
+	}
 }
 ?>
  <!--

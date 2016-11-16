@@ -21,6 +21,7 @@ Route::resource('categories', 'CategoryController');
 Route::resource('brands', 'BrandController');
 Route::resource('sizes', 'SizeController');
 Route::resource('colors', 'ColorController');
+Route::resource('products', 'ProductController');
 
 Route::post('images/upload','ImageController@upload');
 Route::delete('images/delete','ImageController@delete');

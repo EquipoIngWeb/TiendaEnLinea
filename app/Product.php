@@ -7,10 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-		'id', 'name'
+		'id', 'name','price'
 	];
-	public function type()
+	public function category()
 	{
-		return $this->belongsTo(Type::class);
+	    return $this->belongsToMany('App\Category', 'products_categories', 'product_id', 'category_id')->withPivot('category_id');
+	}
+	/**
+	 * Product belongs to Brand.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+	 */
+	public function brand()
+	{
+		// belongsTo(RelatedModel, foreignKey = brand_id, keyOnRelatedModel = id)
+		return $this->belongsTo(Brand::class);
 	}
 }

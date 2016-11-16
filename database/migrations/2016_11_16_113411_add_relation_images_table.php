@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypesBrandsTable extends Migration
+class AddRelationImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,11 @@ class CreateTypesBrandsTable extends Migration
      * @return void
      */
     public function up()
-	{
-		Schema::create('types_brands', function (Blueprint $table) {
-			$table->increments('id');
-			$table->integer('brand_id')->unsigned();
-			$table->integer('type_id')->unsigned();
-			$table->timestamps();
-		});
-	}
-
+    {
+    	Schema::table('images', function ($table) {
+    		$table->foreign('product_id')->references('id')->on('products');
+    	});
+    }
 	/**
 	 * Reverse the migrations.
 	 *
@@ -28,6 +24,6 @@ class CreateTypesBrandsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::dropIfExists('types_brands');
+		Schema::disableForeignKeyConstraints();
 	}
 }

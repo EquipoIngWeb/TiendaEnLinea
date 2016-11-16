@@ -25,7 +25,8 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Brand::class, function (Faker\Generator $faker) {
     return [
         'url' => $faker->domainName,
-        'name' => $faker->company
+        'name' => $faker->company,
+        'image' => $faker->imageUrl
     ];
 });
 
