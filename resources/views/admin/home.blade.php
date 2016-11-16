@@ -44,7 +44,7 @@
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('/') }}">
+	<a href="{{ url('admin/users') }}">
 		<i class="fa fa-users"></i>
 		<h3>Usuarios</h3>
 	</a>

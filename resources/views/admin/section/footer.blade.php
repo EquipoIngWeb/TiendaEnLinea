@@ -1,6 +1,5 @@
 <div class="fo-top-di">
 	<div class="foot-top">
-
 		<div class="col-md-6 s-c">
 			<li>
 				<div class="fooll">
@@ -14,7 +13,7 @@
 						<li><a href="#"><i class="twiter"> </i></a></li>
 						<li><a href="#"><i class="goog"> </i></a></li>
 						<li><a href="#"><i class="be"> </i></a></li>
-						<div class="clearfix"></div>	
+						<div class="clearfix"></div>
 					</ul>
 				</div>
 			</li>

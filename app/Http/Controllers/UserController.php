@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Repositories\Users;
 class UserController extends Controller
 {
+	function __construct(Users $users)
+	{
+		$this->users = $users;
+	}
     /**
      * Display a listing of the resource.
      *
@@ -79,6 +83,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+		 $this->users->remove($id);
+		 return redirect()->back()->with('message','Usuario Eliminada!');
     }
 }
