@@ -26,7 +26,7 @@
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('/') }}">
+	<a href="{{ url('admin/images') }}">
 		<i class="fa fa-file"></i>
 		<h3>Banco de Imagenes</h3>
 	</a>
@@ -65,6 +65,12 @@
 	<a href="{{ url('admin/colors') }}">
 		<i class="fa fa-hashtag"></i>
 		<h3>Colores</h3>
+	</a>
+</div>
+<div class="mediabox">
+	<a href="{{ url('admin/colors') }}">
+		<i class="fa fa-list"></i>
+		<h3>Comentario</h3>
 	</a>
 </div>
 @stop
