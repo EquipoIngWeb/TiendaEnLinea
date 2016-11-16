@@ -1,4 +1,4 @@
-
+@inject('categories', 'App\Repositories\Categories')
 <!-- header -->
 <div class="header">
 	<div class="container">
