@@ -5,7 +5,7 @@
 				{{-- <div class="header-grid">
 					<div class="header-grid-left animated wow slideInLeft" data-wow-delay=".5s">
 						<ul>
-							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">@example.com</a></li>
+							<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="lara.shop9@gmail.com">lara.shop9@gmail.com</a></li>
 
 							<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 892</li>
 							@if (Auth::guest())
@@ -43,7 +43,7 @@
 				</div> --}}
 				<div class="logo-nav">
 					<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
-						<h1><a href="{{ url('/inicio') }}"><img src="img/Logo1.png" width="80" height="80"><span></span></a></h1>
+						<h1><a href="{{ url('/') }}"><img src="img/Logo1.png" width="90" height="90"><span></span></a></h1>
 					</div>
 					<div class="logo-nav-left1">
 						<nav class="navbar navbar-default">
@@ -58,7 +58,7 @@
 							</div>
 							<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 								<ul class="nav navbar-nav">
-									<li class="active"><a href="{{url ('/inicio')}}" class="act">Inicio</a></li>
+									<li class="active"><a href="{{url ('/')}}" class="act">Inicio</a></li>
 									<!-- Mega Menu -->
 									@foreach ($categories->getMenu() as $category_first)
 										<li class="dropdown">

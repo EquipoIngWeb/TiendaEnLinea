@@ -4,8 +4,8 @@
 <!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
-			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-				<li><a href="{{url('/inicio')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
+			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".2s">
+				<li><a href="{{url('/')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Inicio</a></li>
 				<li class="active">Registro</li>
 			</ol>
 		</div>
@@ -14,12 +14,12 @@
 <!-- register -->
 	<div class="register">
 		<div class="container">
-			<h3 class="animated wow zoomIn" data-wow-delay=".5s">Registrese Aquí</h3>
-			{{-- <p class="est animated wow zoomIn" data-wow-delay=".5s">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+			<h3 class="animated wow zoomIn" data-wow-delay=".2s">Registrese Aquí</h3>
+			{{-- <p class="est animated wow zoomIn" data-wow-delay=".2s">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
 				deserunt mollit anim id est laborum.</p> --}}
 			<div class="login-form-grids">
-				{{-- <h5 class="animated wow slideInUp" data-wow-delay=".5s">profile information</h5> --}}
-			    <form class="animated wow slideInUp" data-wow-delay=".5s" role="form" method="POST" action="{{ url('/register') }}">
+				{{-- <h5 class="animated wow slideInUp" data-wow-delay=".2s">profile information</h5> --}}
+			    <form class="animated wow slideInUp" data-wow-delay=".2s" role="form" method="POST" action="{{ url('/register') }}">
                     {{ csrf_field() }}
 
 						<div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
@@ -108,7 +108,7 @@
 					<input type="submit" value="Registrar">
 				</form>
 			</div>
-			<div class="register-home animated wow slideInUp" data-wow-delay=".5s">
+			<div class="register-home animated wow slideInUp" data-wow-delay=".2s">
 				<a href="{{url('/inicio')}}">Inicio</a>
 			</div>
 		</div>

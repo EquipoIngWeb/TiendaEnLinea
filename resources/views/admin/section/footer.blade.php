@@ -70,6 +70,6 @@
 			<li><a href="mailto:info@example.com"><i class="mail"> </i>info@sitename.com </a></li>
 		</div>
 		<div class="clearfix"> </div>
-		<p>© 2016 Gretong. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		<p>&copy 2016 Lara - Shop. Derechos Reservados | Diseñado por <a href="http://w3layouts.com/">W3layouts</a></p>
 	</div>
 </div>
