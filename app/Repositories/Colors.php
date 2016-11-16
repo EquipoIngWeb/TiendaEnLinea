@@ -1,9 +1,9 @@
 <?php
 namespace App\Repositories;
-use  App\User as Model;
+use  App\Color as Model;
 use Illuminate\Http\Request;
 
-class Users  extends BaseRepository
+class Colors extends BaseRepository
 {
 	private $model;
 	function __construct(Model $model){
@@ -14,10 +14,6 @@ class Users  extends BaseRepository
 	}
 	public function create($data){
 		return $this->insert($data);
-	}
-	public function getUsers()
-	{
-		return $this->getModel()->where('role_id','user')->get();
 	}
 }
  ?>

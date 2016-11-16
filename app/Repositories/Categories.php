@@ -15,9 +15,13 @@ class Categories  extends BaseRepository
 	public function getMenu()
 	{
 		if (!session()->has('categories')) {
-			session()->put('categories',$this->menu($this->getModel()->get()));
+			$this->updateMenu();
 		}
 		return session()->get('categories');
+	}
+	public function updateMenu()
+	{
+		session()->put('categories',$this->menu($this->getModel()->get()));
 	}
 	// $children = collect([]);
 

@@ -13,8 +13,11 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/', 'AdminController@index');
+Route::get('users', 'AdminController@users');
+Route::delete('users/{id}', 'UserController@destroy');
 Route::get('/categories/add/{id_first}/{id_second?}','CategoryController@add');
 Route::post('/categories/add/{id_first}/{id_second?}','CategoryController@attach');
 Route::resource('categories', 'CategoryController');
 Route::resource('brands', 'BrandController');
 Route::resource('sizes', 'SizeController');
+Route::resource('colors', 'ColorController');
