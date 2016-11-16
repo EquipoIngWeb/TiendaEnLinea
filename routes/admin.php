@@ -12,8 +12,9 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::get('/','AdminController@homeadmin');
+Route::get('/', 'AdminController@index');
+Route::get('/categories/add/{id_first}/{id_second?}','CategoryController@add');
+Route::post('/categories/add/{id_first}/{id_second?}','CategoryController@attach');
 Route::resource('categories', 'CategoryController');
 Route::resource('brands', 'BrandController');
 Route::resource('sizes', 'SizeController');

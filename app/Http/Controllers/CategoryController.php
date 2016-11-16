@@ -23,6 +23,28 @@ class CategoryController extends Controller
 		$categories = $this->categories->getMenu();
 		return view('admin.category.index',compact('categories'));
 	}
+	public function add($id_first="",$id_second="")
+	{
+		$route="/";
+		if ($id_first!="") {
+			$route.=$id_first."/";
+		}
+		if ($id_second!="") {
+			$route.=$id_second."/";
+		}
+		return view('admin.category.add',compact('route'));
+	}
+	public function attach($id_first="",$id_second="",Request $request)
+	{
+		$category = $this->categories->save($request->all());
+		if ($id_first!="") {
+			$category->parents()->attach($id_first);
+		}
+		if ($id_second!="") {
+			$category->parents()->attach($id_second);
+		}
+		return redirect('admin/categories')->with('message','Categoria agregada satistactoriamente');
+	}
 	/**
 	 * Show the form for creating a new resource.
 	 *

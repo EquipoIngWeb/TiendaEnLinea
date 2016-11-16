@@ -10,6 +10,5 @@
 		</div>
 	@endforeach
 	<a href="{{ url('/admin/sizes/create') }}" class="btn btn-default">Nueva Talla</a>
-
 @stop
 
