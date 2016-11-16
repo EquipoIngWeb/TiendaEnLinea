@@ -12,16 +12,19 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/', 'AdminController@index');
-Route::get('users', 'AdminController@users');
-Route::delete('users/{id}', 'UserController@destroy');
-Route::get('/categories/add/{id_first}/{id_second?}','CategoryController@add');
-Route::post('/categories/add/{id_first}/{id_second?}','CategoryController@attach');
-Route::resource('categories', 'CategoryController');
-Route::resource('brands', 'BrandController');
-Route::resource('sizes', 'SizeController');
-Route::resource('colors', 'ColorController');
-Route::resource('products', 'ProductController');
+Route::get('/','AdminController@index');
+Route::get('users','AdminController@users');
+Route::delete('users/{id}','UserController@destroy');
+Route::get('categories/add/{id_first}','CategoryController@add');
+Route::get('categories/add/{id_first}','CategoryController@add');
+Route::get('categories/{category}/products/create','ProductController@create');
+Route::resource('categories','CategoryController');
+Route::resource('brands','BrandController');
+Route::resource('sizes','SizeController');
+Route::resource('colors','ColorController');
+Route::get('products/{category}','ProductController@ofCategories');
+Route::get('products/csv','ProductController@csv');
+Route::resource('products','ProductController');
 
 Route::post('images/upload','ImageController@upload');
 Route::delete('images/delete','ImageController@delete');

@@ -21,54 +21,32 @@ class Categories  extends BaseRepository
 	}
 	public function updateMenu()
 	{
-		session()->put('categories',$this->menu($this->getModel()->get()));
+		session()->put('categories',$this->menu($this->getFirsts()));
 	}
-	// $children = collect([]);
-
-	// $children->push($subcategory);
 
 	public function menu($list,$parents = [])
 	{
 		$children = collect([]);
 		foreach ($list as $category) {
-			$flat= false;
-			foreach ($list as $brother) {
-				if ($category->isParent($brother->id)) {
-					$flat=true;
-					break;
-				}
-			}
-			if (!$flat) {
-				if (sizeof($parents)>0) {
-					$count=0;
-					foreach ($parents as $parent) {
-						if ($category->isParent($parent)) {
-							$count++;
-						}
-					}
-					if ($count == sizeof($parents)) {
-						$children->put($category->name,[
-						               'name'=>$category->name,
-									   'children'=> $this->menu($category->children()->get(),array_merge($parents,[$category->id]))
-									   ,'id'=>$category->id
-									   ]);
-					}
-				}else{
-					$children->put($category->name,[
-					               'name'=>$category->name,
-								   'children'=> $this->menu($category->children()->get(),array_merge($parents,[$category->id]))
+			$children->put($category->name,[
+								   'name'=>$category->name,
+								   'children'=> $this->menu($category->children()->get(),array_merge($parents))
 								   ,'id'=>$category->id
 								   ]);
-				}
-			}
 		}
 		return $children;
 	}
+	public function getOfCategories($first='')
+	{
+ 		return $this->getModel()->where('id',$first)->with(['children'=> function ($query){
+ 			$query->with('products');
+ 		}])->first();
+	}
 	public function getFirsts()
 	{
-		$categories = $this->getModel()->withCount('parents')->with('products')->get();
+		$categories = $this->getModel()->withCount('parents')->with('products')->with('children')->get();
 		$categories = $categories->reject(function ($category) {
-		    return $category->parents_count <> 0;
+			return $category->parents_count <> 0;
 		});
 		return $categories;
 	}

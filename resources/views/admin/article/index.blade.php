@@ -1,6 +1,9 @@
 @extends('admin.app')
 @section('header')
-Productos
+	Productos
+	@if (isset($category))
+		de la categoria <span class="category">{{$category->name}}</span>
+	@endif
 @stop
 @section('content')
 	<style>
@@ -8,8 +11,10 @@ Productos
 			margin: 20px auto;
 		}
 		.img-responsive{
-			height: 80px;
 			margin: 1px auto;
+		}
+		li.tab-current{
+			margin: 10px 5px!important;
 		}
 		.tab-current a{
 			font-size: 14px!important;
@@ -21,29 +26,42 @@ Productos
 		form{
 			display: inline-block;
 		}
+		 .category{
+			color: #b52e31;
+		}
 	</style>
-
-	<h3>SUBCATEGORIAS</h3>
-	<div class="graph">
-		<nav>
-			<ul>
-				{{-- @foreach ($directories as $directory) --}}
-					<li class="tab-current">
-						<a href="" class="icon-cup">
-							asdasdasds
-						</a>
-					</li>
-				{{-- @endforeach --}}
-			</ul>
-		</nav>
-	</div>
+	@inject('repoCategories', 'App\Repositories\Categories')
 	@foreach ($categories as $category)
-		<h3>PRODUCTOS DE LA CATEGORIA {{strtoupper($category->name)}}</h3>
-		@foreach($category->products->chunk(5) as $products)
-			<div class="row">
-				@each ('admin.article.item', $products, 'product')
+		<h3>PRODUCTOS DE LA CATEGORIA <span class="category">{{strtoupper($category->name)}}</span></h3>
+		@if (sizeof($category->children)>0)
+			<h4>SUBCATEGORIAS</h4>
+			<div class="graph">
+				<nav>
+					<ul>
+						@foreach ($repoCategories->menu($category->children) as $category_second)
+							<li class="tab-current">
+								<a href="{{ url("admin/products/".$category_second['id']) }}" class="icon-cup">
+									{{$category_second['name']}}
+								</a>
+							</li>
+						@endforeach
+					</ul>
+				</nav>
 			</div>
-		@endforeach
+		@endif
+		<h4>PRODUCTOS
+			<a href="{{ url('admin/categories/'.$category->id.'/products/create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+			<a href="{{ url('admin/categories/'.$category->id.'/products/csv') }}" class="btn btn-success">CSV</a>
+		</h4>
+		@if (sizeof($category->products->chunk(4))<>0)
+			@foreach($category->products->chunk(4) as $products)
+				<div class="row">
+					@each ('admin.article.item', $products, 'product')
+				</div>
+			@endforeach
+		@else
+		<h5>Categoria sin Articulos</h5>
+		@endif
 	@endforeach
 @stop
 
