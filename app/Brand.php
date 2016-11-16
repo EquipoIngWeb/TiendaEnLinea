@@ -9,7 +9,7 @@ class Brand extends Model
     protected $fillable = [
 		'id', 'name','url'
 	];
-	public function roles()
+	public function types()
 	{
 	    return $this->belongsToMany(Type::class, 'types_brands', 'type_id', 'brand_id');
 	}

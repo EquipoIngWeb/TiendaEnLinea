@@ -68,7 +68,7 @@
 													@foreach ($category_first['children'] as $category_second)
 														<div class="col-sm-4">
 															<ul class="multi-column-dropdown">
-																<h6><a href="{{ url('/category/'.$category_first['id'].'/'.$category_second['id']) }}"></a></h6>
+																<h6><a href="{{ url('/category/'.$category_first['id'].'/'.$category_second['id']) }}">{{$category_second['name']}}</a></h6>
 																@foreach ($category_second['children'] as $category_third )
 																	<li><a href="{{ url('/category/'.$category_first['id'].'/'.$category_second['id'].'/'.$category_third['id']) }}">{{$category_third['name']}}</a></li>
 																@endforeach
