@@ -15,3 +15,5 @@ use Illuminate\Http\Request;
 
 Route::get('/','AdminController@homeadmin');
 Route::resource('categories', 'CategoryController');
+Route::resource('brands', 'BrandController');
+Route::resource('sizes', 'SizeController');

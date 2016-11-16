@@ -15,55 +15,55 @@
 </style>
 <div class="mediabox">
 	<a href="{{ url('/') }}">
-		<i class="fa fa-shopping-cart"></i>			
+		<i class="fa fa-shopping-cart"></i>
 		<h3>Ventas</h3>
 	</a>
 </div>
 <div class="mediabox">
 	<a href="{{ url('/') }}">
-		<i class="fa fa-list-ol"></i>			
+		<i class="fa fa-list-ol"></i>
 		<h3>Inventario</h3>
 	</a>
 </div>
 <div class="mediabox">
 	<a href="{{ url('/') }}">
-		<i class="fa fa-file"></i>			
+		<i class="fa fa-file"></i>
 		<h3>Banco de Imagenes</h3>
 	</a>
 </div>
 <div class="mediabox">
 	<a href="{{ url('/admin/categories') }}">
-		<i class="fa fa-sitemap"></i>						
+		<i class="fa fa-sitemap"></i>
 		<h3>Categorias</h3>
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('/') }}">
-		<i class="fa fa-suitcase"></i>						
+	<a href="{{ url('admin/products') }}">
+		<i class="fa fa-suitcase"></i>
 		<h3>Productos</h3>
 	</a>
 </div>
 <div class="mediabox">
 	<a href="{{ url('/') }}">
-		<i class="fa fa-users"></i>						
+		<i class="fa fa-users"></i>
 		<h3>Usuarios</h3>
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('/') }}">
-		<i class="fa fa-tags"></i>						
+	<a href="{{ url('admin/brands') }}">
+		<i class="fa fa-tags"></i>
 		<h3>Marcas</h3>
 	</a>
 </div>
 <div class="mediabox">
 	<a href="{{ url('/') }}">
-		<i class="fa fa-sliders"></i>						
+		<i class="fa fa-sliders"></i>
 		<h3>Tallas</h3>
 	</a>
 </div>
 <div class="mediabox">
 	<a href="{{ url('/') }}">
-		<i class="fa fa-hashtag"></i>						
+		<i class="fa fa-hashtag"></i>
 		<h3>Colores</h3>
 	</a>
 </div>
