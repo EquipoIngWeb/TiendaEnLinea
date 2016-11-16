@@ -20,6 +20,7 @@ class CategoryController extends Controller
 	 */
 	public function index()
 	{
+		$this->categories->updateMenu();
 		$categories = $this->categories->getMenu();
 		return view('admin.category.index',compact('categories'));
 	}
@@ -34,7 +35,7 @@ class CategoryController extends Controller
 		}
 		return view('admin.category.add',compact('route'));
 	}
-	public function attach($id_first="",$id_second="",Request $request)
+	public function attach(Request $request,$id_first="",$id_second="")
 	{
 		$category = $this->categories->save($request->all());
 		if ($id_first!="") {

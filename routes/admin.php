@@ -18,3 +18,4 @@ Route::post('/categories/add/{id_first}/{id_second?}','CategoryController@attach
 Route::resource('categories', 'CategoryController');
 Route::resource('brands', 'BrandController');
 Route::resource('sizes', 'SizeController');
+Route::resource('colors', 'ColorController');

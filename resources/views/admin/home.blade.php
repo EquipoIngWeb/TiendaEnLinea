@@ -62,7 +62,7 @@
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('/') }}">
+	<a href="{{ url('admin/colors') }}">
 		<i class="fa fa-hashtag"></i>
 		<h3>Colores</h3>
 	</a>
