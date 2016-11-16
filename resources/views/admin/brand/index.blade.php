@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('header')
- Categorias
+ Marcas
 @stop
 @section('content')
 	@foreach ($brands->chunk(4) as $row)

@@ -56,7 +56,7 @@
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('/') }}">
+	<a href="{{ url('admin/sizes') }}">
 		<i class="fa fa-sliders"></i>
 		<h3>Tallas</h3>
 	</a>
