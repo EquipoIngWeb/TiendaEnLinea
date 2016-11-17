@@ -12,9 +12,7 @@ class Users  extends BaseRepository
 	function getModel(){
 		return $this->model;
 	}
-	public function create($data){
-		return $this->insert($data);
-	}
+	
 	public function getUsers()
 	{
 		return $this->getModel()->where('role_id','user')->get();
