@@ -15,6 +15,9 @@ use Illuminate\Http\Request;
 Route::get('/','AdminController@index');
 Route::get('users','AdminController@users');
 Route::delete('users/{id}','UserController@destroy');
+Route::get('categories/{category}/products','ProductController@ofCategories');
+Route::get('categories/{category}/products/{id}','ProductController@edit');
+
 Route::get('categories/add/{id_first}','CategoryController@add');
 Route::get('categories/add/{id_first}','CategoryController@add');
 Route::get('categories/{category}/products/create','ProductController@create');
@@ -23,7 +26,7 @@ Route::resource('categories','CategoryController');
 Route::resource('brands','BrandController');
 Route::resource('sizes','SizeController');
 Route::resource('colors','ColorController');
-Route::get('products/{category}','ProductController@ofCategories');
+
 Route::resource('products','ProductController');
 
 Route::post('images/upload','ImageController@upload');

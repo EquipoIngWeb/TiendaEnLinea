@@ -107,9 +107,18 @@ class ProductController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id)
+	public function edit($category,$product)
 	{
-		//
+    	$root='images/categories/';
+    	$category = $this->categories->findOrFail($category);
+    	$product = $this->products->findOrFail($product);
+    	$root.="$category->id-$category->name/$product->id-$product->name/";
+    	$images_array = \Storage::disk('local')->files($root);
+		$images = collect([]);
+ 		foreach ($images_array as $index => $image) {
+			$images->put($index,['name'=> str_replace([$root,'.png','.jpg'],["",'',''], $image),'url'=> $image]);
+ 		}
+ 		return view('admin.article.show',compact('product','images','root'));
 	}
 
 	/**

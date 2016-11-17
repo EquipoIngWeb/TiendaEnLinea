@@ -48,7 +48,7 @@
 	</style>
 	@inject('repoCategories', 'App\Repositories\Categories')
 	@foreach ($categories as $category)
-		<h3>PRODUCTOS DE LA CATEGORIA <a href="{{ url('admin/products/'.$category->id) }}" class="category">{{strtoupper($category->name)}}</a></h3>
+		<h3>PRODUCTOS DE LA CATEGORIA <a href="{{ url("admin/categories/$category->id/products/") }}" class="category">{{strtoupper($category->name)}}</a></h3>
 		@if (sizeof($category->children)>0)
 			<h4>SUBCATEGORIAS</h4>
 			<div class="graph">
@@ -56,8 +56,8 @@
 					<ul>
 						@foreach ($repoCategories->getOfCategories($category->id)->children as $category_second)
 							<li class="tab-current">
-								<a href="{{ url("admin/products/".$category_second['id']) }}" class="icon-cup">
-									{{$category_second['name']}}
+								<a href="{{ url("admin/categories/$category_second->id/products") }}" class="icon-cup">
+									{{$category_second->name}}
 								</a>
 							</li>
 						@endforeach
@@ -66,7 +66,6 @@
 			</div>
 		@endif
 		<h4>PRODUCTOS
-
 			<a href="{{ url('admin/categories/'.$category->id.'/products/create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 			<form action="{{ url('admin/categories/'.$category->id.'/products/csv') }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
 				{{ csrf_field() }}
@@ -79,7 +78,20 @@
 		@if (sizeof($category->products->chunk(4))<>0)
 			@foreach($category->products->chunk(4) as $products)
 				<div class="row">
-					@each ('admin.article.item', $products, 'product')
+					@foreach ($products as $product)
+						<div class="col-md-3">
+							<div class="content_box text-center">
+								<a href="{{ url("admin/categories/$category->id/products/$product->id") }}">
+									<img src="{{ $product->image }}" class="img-responsive" width="100%" alt="">
+								</a>
+								<h4><a href="details.html"> {{$product->name}}</a></h4>
+								<p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> <a href="">{{$product->brand()->first()->name}}</a></p>
+								<div class="grid_1 simpleCart_shelfItem">
+									<div class="item_add"><span class="item_price"><h6>ONLY ${{$product->price}}</h6></span></div>
+								</div>
+							</div>
+						</div>
+					@endforeach
 				</div>
 			@endforeach
 		@else
