@@ -32,4 +32,8 @@ class Product extends Model
 		}
 		return asset($images_array[0]);
 	}
+	public function comments()
+	{
+	    return $this->hasMany('App\Comment');
+	}
 }
