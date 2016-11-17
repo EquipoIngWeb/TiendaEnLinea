@@ -21,8 +21,23 @@
 		form{
 			display: inline-block;
 		}
+		.fileUpload {
+			position: relative;
+			overflow: hidden;
+			margin: 10px;
+		}
+		.fileUpload input.upload {
+			position: absolute;
+			top: 0;
+			right: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 20px;
+			cursor: pointer;
+			opacity: 0;
+			filter: alpha(opacity=0);
+		}
 	</style>
-
 	<h3>IMAGENES</h3>
 	<p>Agregar Imagenes a esta carpeta</p>
 	<form action="{{ url("admin/images/upload") }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
@@ -30,7 +45,10 @@
 		<input type="hidden" name="root" value="{{$root}}">
 		<div class="form-group">
 			<label class="control-label">Nuevo Archivo</label>
-			<input type="file" onchange="this.form.submit()" class="form-control" name="images[]"  multiple=""  accept=" image/jpeg, image/png">
+		</div>
+		<div class="fileUpload btn btn-primary">
+			<span>Subir Imagenes</span>
+			<input type="file" name="images[]"  multiple=""  accept=" image/jpeg, image/png" class="upload" onchange="this.form.submit()"  />
 		</div>
 	</form>
 	@foreach($images->chunk(5) as $imgs)
