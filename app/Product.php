@@ -25,6 +25,11 @@ class Product extends Model
 	}
 	public function getImageAttribute()
 	{
-		return 'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
+		$category=$this->categories()->first();
+    	$images_array = \Storage::disk('local')->files('images/categories/'.$category->id.'-'.$category->name.'/'.$this->attributes['id'].'-'.$this->attributes['name']);
+		if (sizeof($images_array)==0) {
+			return 'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
+		}
+		return asset($images_array[0]);
 	}
 }

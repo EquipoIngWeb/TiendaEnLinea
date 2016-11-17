@@ -9,11 +9,11 @@ class Category extends Model
 	protected $fillable = [
 	'id', 'name','description','image'
 	];
- 	public function save(array $options = [])
- 	{
-		parent::save();
+	public function save(array $options = [])
+	{
+    	parent::save();
 		\Storage::disk('local')->makeDirectory('images/categories/'.$this->attributes['id'].'-'.$this->attributes['name']);
-	}
+    }
 	public function products()
 	{
 		return $this->belongsToMany('App\Product', 'products_categories', 'category_id', 'product_id');
@@ -24,7 +24,7 @@ class Category extends Model
 	}
 	public function parents()
 	{
-		return $this->belongsToMany('App\Category', 'subcategories', 'child_id', 'parent_id');
+		return $this->belongsToMany('App\Category', 'subcategories', 'child_id', 'parent_id')->with('children');
 	}
 	public function countChildren()
 	{
