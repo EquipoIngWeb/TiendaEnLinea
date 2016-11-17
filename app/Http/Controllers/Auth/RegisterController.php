@@ -64,6 +64,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return $this->users->create($data);
+        return $this->users->insert($data);
     }
 }

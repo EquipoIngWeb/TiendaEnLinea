@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-		'id', 'name','price'
+		'id', 'name','price','brand_id'
 	];
-	public function category()
+	public function categories()
 	{
 	    return $this->belongsToMany('App\Category', 'products_categories', 'product_id', 'category_id')->withPivot('category_id');
 	}

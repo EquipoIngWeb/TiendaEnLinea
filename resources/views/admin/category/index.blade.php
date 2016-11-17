@@ -33,7 +33,7 @@
 										<b class="caret"></b>
 									@endif
 								</a>
-								<a href="{{ url('admin/categories/add/'.$category_first['id'].'/'.$category_second['id']) }}" class="btn btn-success btn-options"><span class="glyphicon glyphicon-plus" ></span></a>
+								<a href="{{ url('admin/categories/add/'.$category_second['id']) }}" class="btn btn-success btn-options"><span class="glyphicon glyphicon-plus" ></span></a>
 							</li>
 							@if (sizeof($category_second['children'])>0)
 								<ul id="sc{{$category_first['id']}}-{{$category_second['id']}}" class="collapse categories">

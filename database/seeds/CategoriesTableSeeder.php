@@ -11,19 +11,20 @@ class CategoriesTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-		$ropa = new App\Category();
-		$ropa->name="Ropa";
-		$ropa->save();
 
 		$zapatos = new App\Category();
 		$zapatos->name="Calzado";
 		$zapatos->save();
 
-		$first_categories=[
-		//Genero
-		'Caballero',
-		'Dama',
-		'Infantil'];
+		$caballero = new App\Category();
+		$caballero->name="Caballero";
+		$caballero->save();
+		$caballero->parents()->attach($zapatos->id);
+
+		$dama = new App\Category();
+		$dama->name="Dama";
+		$dama->save();
+		$dama->parents()->attach($zapatos->id);
 
 		$categories_caballero = [
 		'Bota',
@@ -35,30 +36,29 @@ class CategoriesTableSeeder extends Seeder
 			//Solo dama
 			// 'Zapatilla',
 		];
+		foreach ($categories_caballero as $category) {
+			$c = App\Category::create(['name'=> $category ]);
+			$caballero->children()->attach($c->id);
+		}
+		$categories_dama = array_merge($categories_caballero,['Zapatilla']);
+		foreach ($categories_dama as $category) {
+			$c = App\Category::create(['name'=> $category ]);
+			$dama->children()->attach($c->id);
+		}
+
+		$ropa = new App\Category();
+		$ropa->name="Ropa";
+		$ropa->save();
+
 		$caballero = new App\Category();
 		$caballero->name="Caballero";
 		$caballero->save();
 		$caballero->parents()->attach($ropa->id);
-		$caballero->parents()->attach($zapatos->id);
 
-
-		foreach ($categories_caballero as $category) {
-			$c = App\Category::firstOrCreate(['name'=> $category ]);
-			$c->parents()->attach($zapatos->id);
-			$caballero->children()->attach($c->id);
-		}
-
-		$categories_dama = array_merge($categories_caballero,['Zapatilla']);
 		$dama = new App\Category();
 		$dama->name="Dama";
 		$dama->save();
 		$dama->parents()->attach($ropa->id);
-		$dama->parents()->attach($zapatos->id);
-		foreach ($categories_dama as $category) {
-			$c = App\Category::firstOrCreate(['name'=> $category ]);
-			$c->parents()->attach($zapatos->id);
-			$dama->children()->attach($c->id);
-		}
 
 		$categories_ropa_dama = [
 		'Playeras',
@@ -81,8 +81,7 @@ class CategoriesTableSeeder extends Seeder
 		'Ropa Interior',
 		];
 		foreach ($categories_ropa_dama as $category) {
-			$c = App\Category::firstOrCreate(['name'=> $category ]);
-			$c->parents()->attach($ropa->id);
+			$c = App\Category::create(['name'=> $category ]);
 			$dama->children()->attach($c->id);
 		}
 
@@ -106,22 +105,23 @@ class CategoriesTableSeeder extends Seeder
 		];
 
 		foreach ($categories_ropa_caballero as $category) {
-			$c = App\Category::firstOrCreate(['name'=> $category ]);
-			$c->parents()->attach($ropa->id);
+			$c = App\Category::create(['name'=> $category ]);
 			$caballero->children()->attach($c->id);
 		}
+
 		$categories_ropa_infantil = ['Ropa de Niña','Ropa de Niño'];
 		$infantil = new App\Category();
 		$infantil->name="Infantil";
 		$infantil->save();
 		$infantil->parents()->attach($ropa->id);
-		$infantil->parents()->attach($zapatos->id);
-
 		foreach ($categories_ropa_infantil as $category) {
-			$c = App\Category::firstOrCreate(['name'=> $category ]);
-			$c->parents()->attach($ropa->id);
+			$c = App\Category::create(['name'=> $category ]);
 			$infantil->children()->attach($c->id);
 		}
+		$infantil = new App\Category();
+		$infantil->name="Infantil";
+		$infantil->save();
+		$infantil->parents()->attach($zapatos->id);
 
 	}
 }
