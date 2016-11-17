@@ -101,10 +101,7 @@
 					<div class="new-collections-grids">
 
 						<div id="owl-demo" class="owl-carousel owl-theme">
-							@include('components.article')
-							@include('components.article')
-							@include('components.article')
-							@include('components.article')
+							@each('components.article', $products, 'product')
 						</div>
 						
 								
