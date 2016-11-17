@@ -18,12 +18,12 @@ Route::delete('users/{id}','UserController@destroy');
 Route::get('categories/add/{id_first}','CategoryController@add');
 Route::get('categories/add/{id_first}','CategoryController@add');
 Route::get('categories/{category}/products/create','ProductController@create');
+Route::post('categories/{category}/products/csv','ProductController@csv');
 Route::resource('categories','CategoryController');
 Route::resource('brands','BrandController');
 Route::resource('sizes','SizeController');
 Route::resource('colors','ColorController');
 Route::get('products/{category}','ProductController@ofCategories');
-Route::get('products/csv','ProductController@csv');
 Route::resource('products','ProductController');
 
 Route::post('images/upload','ImageController@upload');

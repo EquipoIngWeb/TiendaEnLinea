@@ -20,7 +20,6 @@ class UsersSeeder extends Seeder
         $user->role_id ="admin";
         $user->save();
 
-<<<<<<< HEAD
 
         $user = new App\User();
         $user->username ="aida";
@@ -30,15 +29,6 @@ class UsersSeeder extends Seeder
         $user->password ="soloyo";
         $user->role_id ="admin";
 
-=======
-	    $user = new App\User();
-        $user->username ="aida";
-        $user->birthdate =\Carbon\Carbon::now();
-        $user->full_name ="Aida Rochin";
-        $user->email ="aidarochin@gmail.com";
-        $user->password ="Soloyo";
-        $user->role_id ="admin";
->>>>>>> b47fa7dd83ab658e42d44ccb115ef8dadf54d1b9
         $user->save();
         factory(App\User::class, 5)->create();
 

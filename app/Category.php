@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 class Category extends Model
 {
-	 protected $fillable = [
-		'id', 'name','description','image'
+	protected $fillable = [
+	'id', 'name','description','image'
 	];
+ 	public function save(array $options = [])
+ 	{
+		parent::save();
+		\Storage::disk('local')->makeDirectory('images/categories/'.$this->attributes['id'].'-'.$this->attributes['name']);
+	}
 	public function products()
 	{
 		return $this->belongsToMany('App\Product', 'products_categories', 'category_id', 'product_id');

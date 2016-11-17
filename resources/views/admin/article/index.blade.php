@@ -29,6 +29,22 @@
 		 .category{
 			color: #b52e31;
 		}
+		.fileUpload {
+		    position: relative;
+		    overflow: hidden;
+		    margin: 10px;
+		}
+		.fileUpload input.upload {
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    margin: 0;
+		    padding: 0;
+		    font-size: 20px;
+		    cursor: pointer;
+		    opacity: 0;
+		    filter: alpha(opacity=0);
+		}
 	</style>
 	@inject('repoCategories', 'App\Repositories\Categories')
 	@foreach ($categories as $category)
@@ -50,8 +66,15 @@
 			</div>
 		@endif
 		<h4>PRODUCTOS
+
 			<a href="{{ url('admin/categories/'.$category->id.'/products/create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-			<a href="{{ url('admin/categories/'.$category->id.'/products/csv') }}" class="btn btn-success">CSV</a>
+			<form action="{{ url('admin/categories/'.$category->id.'/products/csv') }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
+				{{ csrf_field() }}
+				<div class="fileUpload btn btn-primary">
+				    <span>CSV</span>
+				    <input type="file" name="csv" class="upload"onchange="this.form.submit()"   accept=".csv" />
+				</div>
+			</form>
 		</h4>
 		@if (sizeof($category->products->chunk(4))<>0)
 			@foreach($category->products->chunk(4) as $products)
