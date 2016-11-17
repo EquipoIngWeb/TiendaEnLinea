@@ -7,10 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     protected $fillable = [
-		'id', 'message'
+		'id', 'message','user_id','product_id'
 	];
 	public function user()
 	{
-	    return $this->hasOne('App\User','id');
+	    return $this->hasOne('App\User','id','user_id');
 	}
 }

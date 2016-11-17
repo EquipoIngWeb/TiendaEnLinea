@@ -30,8 +30,12 @@
 					@if (Auth::guest())
 						<a class="btn" href="{{url('/login')}}">Inicia sesion para dejar un mensaje.</a>
 					@else
-						<textarea style="width: 100%;" placeholder="Dejanos un mensaje"></textarea>
-						<input type="submit" value="Dejar mensaje" class="btn">
+						<form  role="form" method="POST" action="{{ url('/user/see/'.$product->id) }}">
+							{{ csrf_field() }}
+
+							<textarea style="width: 100%;" placeholder="Dejanos un mensaje" name="message"></textarea>
+							<input type="submit" value="Dejar mensaje" class="btn">
+						</form>
 					@endif
 				</div>
 

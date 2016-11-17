@@ -6,18 +6,23 @@ use Illuminate\Http\Request;
 use App\Repositories\Products;
 use App\Repositories\Categories;
 use App\Repositories\Brands;
+use App\Repositories\Comments;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
+
 
 class ProductController extends Controller
 {
 	protected $products;
 	protected $categories;
 	protected $brands;
-	function __construct(Products $products,Categories $categories,Brands $brands)
+	protected $comments;
+	function __construct(Products $products,Categories $categories,Brands $brands,Comments $comments)
 	{
 		$this->products = $products;
 		$this->brands = $brands;
 		$this->categories = $categories;
+		$this->comments = $comments;
 	}
 	/**
 	 * Display a listing of the resource.
@@ -127,5 +132,16 @@ class ProductController extends Controller
 	public function destroy($id)
 	{
 		//
+	}
+	public function saveComment($id,Request $request)
+	{
+		$this->comments->save(
+			array_merge(
+				$request->all(),
+				['user_id'=>Auth::user()->id,'product_id'=>$id]
+			)
+		);
+		 return redirect("see/$id")->with('message','Mensaje agregado');
+
 	}
 }

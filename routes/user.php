@@ -16,3 +16,4 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     return $request->user();
 });
+Route::post('/see/{product_id}','productController@saveComment');

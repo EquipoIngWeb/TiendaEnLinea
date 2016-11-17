@@ -11,18 +11,15 @@
 |
 */
 
-
-Route::get('/','homeController@index');
-
-Route::get('products', function () {
-	return view('products');
-});
-
 Route::get('/checkout',function () {
 	return view('checkout');
 });
-Route::get('/category/{category_id}','categoryController@show');
+
+Route::get('/','homeController@index');
+
+
 Route::get('/see/{product_id}','productController@show');
+Route::get('/category/{category_id}','categoryController@show');
 
 
 Auth::routes();
