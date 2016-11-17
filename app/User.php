@@ -25,7 +25,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'type', 'remember_token',
     ];
-
 	public function role()
 	{
 	    return $this->belongsTo(Role::class, 'role_id', 'id');
@@ -34,6 +33,11 @@ class User extends Authenticatable
 	{
 		$this->attributes['password'] = bcrypt($password);
 	}
+	public function comments()
+	{
+	    return $this->hasMany('App\Comment', 'user_id', 'id');
+	}
+
 	public function isAdmin()
 	{
 		return $this->attributes['role_id'] == "admin";

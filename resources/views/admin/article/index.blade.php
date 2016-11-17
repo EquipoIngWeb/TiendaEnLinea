@@ -48,7 +48,7 @@
 	</style>
 	@inject('repoCategories', 'App\Repositories\Categories')
 	@foreach ($categories as $category)
-		<h3>PRODUCTOS DE LA CATEGORIA <span class="category">{{strtoupper($category->name)}}</span></h3>
+		<h3>PRODUCTOS DE LA CATEGORIA <a href="{{ url('admin/products/'.$category->id) }}" class="category">{{strtoupper($category->name)}}</a></h3>
 		@if (sizeof($category->children)>0)
 			<h4>SUBCATEGORIAS</h4>
 			<div class="graph">

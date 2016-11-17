@@ -12,6 +12,13 @@ class Comments  extends BaseRepository
 	function getModel(){
 		return $this->model;
 	}
-	
+	public function getDisaproved()
+	{
+		return $this->getModel()->where('status',0)->with('user')->with('product')->get();
+	}
+	public function getOfProduct($product='')
+	{
+		return $this->getModel()->where('id_product',$product)->orderBy('id_product')->get();
+	}
 }
  ?>

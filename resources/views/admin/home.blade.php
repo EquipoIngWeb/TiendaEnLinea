@@ -68,7 +68,7 @@
 	</a>
 </div>
 <div class="mediabox">
-	<a href="{{ url('admin/colors') }}">
+	<a href="{{ url('admin/comments') }}">
 		<i class="fa fa-list"></i>
 		<h3>Comentario</h3>
 	</a>

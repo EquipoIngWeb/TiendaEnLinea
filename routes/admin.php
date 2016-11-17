@@ -30,3 +30,7 @@ Route::post('images/upload','ImageController@upload');
 Route::delete('images/delete','ImageController@delete');
 Route::get('images/directories/', 'ImageController@directories');
 Route::resource('images', 'ImageController');
+
+Route::get('comments/{id}/desaproved/','CommentController@desaproved');
+Route::get('comments/{id}/aproved/','CommentController@aproved');
+Route::resource('comments', 'CommentController');
