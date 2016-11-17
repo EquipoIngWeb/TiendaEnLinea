@@ -19,40 +19,40 @@
 			<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".7s">
 				<h3>Galeria</h3>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/13.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/14.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/14.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/15.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/15.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/16.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/16.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/13.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/14.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/14.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/15.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/15.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/16.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/16.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/13.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/13.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/14.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/14.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/15.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/15.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="footer-grid-left">
-					<a href="single.html"><img src="images/16.jpg" alt=" " class="img-responsive" /></a>
+					<a href="single.html"><img src="{{ asset('images/16.jpg')}}" alt=" " class="img-responsive" /></a>
 				</div>
 				<div class="clearfix"> </div>
 			</div>

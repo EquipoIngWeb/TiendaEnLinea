@@ -18,6 +18,10 @@ Route::get('products', function () {
 	return view('products');
 });
 
+Route::get('/category/{category_id}','categoryController@show');
+
+Route::get('/see/{product_id}','productController@show');
+
 
 Auth::routes();
 

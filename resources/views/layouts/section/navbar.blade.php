@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="logo-nav">
 			<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
-				<h1><a href="{{ url('/') }}"><img src="img/Logo1.png" width="90" height="90"><span></span></a></h1>
+				<h1><a href="{{ url('/') }}"><img src="{{asset('img/Logo1.png')}}" width="90" height="90"><span></span></a></h1>
 			</div>
 			<div class="logo-nav-left1">
 				<nav class="navbar navbar-default">
@@ -82,18 +82,17 @@
 					<a href="checkout.html">
 						<h3> <div class="total">
 							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-							<img src="images/bag.png" alt="" />
+							<img src="{{asset('images/bag.png')}}" alt="" />
 						</h3>
 					</a>
 					<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
 					<div class="clearfix"> </div>
 				</div>
 			</div>
-
-			<div class="clearfix"> </div>
 		</div>
 	</div>
 </div>
+
 <!-- //header -->
 
 

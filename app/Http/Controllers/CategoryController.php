@@ -69,7 +69,8 @@ class CategoryController extends Controller
 	 */
 	public function show($id)
 	{
-		// return view('admin.category.create');
+		$products = $this->categories->findOrFail($id)->products;
+		return view('web.products',compact('products'));
 	}
 
 	/**

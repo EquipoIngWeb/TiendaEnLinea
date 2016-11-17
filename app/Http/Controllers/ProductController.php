@@ -91,7 +91,8 @@ class ProductController extends Controller
 	 */
 	public function show($id)
 	{
-		//
+		$product = $this->products->findOrFail($id);
+		return view('product.show',compact('product'));
 	}
 
 	/**
