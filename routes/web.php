@@ -23,4 +23,4 @@ Auth::routes();
 
 Route::get('/principal', 'principalController@index');
 Route::get('/inicio', 'principalController@inicio'); //Vista principal
-Route::get('/category','CategoryController@index'); //Categorias
+Route::get('/category/{id}','ProductController@ofCategory'); //Categorias

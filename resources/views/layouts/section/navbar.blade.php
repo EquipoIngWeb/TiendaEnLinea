@@ -29,7 +29,7 @@
 													<ul class="multi-column-dropdown">
 														<h6><a href="{{ url('/category/'.$category_second->id) }}">{{$category_second->name}}</a></h6>
 														@foreach ($category_second->children as $category_third )
-															<li><a href="{{ url('/category'.$category_third->id) }}">{{$category_third->name}}</a></li>
+															<li><a href="{{ url('/category/'.$category_third->id) }}">{{$category_third->name}}</a></li>
 														@endforeach
 													</ul>
 												</div>

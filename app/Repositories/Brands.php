@@ -15,6 +15,10 @@ class Brands  extends BaseRepository
 	public function create($data){
 		return $this->save($data);
 	}
+	public function getByName($name='')
+	{
+		return $this->getModel()->where('name',$name)->first();
+	}
 }
  ?>
 
