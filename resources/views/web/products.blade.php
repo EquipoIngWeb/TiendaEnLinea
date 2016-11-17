@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 	@inject('categories', 'App\Repositories\Categories')
 	<div class="products">
 		<div class="container">
@@ -129,6 +130,7 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="col-md-8 products-right">
 				<div class="products-right-grid">
 					<div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
