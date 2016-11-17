@@ -23,4 +23,8 @@ class Product extends Model
 		// belongsTo(RelatedModel, foreignKey = brand_id, keyOnRelatedModel = id)
 		return $this->belongsTo(Brand::class);
 	}
+	public function getImageAttribute()
+	{
+		return 'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
+	}
 }

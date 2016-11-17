@@ -122,15 +122,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="men-position animated wow slideInUp" data-wow-delay=".5s">
-					<a href="single.html"><img src="images/27.jpg" alt=" " class="img-responsive" /></a>
-					<div class="men-position-pos">
-						<h4>Summer collection</h4>
-						<h5><span>55%</span> Flat Discount</h5>
-					</div>
-				</div>
 			</div>
-			
+
 			<div class="col-md-8 products-right">
 				<div class="products-right-grid">
 					<div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
@@ -153,7 +146,7 @@
 						<div class="clearfix"> </div>
 					</div>
 					<div class="products-right-grids-position animated wow slideInRight" data-wow-delay=".5s">
-						<img src="images/18.jpg" alt=" " class="img-responsive" />
+						<img src="{{asset('images/18.jpg')}}" alt=" " class="img-responsive" />
 						<div class="products-right-grids-position1">
 							<h4>2016 New Collection</h4>
 							<p>Temporibus autem quibusdam et aut officiis debitis aut rerum
@@ -162,18 +155,14 @@
 						</div>
 					</div>
 				</div>
-				@php
-					$name = array('Esto' => '19.jpg',
-					              'EstoOtro' => '20.jpg',
-					              'EstoOtroMas' => '25.jpg',
-					              'EstoValioQuequi' => '26.jpg');
-				@endphp
+				
 				<div class="products-right-grids-bottom">
 					<div class="row">
-						@each ('article.item', $name, 'product')
+						@each('article.item', $products, 'product')
 					</div>
 
 				</div>
+				{{--
 				<nav class="numbering animated wow slideInRight" data-wow-delay=".5s">
 				  <ul class="pagination paging">
 					<li>
@@ -193,6 +182,7 @@
 					</li>
 				  </ul>
 				</nav>
+				--}}
 			</div>
 			<div class="clearfix"> </div>
 		</div>
