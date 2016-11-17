@@ -16,6 +16,7 @@
 		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 
 		<!-- cart -->
+		<link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ asset('css/jquery-ui.css') }}">
 		<!-- //for bootstrap working -->
 		<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
@@ -46,6 +47,7 @@
 		<script src="{{ asset('js/uisearch.js') }}"></script>
 		<script src="{{ asset('js/imagezoom.js') }}"></script>
 		<script src="{{ asset('js/jquery.wmuSlider.js') }}"></script>
+		<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 		<script src="{{ asset('js/jquery-ui.min.js') }}"></script>
 		<script src="{{ asset('js/jquery.flexslider.js') }}"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
@@ -67,5 +69,6 @@
 			});
 		</script>
 		<script src="{{ asset('js/script.js') }}"></script>
+		@yield('js')
 	</body>
 	</html>

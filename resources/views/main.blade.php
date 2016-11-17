@@ -7,7 +7,7 @@
 					<div class="wmuSlider example1">
 						<div class="wmuSliderWrapper">
 							<article style="position: absolute; opacity: 0;">
-								<img src="{{asset('images/ba1.jpg')}}" width="100%" height="100%">
+								<img src="{{asset('images/carrusel/ba1.jpg')}}" width="100%" height="100%">
 								<!-- <h4>Up to <span>50% <i>Off/-</i></span></h4> -->
 								<div class="banner-wrap">
 									<div class="banner-info1">
@@ -16,7 +16,7 @@
 								</div>
 							</article>
 							<article style="position: absolute; opacity: 0;">
-								<img src="{{asset('images/ba2.jpg')}}" alt="..." width="100%" height="100%">
+								<img src="{{asset('images/carrusel/ba2.jpg')}}" alt="..." width="100%" height="100%">
 								<div class="banner-wrap">
 									<div class="banner-info1">
 										<p>Todo lo que necesites a tu alcance</p>
@@ -24,7 +24,7 @@
 								</div>
 							</article>
 							<article style="position: absolute; opacity: 0;">
-								<img src="{{asset('images/ba3.jpg')}}" alt="..." width="100%" height="100%">
+								<img src="{{asset('images/carrusel/ba3.jpg')}}" alt="..." width="100%" height="100%">
 								<div class="banner-wrap">
 									<div class="banner-info1">
 										<p>Descubre más con un clic</p>
@@ -99,6 +99,13 @@
 				<p class="est animated wow zoomIn" data-wow-delay=".5s">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
 					deserunt mollit anim id est laborum.</p>
 					<div class="new-collections-grids">
+
+						<div id="owl-demo" class="owl-carousel owl-theme">
+							@each('components.article', $products, 'product')
+						</div>
+						
+								
+						{{--
 						<div class="col-md-3 new-collections-grid">
 							<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
 								<div class="new-collections-grid1-image">
@@ -133,40 +140,7 @@
 									<p><i>$325</i> <span class="item_price">$250</span><a class="item_add" href="#">al carrito </a></p>
 								</div>
 							</div>
-							<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-								<div class="new-collections-grid1-image">
-									<a href="single.html" class="product-image"><img src="{{asset('administrador/images/tenis.jpg')}}" alt=" " class="img-responsive" /></a>
-									<div class="new-collections-grid1-image-pos">
-										<a href="single.html">Ver más</a>
-									</div>
-									<div class="new-collections-grid1-right">
-										<div class="rating">
-										<!-- estrellas -->
-											<div class="rating-left">
-												<img src="images/2.png" alt=" " class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/2.png" alt=" " class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/1.png" alt=" " class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/1.png" alt=" " class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/1.png" alt=" " class="img-responsive" />
-											</div>
-											<div class="clearfix"> </div>
-										</div>
-									</div>
-								</div>
-								<h4><a href="single.html">Tennis</a></h4>
-								<p>Para ir a toda prisa.</p>
-								<div class="new-collections-grid1-left simpleCart_shelfItem">
-									<p><i>$280</i> <span class="item_price">$150</span><a class="item_add" href="#">al carrito </a></p>
-								</div>
-							</div>
+							
 						</div>
 						<div class="col-md-6 new-collections-grid">
 							<div class="new-collections-grid1 new-collections-grid1-image-width animated wow slideInUp" data-wow-delay=".5s">
@@ -347,6 +321,7 @@
 								</div>
 							</div>
 						</div>
+						--}}
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -384,12 +359,12 @@
 									dolorem eum fugiat quo voluptas nulla pariatur.</h4>
 									<p><a class="item_add timer_add" href="#">al carrito </a></p>
 								</div>
-								<div id="counter"> </div>
+								<!-- <div id="counter"> </div> -->
 
 							</div>
 							<div class="col-md-4 timer-grid-right animated wow slideInRight" data-wow-delay=".5s">
 								<div class="timer-grid-right1">
-									<img src="{{asset('images/17.jpg')}}" alt=" " class="img-responsive" />
+									<img src="{{asset('images/3.jpg')}}" alt=" " class="img-responsive" />
 									<div class="timer-grid-right-pos">
 										<h4>Oferta especial</h4>
 									</div>
