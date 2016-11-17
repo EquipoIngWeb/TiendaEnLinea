@@ -38,7 +38,7 @@
 			<div class="graph">
 				<nav>
 					<ul>
-						@foreach ($repoCategories->menu($category->children) as $category_second)
+						@foreach ($repoCategories->getOfCategories($category->id)->children as $category_second)
 							<li class="tab-current">
 								<a href="{{ url("admin/products/".$category_second['id']) }}" class="icon-cup">
 									{{$category_second['name']}}

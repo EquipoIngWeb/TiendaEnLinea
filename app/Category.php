@@ -15,7 +15,7 @@ class Category extends Model
 	}
 	public function children()
 	{
-		return $this->belongsToMany('App\Category', 'subcategories', 'parent_id', 'child_id');
+		return $this->belongsToMany('App\Category', 'subcategories', 'parent_id', 'child_id')->with('children');
 	}
 	public function parents()
 	{

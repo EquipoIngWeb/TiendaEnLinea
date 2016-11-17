@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Repositories\Products;
 use App\Repositories\Categories;
 use App\Repositories\Brands;
+// use Maatwebsite\Excel\Facades\Excel;
+
 class ProductController extends Controller
 {
 	protected $products;
@@ -25,7 +27,6 @@ class ProductController extends Controller
 	public function index()
 	{
 		$categories = $this->categories->getFirsts();
-
 		return view('admin.article.index',compact('categories'));
 	}
 	public function ofCategories($first='')
