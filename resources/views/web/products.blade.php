@@ -8,6 +8,17 @@
 				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
 					<h3>Categories</h3>
 					<ul class="cate">
+					@foreach ($categories->getMenu() as $category)
+						<li class="dropdown">
+							@foreach ($category->children as $category_second)
+								<li><a href="{{ url('/category/'.$category_second->id) }}">{{$category_second->name}}</a></li>
+								@foreach ($category_second->children as $category_third )
+									<li><a href="{{ url('/category/'.$category_third->id) }}">{{$category_third->name}}</a></li>
+								@endforeach
+							@endforeach
+						</li>
+					@endforeach
+						{{--
 						@foreach ($categories->getMenu() as $category )
 							<li><a href="{{ url('/category/'.$category['id']) }}">{{$category['name']}}</a> <span></span></li>
 							@if (sizeof($category['children'])>0)
@@ -25,6 +36,7 @@
 								</ul>
 							@endif
 						@endforeach
+						--}}
 					</ul>
 				</div>
 				<div class="new-products animated wow slideInUp" data-wow-delay=".5s">
@@ -126,6 +138,7 @@
 
 			<div class="col-md-8 products-right">
 				<div class="products-right-grid">
+					{{--
 					<div class="products-right-grids animated wow slideInRight" data-wow-delay=".5s">
 						<div class="sorting">
 							<select id="country" onchange="change_country(this.value)" class="frm-field required sect">
@@ -145,6 +158,7 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
+					--}}
 					<div class="products-right-grids-position animated wow slideInRight" data-wow-delay=".5s">
 						<img src="{{asset('images/18.jpg')}}" alt=" " class="img-responsive" />
 						<div class="products-right-grids-position1">

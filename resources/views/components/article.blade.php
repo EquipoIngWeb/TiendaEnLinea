@@ -3,7 +3,9 @@
 	<div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
 		
 		<div class="new-collections-grid1-image">
-			<a href="{{ url('/see/'.$product->id) }}" class="product-image"><img src="{{asset('administrador/images/si.jpg')}}" alt=" " class="img-responsive" /></a>
+			<a href="{{ url('/see/'.$product->id) }}" class="product-image">
+				<img src="{{$product->image}}" alt=" " class="img-responsive" />
+			</a>
 			<div class="new-collections-grid1-image-pos">
 				<a href="{{ url('/see/'.$product->id) }}">Ver más</a>
 			</div>
