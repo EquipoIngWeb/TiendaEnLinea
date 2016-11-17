@@ -20,13 +20,12 @@
 			<div class="row">
 				<div class="col-sm-6 col-sm-offset-3">
 					<h3>Comentarios del producto:</h3>
-					@foreach($product->comments as $comment)
+					@foreach($comments as $comment)
 						<hr>
 						<b>{{$comment->user->username}} dice:</b>
 						<p>{{$comment->message}}</p>
 					@endforeach
 					<hr>
-					
 					@if (Auth::guest())
 						<a class="btn" href="{{url('/login')}}">Inicia sesion para dejar un mensaje.</a>
 					@else

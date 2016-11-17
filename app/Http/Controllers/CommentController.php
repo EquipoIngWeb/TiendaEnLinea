@@ -19,7 +19,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-    	$comments = $this->comments->getDisaproved();
+    	$comments = $this->comments->getSend();
     	return view('admin.comment.index',compact('comments'));
     }
 
@@ -34,12 +34,12 @@ class CommentController extends Controller
     }
     public function aproved($id='')
     {
-    	$this->comments->update($id,['status',1]);
+    	$this->comments->update($id,['status'=>1]);
     	return redirect()->back()->with('message','Commentario Aprovado');
     }
     public function desaproved($id='')
     {
-    	$this->comments->update($id,['status',2]);
+    	$this->comments->update($id,['status'=>2]);
     	return redirect()->back()->with('message','Commentario Desaprovado');
     }
     /**
