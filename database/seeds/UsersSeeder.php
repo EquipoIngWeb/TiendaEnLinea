@@ -19,7 +19,19 @@ class UsersSeeder extends Seeder
         $user->password ="asd123";
         $user->role_id ="admin";
 
+
+        $user = new App\User();
+        $user->username ="aida";
+        $user->birthdate =\Carbon\Carbon::now();
+        $user->full_name ="Aida Lizeth Rochin";
+        $user->email ="aidarochin@gmail.com";
+        $user->password ="soloyo";
+        $user->role_id ="admin";
+
         $user->save();
         factory(App\User::class, 5)->create();
+
+
+
     }
 }

@@ -7,7 +7,7 @@
 					<div class="wmuSlider example1">
 						<div class="wmuSliderWrapper">
 							<article style="position: absolute; opacity: 0;">
-								<img src="{{asset('images/ba1.jpg')}}" width="100%" height="100%">
+								<img src="{{asset('images/carrusel/ba1.jpg')}}" width="100%" height="100%">
 								<!-- <h4>Up to <span>50% <i>Off/-</i></span></h4> -->
 								<div class="banner-wrap">
 									<div class="banner-info1">
@@ -16,7 +16,7 @@
 								</div>
 							</article>
 							<article style="position: absolute; opacity: 0;">
-								<img src="{{asset('images/ba2.jpg')}}" alt="..." width="100%" height="100%">
+								<img src="{{asset('images/carrusel/ba2.jpg')}}" alt="..." width="100%" height="100%">
 								<div class="banner-wrap">
 									<div class="banner-info1">
 										<p>Todo lo que necesites a tu alcance</p>
@@ -24,7 +24,7 @@
 								</div>
 							</article>
 							<article style="position: absolute; opacity: 0;">
-								<img src="{{asset('images/ba3.jpg')}}" alt="..." width="100%" height="100%">
+								<img src="{{asset('images/carrusel/ba3.jpg')}}" alt="..." width="100%" height="100%">
 								<div class="banner-wrap">
 									<div class="banner-info1">
 										<p>Descubre más con un clic</p>
@@ -384,12 +384,12 @@
 									dolorem eum fugiat quo voluptas nulla pariatur.</h4>
 									<p><a class="item_add timer_add" href="#">al carrito </a></p>
 								</div>
-								<div id="counter"> </div>
+								<!-- <div id="counter"> </div> -->
 
 							</div>
 							<div class="col-md-4 timer-grid-right animated wow slideInRight" data-wow-delay=".5s">
 								<div class="timer-grid-right1">
-									<img src="{{asset('images/17.jpg')}}" alt=" " class="img-responsive" />
+									<img src="{{asset('images/3.jpg')}}" alt=" " class="img-responsive" />
 									<div class="timer-grid-right-pos">
 										<h4>Oferta especial</h4>
 									</div>
