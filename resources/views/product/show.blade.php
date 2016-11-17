@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="col-xs-12 col-md-4">
 				<h1 class="col-xs-12 text-center">{{$product->name}}</h1>
-				<img src="{{asset('images/20.jpg')}}" width="100%" >
+				<img src="{{$product->image}}" width="100%" >
 			</div>
 			<div class="col-xs-12 col-md-8">
 

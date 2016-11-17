@@ -18,6 +18,9 @@ Route::get('products', function () {
 	return view('products');
 });
 
+Route::get('/checkout',function () {
+	return view('checkout');
+});
 Route::get('/category/{category_id}','categoryController@show');
 
 Route::get('/see/{product_id}','productController@show');

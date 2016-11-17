@@ -58,7 +58,20 @@ $(document).ready(function(){
 			itemsTablet: [600,2], //2 items between 600 and 0
 			itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
 		});
-	});
 
+
+
+		$('.item_add').click(function(e){
+			e.preventDefault();
+			alert('Producto agregado');
+		})
+		simpleCart({
+			cartStyle: "table"
+		});
+		setInterval(function(){
+			$('.simpleCart_items table').addClass('table');
+		},1000)
+
+	});
 
 });
