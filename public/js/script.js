@@ -61,6 +61,10 @@ $(document).ready(function(){
 
 
 
+		$('.item_add').click(function(e){
+			e.preventDefault();
+			alert('Producto agregado');
+		})
 		simpleCart({
 			cartStyle: "table"
 		});

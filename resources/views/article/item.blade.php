@@ -10,7 +10,7 @@
 		<h4><a href="{{ url('/see/'.$product->id) }}">{{$product->name}}</a></h4>
 		<p></p>
 		<div class="simpleCart_shelfItem products-right-grid1-add-cart">
-			<p><span class="item_price">${{$product->price}}</span><a class="item_add" href="#">add to cart </a></p>
+			<p><span class="item_name" style="display: none;">{{$product->name}}</span><span class="item_price">${{$product->price}}</span><a class="item_add" href="#">add to cart </a></p>
 		</div>
 	</div>
 </div>

@@ -14,7 +14,7 @@
 		<h4><a href="{{ url('/see/'.$product->id) }}">{{$product->name}}</a></h4>
 		<p>{{$product->description}}</p>
 		<div class="new-collections-grid1-left simpleCart_shelfItem">
-			<p><span class="item_price">${{$product->price}}</span><a class="item_add" href="#">al carrito </a></p>
+			<p><span class="item_name" style="display: none;">{{$product->name}}</span><span class="item_price">${{$product->price}}</span><a class="item_add" href="#">al carrito </a></p>
 		</div>
 	</div>
 	
