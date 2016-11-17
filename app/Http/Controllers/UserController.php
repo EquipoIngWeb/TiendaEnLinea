@@ -84,6 +84,6 @@ class UserController extends Controller
     public function destroy($id)
     {
 		 $this->users->remove($id);
-		 return redirect()->back()->with('message','Usuario Eliminada!');
+		 return redirect()->back()->with('message','Se ha eliminado el usuario!');
     }
 }

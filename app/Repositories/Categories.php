@@ -21,24 +21,11 @@ class Categories  extends BaseRepository
 	}
 	public function updateMenu()
 	{
-		session()->put('categories',$this->menu($this->getFirsts()));
+		session()->put('categories',$this->getFirsts());
 	}
-
-	public function menu($list,$parents = [])
+	public function getOfCategories($category='')
 	{
-		$children = collect([]);
-		foreach ($list as $category) {
-			$children->put($category->name,[
-								   'name'=>$category->name,
-								   'children'=> $this->menu($category->children()->get(),array_merge($parents))
-								   ,'id'=>$category->id
-								   ]);
-		}
-		return $children;
-	}
-	public function getOfCategories($first='')
-	{
- 		return $this->getModel()->where('id',$first)->with(['children'=> function ($query){
+ 		return $this->getModel()->where('id',$category)->with(['children'=> function ($query){
  			$query->with('products');
  		}])->first();
 	}

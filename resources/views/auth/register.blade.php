@@ -105,11 +105,11 @@
 								@endforeach
 						</div>
 					@endif
-					<input type="submit" value="Registrar">
+					<input type="submit" value="Registrar"><a href="{{url('/')}}"></a>
 				</form>
 			</div>
 			<div class="register-home animated wow slideInUp" data-wow-delay=".2s">
-				<a href="{{url('/inicio')}}">Inicio</a>
+				<a href="{{url('/')}}">Inicio</a>
 			</div>
 		</div>
 	</div>
