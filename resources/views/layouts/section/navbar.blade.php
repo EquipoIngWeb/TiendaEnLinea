@@ -21,22 +21,23 @@
 	</ul>
 @endforeach
 
+{{--
+	El menu esta compuesto por 3 partes:
+		- Menu normal
+		- Auth bar
+		- Menu responsivo
+--}}
 <nav>
 	<div class="nav-wrapper">
-		<a href="{{ route('home') }}" class="brand-logo hide-on-small-only">
+		<a href="{{ route('home') }}" class="brand-logo center hide-on-small-only">
 			<img src="{{asset('img/Logo1.png')}}" alt="Logo lara-shop" id="logo">
 		</a>
 		{{-- Boton para sidebar, telefonos y tablets --}}
 		<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 		
-		<ul class="right">
-
-			<li class="active"><a href="{{route ('login')}}">Iniciar sesion</a></li>
-			
-		</ul>
 
 		{{-- Menu normal --}}
-		<ul class="right hide-on-med-and-down">
+		<ul class="left hide-on-med-and-down">
 
 			<li><a href="{{route ('home')}}">Inicio</a></li>
 			@foreach ($categories->getMenu() as $category)
@@ -48,7 +49,32 @@
 				</li>
 			@endforeach
 		</ul>
-
+		
+		{{-- Auth bar --}}
+		<ul class="right">
+			@if (Auth::guest())
+				<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
+				<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
+			@else
+				<li>
+					<a href="#" class="dropdown-button" data-activates="user-menu">
+						{{ Auth::user()->full_name }}
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+					<ul id="user-menu" class="dropdown-content">
+						<li style="opacity: 0;"><a href=""></a></li>
+						<li>
+							<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+								Logout
+							</a>
+							<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+							</form>
+						</li>
+					</ul>
+				</li>
+			@endif
+		</ul>
 
 		{{-- Menu responsivo. --}}
 		<ul class="side-nav" id="mobile-menu">
@@ -69,79 +95,3 @@
 		</ul>
 	</div>
 </nav>
-
-
-{{--
-					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-						<ul class="nav navbar-nav">
-							
-
-							<li><a href="mail.html">Mail Us</a></li>
-							@if (Auth::guest())
-							<li><a href="{{ url('/login') }}">Ingresar</a></li>
-							<li><a href="{{ url('/register') }}">Registrarse</a></li>
-							@else
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-									{{ Auth::user()->full_name }} <span class="caret"></span>
-								</a>
-
-								<ul class="dropdown-menu" role="menu">
-									<li>
-										<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-											Logout
-										</a>
-										<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-											{{ csrf_field() }}
-										</form>
-									</li>
-								</ul>
-							</li>
-							@endif
-						</ul>
-					</div>
-				</nav>
-			</div>
-			<div class="logo-nav-right">
-				<div class="search-box">
-					<div id="sb-search" class="sb-search">
-						<form>
-							<input class="sb-search-input" placeholder="Enter your search term..." type="search" id="search">
-							<input class="sb-search-submit" type="submit" value="">
-							<span class="sb-icon-search"> </span>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="header-right">
-				<div class="cart box_1">
-					<a href="{{url('/checkout')}}">
-						<h3> <div class="total">
-							<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-							<img src="{{asset('images/bag.png')}}" alt="" />
-						</h3>
-					</a>
-					<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
---}}
-
-<!-- //header -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
