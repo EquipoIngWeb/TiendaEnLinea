@@ -1,4 +1,45 @@
-<!-- footer -->
+<footer class="page-footer">
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m5">
+				<b class="big-font">Acerca de nosotros</b>
+				<hr>
+				Somos una empresa confiable en donde tu podras encontras todo lo que estés bucando sin perder tu tiempo, rápido y seguro.
+
+			</div>
+			<div class="col s12 m5">
+				<b class="big-font">Contáctanos</b>
+				<hr>
+
+				<div>
+					<i class="material-icons">location_on</i>
+					Tec de Culiacan, Culiacan Sinaloa.
+				</div>
+
+				<div>
+					<i class="material-icons">email</i>
+					lara.shop9@gmail.com
+				</div>
+
+				<div>
+					<i class="material-icons">phone</i>
+					+52 (6673) 15-1726
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row center">
+		<hr class="inline">
+		<div class="inline">
+			<b class="big-font">Lara - Shop</b>
+			<br>
+			Todo lo que necesitas a tu alcance
+		</div>
+		<hr class="inline">
+	</div>
+</footer>
+{{--
 <div class="footer">
 	<div class="container">
 		<div class="footer-grids">
@@ -56,7 +97,7 @@
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<!-- <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
+			<!- <div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".8s">
 				<h3>Blog Posts</h3>
 				<div class="footer-grid-sub-grids">
 					<div class="footer-grid-sub-grid-left">
@@ -78,7 +119,7 @@
 					</div>
 					<div class="clearfix"> </div>
 				</div>
-			</div> -->
+			</div> ->
 			<div class="clearfix"> </div>
 		</div>
 		<div class="footer-logo animated wow slideInUp" data-wow-delay=".5s">
@@ -89,4 +130,5 @@
 		</div>
 	</div>
 </div>
-<!-- //footer -->
+
+--}}
