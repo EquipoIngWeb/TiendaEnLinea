@@ -19,7 +19,7 @@ Route::get('/','homeController@index')->name('home');
 Route::get('/category/{category_id}','categoryController@show')->name('view_category');
 
 
-Route::get('/see/{product_id}','productController@show');
+Route::get('/view/{product_id}','productController@show')->name('view_product');
 
 
 Auth::routes();

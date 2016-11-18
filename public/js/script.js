@@ -8,6 +8,14 @@ $(function(){
 		navigation : true,
 		slideSpeed : 300,
 		paginationSpeed : 400,
-		singleItem:true
+		singleItem:true,
+		autoPlay: true,
+		transitionStyle : "fade",
 	});
+	$("#popular-carousel").owlCarousel({
+		navigation : true,
+		items : 4,
+		autoPlay: true,
+	});
+
 });
