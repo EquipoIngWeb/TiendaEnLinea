@@ -5892,6 +5892,7 @@ ul.categories li img{
 }
  .category{
 	color: #b52e31;
+	text-transform: uppercase;
 }
 .product img{
 	max-height: 150px;
