@@ -34,7 +34,7 @@
 		</a>
 		{{-- Boton para sidebar, telefonos y tablets --}}
 		<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-		
+
 
 		{{-- Menu normal --}}
 		<ul class="left hide-on-med-and-down">
@@ -49,7 +49,7 @@
 				</li>
 			@endforeach
 		</ul>
-		
+
 		{{-- Auth bar --}}
 		<ul class="right">
 			@if (Auth::guest())
@@ -63,6 +63,7 @@
 					</a>
 					<ul id="user-menu" class="dropdown-content">
 						<li style="opacity: 0;"><a href=""></a></li>
+						<li ><a href="{{ url(Auth::user()->role_id) }}">Princial</a></li>
 						<li>
 							<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
 								Logout
@@ -89,7 +90,7 @@
 						</a>
 					</li>
 				@endforeach
-				
+
 			@endforeach
 
 		</ul>

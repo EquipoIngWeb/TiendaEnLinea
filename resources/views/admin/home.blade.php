@@ -4,7 +4,7 @@
 Menu Principal
 @stop
 @section('content')
-	<div class="row">
+	<div class="row home">
 		<div class="col-md-3">
 			<div class="thumbnail">
 				<a href="{{ url('/') }}">
@@ -56,7 +56,7 @@ Menu Principal
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row home">
 		<div class="col-md-3">
 			<div class="thumbnail">
 				<a href="{{ url('/admin/categories') }}">
@@ -106,7 +106,7 @@ Menu Principal
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row home">
 		<div class="col-md-3">
 			<div class="thumbnail">
 				<a href="{{ url('admin/colors') }}">
