@@ -1,3 +1,6 @@
+.item p,h1,h2,h3,.big-font{
+	font-family: 'EB Garamond', sans-serif;
+}
 #logo{
 	width: 80px;
 }

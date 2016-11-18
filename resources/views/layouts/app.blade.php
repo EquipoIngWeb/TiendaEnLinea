@@ -13,7 +13,11 @@
 	<link href="{{ asset('css/owl.transitions.css') }}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Ewert&subset=latin" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=EB Garamond&subset=latin" rel="stylesheet" type="text/css">
+
 
 	<link rel="shortcut icon" href="{{asset('favicon.ico')}}"/>
 </head>
