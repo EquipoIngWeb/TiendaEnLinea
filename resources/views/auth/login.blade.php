@@ -45,7 +45,7 @@
 				<div class="col s12 center">
 					<b>¿ Nuevo por aqui ?</b>
 					<div>
-						<a href="{{ url('register') }}">Registrese</a>
+						<a href="{{ url('register') }}">Registrate</a>
 					</div>
 				</div>
 			</form>

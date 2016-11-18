@@ -4,7 +4,7 @@
 	<div class="container row">
 		<div class="col s12 m6 offset-m3">
 			<h1>Registrese Aquí</h1>
-			<form class="animated wow slideInUp" role="form" method="POST" action="{{ url('/register') }}">
+			<form role="form" method="POST" action="{{ url('/register') }}">
 				{{ csrf_field() }}
 				
 				<div class="input-field col s12">
@@ -77,9 +77,6 @@
 				<input type="submit" value="Registrar" class="btn blue">
 				<a href="{{url('/')}}" class="btn red">Cancelar</a>
 				</form>
-			</div>
-			<div class="register-home animated wow slideInUp" data-wow-delay=".2s">
-				<a href="{{route('home')}}">Inicio</a>
 			</div>
 		</div>
 	</div>
