@@ -5914,3 +5914,6 @@ ul.categories li img{
 	background-color:rgb(6, 217, 149);
 	border-color:rgb(6, 217, 149);
 }
+.row{
+	margin: 10px auto;
+}

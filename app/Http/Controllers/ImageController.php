@@ -45,6 +45,19 @@ class ImageController extends Controller
     {
         //
     }
+    public function changeName(Request $request)
+    {
+    	$images_array = Storage::disk('local')->files($request->root);
+		foreach ($images_array as $image) {
+			if (strpos($image, $request->name)) {
+        		return redirect()->back()->with('message','Ya hay una imagen con ese nombre!');
+			}
+		}
+    	$info = pathinfo($request->image);
+    	Storage::move($request->image, $request->root.$request->name.".".$info['extension']);
+        //Storage::disk('local')->delete($request->image);
+        return redirect()->back()->with('message','Imagen default  seleccionada!');
+    }
     public function seDefault(Request $request)
     {
     	$images_array = Storage::disk('local')->files($request->root);

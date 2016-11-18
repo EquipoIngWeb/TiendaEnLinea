@@ -1,0 +1,50 @@
+#carrusel{
+	margin-top:5%;
+}
+.carousel-caption{
+	color: black;
+
+}
+
+.highlight-caption{
+	background-color: #fec503;
+	border: 0;
+}
+.navbar-custom{
+	background-color: #222; 
+	padding: 10px 0;
+}
+.carousel.slide img {
+    width:100%;
+    height:auto;
+}
+#carrusel-articulos{
+	margin-top: -10%;
+}
+.itemcarrusel {
+    background: #F2F2F2;
+   /* float: left;*/
+    /*position: relative;*/
+    border-radius: 5px;
+   
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    /*padding-top: 20%;*/
+
+}
+.item.active.row{
+	margin-left: -20px;
+}
+.item.active li{
+	display: inline-block;
+}
+#info{
+	clear: both;
+    position: relative;
+    top: -5px;
+    padding-left: 7.2525%;
+    background-color: #ffb90f;
+    border-radius: 5px;
+    width: 100%;
+}

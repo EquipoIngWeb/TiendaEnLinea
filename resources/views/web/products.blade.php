@@ -169,11 +169,13 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="products-right-grids-bottom">
-					<div class="row">
-						@each('article.item', $products, 'product')
-					</div>
+						@foreach ($products->chunk(3) as $prds)
+							<div class="row">
+								@each('article.item', $prds, 'product')
+							</div>
+						@endforeach
 
 				</div>
 				{{--
