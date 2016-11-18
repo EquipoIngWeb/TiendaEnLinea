@@ -1,36 +1,31 @@
 @extends('admin.app')
 @section('header')
- Comentarios de Articulos
+Comentarios de Articulos
 @stop
 @section('content')
-<style>
-	ul{
-		list-style: none;
-	}
-	ul li{
-		border: 1px solid #000;
-		margin: 5px;
-		padding: 4px;
-		position: relative;
-	}
-	ul li .options{
-		position: absolute;
-		right: 0;
-		top:0;
-	}
-</style>
-<ul>
-	@foreach ($comments as $comment)
-		<li>
+<ul class="list-group comments">
+	@forelse ($comments as $comment)
+		<li class="list-group-item">
 			<span class="options">
+				<span class="badge">{{$comment->created_at->diffForHumans()}}</span>
+				<a href="{{ url('admin/comments/'.$comment->id.'/aproved') }}" class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
 				<a href="{{ url('admin/comments/'.$comment->id.'/desaproved') }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
-				<a href="{{ url('admin/comments/'.$comment->id.'/aproved') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
 			</span>
-			Articulo: {{$comment->product->name}}
-			<br>Por: <strong>{{$comment->user->full_name}}</strong>
-			<br>Comentario: {{$comment->message }}
+			<div class="media-object">
+				<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+			</div>
+			<div>
+				<h4 class="media-heading">Articulo: <a href="{{ url('view/'.$comment->product->id) }}">{{$comment->product->name}}</a></h4>
+				<h5 class="media-heading">Por: <a href="{{ url('profile/'.$comment->user->username) }}">{{$comment->user->full_name}}</a></h5>
+				{{$comment->message }}
+			</div>
 		</li>
-	@endforeach
+	@empty
+	<li class="list-group-item">
+		<h3>No hay comentarios por aprobar</h3>
+	</li>
+	@endforelse
 </ul>
 @stop
+
 

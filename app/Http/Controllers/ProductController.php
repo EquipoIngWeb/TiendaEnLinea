@@ -151,7 +151,7 @@ class ProductController extends Controller
 				['user_id'=>Auth::user()->id,'product_id'=>$id]
 			)
 		);
-		 return redirect("see/$id")->with('message','Mensaje agregado');
+		 return redirect()->back()->with('message','Mensaje agregado');
 
 	}
 }

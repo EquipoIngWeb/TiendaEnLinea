@@ -1,83 +1,39 @@
 <div class="header-section">
-	<!-- top_bg -->
-	<div class="top_bg">
-
-		<div class="header_top">
-			<div class="top_right">
-				<ul>
-					<li><a href="{{ url('/admin') }}">Administrador Lara-Shop</a></li>
-				</ul>
-			</div>
-			<div class="top_left">
-				@if (!Auth::guest())
-				<h2><i class="glyphicon glyphicon-user" ></i> {{Auth::user()->full_name }} </h2>
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{{ url('admin') }}">Admin Lara-Shop</a>
+		</div>
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				{{-- <li><a href="#">Link</a></li> --}}
+				@if (!Auth::guest() && Auth::user()->isAdmin())
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="glyphicon glyphicon-user" ></i> {{Auth::user()->full_name }}
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+						<li>
+							<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+								Logout
+							</a>
+							<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+							</form>
+						</li>
+						</ul>
+					</li>
 				@endif
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-
+			</ul>
+		</div><!-- /.navbar-collapse -->
 	</div>
-	<div class="clearfix"></div>
-	<!-- /top_bg -->
+</nav>
 </div>
-<div class="header_bg">{{-- 
-	<div class="header">
-		<div class="head-t">
-			<div class="logo">
-				<a href="index.html"><img src="images/logo.png" class="img-responsive" alt=""> </a>
-			</div>
-			<!-- start header_right -->
-			<div class="header_right">
-				<div class="rgt-bottom">
-					<div class="log">
-						<div class="login">
-							<div id="loginContainer">
-								<a id="loginButton" class=""><span>Login</span></a>
-								<div id="loginBox" style="display: none;">                
-									<form id="loginForm">
-										<fieldset id="body">
-											<fieldset>
-												<label for="email">Email Address</label>
-												<input type="text" name="email" id="email">
-											</fieldset>
-											<fieldset>
-												<label for="password">Password</label>
-												<input type="password" name="password" id="password">
-											</fieldset>
-											<input type="submit" id="login" value="Sign in">
-											<label for="checkbox"><input type="checkbox" id="checkbox"> <i>Remember me</i></label>
-										</fieldset>
-										<span><a href="#">Forgot your password?</a></span>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="reg">
-						<a href="register.html">REGISTER</a>
-					</div>
-					<div class="cart box_1">
-						<a href="checkout.html">
-							<h3> <span class="simpleCart_total">$0.00</span> (<span id="simpleCart_quantity" class="simpleCart_quantity">0</span> items)<img src="images/bag.png" alt=""></h3>
-						</a>	
-						<p><a href="javascript:;" class="simpleCart_empty">(empty card)</a></p>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="create_btn">
-						<a href="checkout.html">CHECKOUT</a>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="search">
-					<form>
-						<input type="text" value="" placeholder="search...">
-						<input type="submit" value="">
-					</form>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
- --}}</div>
-<!-- //header-ends -->				
