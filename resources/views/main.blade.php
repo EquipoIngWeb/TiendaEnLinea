@@ -1,83 +1,98 @@
 @extends('layouts.app')
 @section('content')
+		<!-- banner -->
+		<div class="banner">
+			<div class="container">
+				<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
+					<div class="wmuSlider example1">
+						<div class="wmuSliderWrapper">
+							<article style="position: absolute; opacity: 0;">
+								<img src="{{asset('images/carrusel/ba1.jpg')}}" width="100%" height="100%">
+								<!-- <h4>Up to <span>50% <i>Off/-</i></span></h4> -->
+								<div class="banner-wrap">
+									<div class="banner-info1">
+										<p>Damas + Caballeros + Niños</p>
+									</div>
+								</div>
+							</article>
+							<article style="position: absolute; opacity: 0;">
+								<img src="{{asset('images/carrusel/ba2.jpg')}}" alt="..." width="100%" height="100%">
+								<div class="banner-wrap">
+									<div class="banner-info1">
+										<p>Todo lo que necesites a tu alcance</p>
+									</div>
+								</div>
+							</article>
+							<article style="position: absolute; opacity: 0;">
+								<img src="{{asset('images/carrusel/ba3.jpg')}}" alt="..." width="100%" height="100%">
+								<div class="banner-wrap">
+									<div class="banner-info1">
+										<p>Descubre más con un clic</p>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
 
-<div id="main-carousel" class="owl-carousel owl-theme">
-
-	<div class="item">
-		<img src="{{asset('images/carrusel/banner_1.jpg')}}" alt="Damas, Caballeros y Niños">
-		<p class="center">Damas, Caballeros y Niños</p>
-	</div>
-	<div class="item">
-		<img src="{{asset('images/carrusel/banner_2.jpg')}}" alt="Todo lo que necesites a tu alcance">
-		<p class="center">Todo lo que necesites a tu alcance</p>
-	</div>
-	<div class="item">
-		<img src="{{asset('images/carrusel/banner_3.jpg')}}" alt="Descubre más con un clic">
-		<p class="center">Descubre más con un clic</p>
-	</div>
-
-</div>
-
-<div class="container">
-	<div class="row">
-		<h1 class="center col s12">No pierdas mas tiempo,<br>encuentra con nosotros lo que necesitas</h1>
-		
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-image">
-					<img src="{{asset('images/img4.jpg')}}">
-					<span class="card-title">Descuentos de hasta el 50%</span>
-				</div>
-				<div class="card-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-				</div>
-			</div>
-		</div>
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-image">
-					<img src="{{asset('images/15.jpg')}}">
-					<span class="card-title">Encuentra lo más nuevo</span>
-				</div>
-				<div class="card-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
 				</div>
 			</div>
 		</div>
-		<div class="col s12 m6 l4">
-			<div class="card">
-				<div class="card-image">
-					<img src="{{asset('images/16.jpg')}}">
-					<span class="card-title">Los mejores diseños de temporada</span>
-				</div>
-				<div class="card-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+		<!-- //banner -->
+		<!-- banner-bottom -->
+		<div class="banner-bottom">
+			<div class="container">
+				<div class="banner-bottom-grids">
+					<div class="banner-bottom-grid-left animated wow slideInLeft" data-wow-delay=".5s">
+						<div class="grid">
+							<figure class="effect-julia">
+								<img src="{{asset('administrador/images/47.jpg')}}" alt=" " class="img-responsive" />
+								<figcaption>
+									<h3>La mejor <span> manera</span><i> de comprar</i></h3>
+									<div>
+										<p>No pierdas mas tiempo</p>
+										<p>Conocenos y encuentra</p>
+										<p>todo lo que necesitas</p>
+									</div>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+					<div class="banner-bottom-grid-left1 animated wow slideInUp" data-wow-delay=".5s">
+						<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
+							<div class="banner-bottom-grid-left-grid1">
+								<img src="{{asset('administrador/images/img4.jpg')}}" alt=" " class="img-responsive" />
+							</div>
+							<div class="banner-bottom-grid-left1-pos">
+								<p>Descuentos desde</p>
+							</div>
+						</div>
+						<div class="banner-bottom-grid-left-grid left1-grid grid-left-grid1">
+							<div class="banner-bottom-grid-left-grid1">
+								<img src="images/2.jpg" alt=" " class="img-responsive" />
+							</div>
+							<div class="banner-bottom-grid-left1-position">
+								<div class="banner-bottom-grid-left1-pos1">
+									<p>Encuentra lo más nuevo</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="banner-bottom-grid-right animated wow slideInRight" data-wow-delay=".5s">
+						<div class="banner-bottom-grid-left-grid grid-left-grid1">
+							<div class="banner-bottom-grid-left-grid1">
+								<img src="{{asset('administrador/images/62.jpg')}}" alt=" " class="img-responsive" />
+							</div>
+							<div class="grid-left-grid1-pos">
+								<p>Los mejores diseños <span>de temporada</span></p>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<h2 class="center col s12">Articulos populares</h2>
-		<div id="popular-carousel" class="owl-carousel owl-theme">
-			@each('components.article', $products, 'product')
-		</div>
-	</div>
-
-
-
-</div>
-
-{{--
-
+		<!-- //banner-bottom -->
+		<!-- collections -->
 		<div class="new-collections">
 			<div class="container">
 				<h3 class="animated wow zoomIn" data-wow-delay=".5s">Nuevos productos</h3>
@@ -92,7 +107,8 @@
 					</div>
 				</div>
 			</div>
-
+			<!-- //collections -->
+			<!-- new-timer -->
 			<div class="timer">
 				<div class="container">
 					<div class="timer-grids">
@@ -124,6 +140,7 @@
 									dolorem eum fugiat quo voluptas nulla pariatur.</h4>
 									<p><a class="item_add timer_add" href="#">al carrito </a></p>
 								</div>
+								<!-- <div id="counter"> </div> -->
 
 							</div>
 							<div class="col-md-4 timer-grid-right animated wow slideInRight" data-wow-delay=".5s">
@@ -138,7 +155,9 @@
 						</div>
 					</div>
 				</div>
-
+				<!-- //new-timer -->
+				<!-- collections-bottom -->
+				<!-- <div class="collections-bottom">
 					<div class="container">
 						<div class="collections-bottom-grids">
 							<div class="collections-bottom-grid animated wow slideInLeft" data-wow-delay=".5s">
@@ -155,6 +174,6 @@
 							</form>
 						</div>
 					</div>
-				</div>
---}}
+				</div> -->
+				<!-- //collections-bottom -->
 @stop
