@@ -12,11 +12,11 @@
 			<form  role="form" method="POST" action="{{ url('/login') }}" class="col s12">
 				{{ csrf_field() }}
 				<div class="input-field col s12">
-					<input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+					<input id="username" type="text" name="username" value="{{ old('username') }}" required autofocus>
 					<label for="user">Usuario</label>
 				</div>
 				<div class="input-field col s12">
-					<input id="password" type="password" class="form-control" name="password" required>
+					<input id="password" type="password" name="password" required>
 					<label for="password">Contraseña</label>
 				</div>
 
