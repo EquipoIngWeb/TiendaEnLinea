@@ -1,45 +1,81 @@
 @inject('categories', 'App\Repositories\Categories')
-<!-- header -->
-<div class="header">
-	<div class="container">
-		<div class="logo-nav">
-			<div class="logo-nav-left animated wow zoomIn" data-wow-delay=".5s">
-				<h1><a href="{{ url('/') }}"><img src="{{asset('img/Logo1.png')}}" width="90" height="90"><span></span></a></h1>
-			</div>
-			<div class="logo-nav-left1">
-				<nav class="navbar navbar-default">
-					<div class="navbar-header nav_2">
-						<button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
+
+{{--
+	Nota: La libreria "materializecss" indica que los elementos dropdown
+		de la barra de navegacion deben de ir afuera de la misma, y dentro
+		solo se agregara el enlace para accionar dicho dropdown.
+
+		http://materializecss.com/navbar.html
+--}}
+@foreach ($categories->getMenu() as $category)
+	<ul id="{{$category->name}}" class="dropdown-content">
+
+		@foreach ($category->children as $category_second)
+			<li>
+				<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}">
+					{{$category_second->name}}
+				</a>
+			</li>
+			<li class="divider"></li>
+		@endforeach
+	</ul>
+@endforeach
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="{{ route('home') }}" class="brand-logo hide-on-small-only">
+			<img src="{{asset('img/Logo1.png')}}" alt="Logo lara-shop" id="logo">
+		</a>
+		{{-- Boton para sidebar, telefonos y tablets --}}
+		<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+		
+		<ul class="right">
+
+			<li class="active"><a href="{{route ('login')}}">Iniciar sesion</a></li>
+			
+		</ul>
+
+		{{-- Menu normal --}}
+		<ul class="right hide-on-med-and-down">
+
+			<li><a href="{{route ('home')}}">Inicio</a></li>
+			@foreach ($categories->getMenu() as $category)
+				<li>
+					<a href="#" class="dropdown-button" data-activates="{{$category->name}}">
+						{{$category->name}}
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+				</li>
+			@endforeach
+		</ul>
+
+
+		{{-- Menu responsivo. --}}
+		<ul class="side-nav" id="mobile-menu">
+			<li><a href="{{route ('home')}}">Inicio</a></li>
+			@foreach ($categories->getMenu() as $category)
+				<li class="divider"></li>
+				<li class="active"><a href="">{{$category->name}}</a></li>
+				@foreach ($category->children as $category_second)
+					<li>
+						<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}">
+							{{$category_second->name}}
+						</a>
+					</li>
+				@endforeach
+				
+			@endforeach
+
+		</ul>
+	</div>
+</nav>
+
+
+{{--
 					<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="{{url ('/')}}" class="act">Inicio</a></li>
-							@foreach ($categories->getMenu() as $category)
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{$category->name}} <b class="caret"></b></a>
-									<ul class="dropdown-menu multi-column columns-3">
-										<div class="row">
-											@foreach ($category->children as $category_second)
-												<div class="col-sm-4">
-													<ul class="multi-column-dropdown">
-														<h6><a href="{{ url('/category/'.$category_second->id) }}">{{$category_second->name}}</a></h6>
-														@foreach ($category_second->children as $category_third )
-															<li><a href="{{ url('/category/'.$category_third->id) }}">{{$category_third->name}}</a></li>
-														@endforeach
-													</ul>
-												</div>
-											@endforeach
-											<div class="clearfix"></div>
-										</div>
-									</ul>
-								</li>
-							@endforeach
-							{{-- <li><a href="short-codes.html">Short Codes</a></li> --}}
+							
+
 							<li><a href="mail.html">Mail Us</a></li>
 							@if (Auth::guest())
 							<li><a href="{{ url('/login') }}">Ingresar</a></li>
@@ -92,6 +128,7 @@
 		</div>
 	</div>
 </div>
+--}}
 
 <!-- //header -->
 
