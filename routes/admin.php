@@ -16,11 +16,11 @@ Route::get('/','AdminController@index');
 Route::get('users','AdminController@users');
 Route::delete('users/{id}','UserController@destroy');
 Route::get('categories/{category}/products','ProductController@ofCategories');
+Route::get('categories/{category}/products/create','ProductController@create');
 Route::get('categories/{category}/products/{id}','ProductController@edit');
 
 Route::get('categories/add/{id_first}','CategoryController@add');
 Route::get('categories/add/{id_first}','CategoryController@add');
-Route::get('categories/{category}/products/create','ProductController@create');
 Route::post('categories/{category}/products/csv','ProductController@csv');
 Route::resource('categories','CategoryController');
 Route::resource('brands','BrandController');
@@ -29,6 +29,7 @@ Route::resource('colors','ColorController');
 
 Route::resource('products','ProductController');
 
+Route::post('images/setdefault','ImageController@seDefault');
 Route::post('images/upload','ImageController@upload');
 Route::delete('images/delete','ImageController@delete');
 Route::get('images/directories/', 'ImageController@directories');

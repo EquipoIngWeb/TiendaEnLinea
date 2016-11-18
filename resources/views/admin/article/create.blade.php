@@ -1,18 +1,16 @@
 @extends('admin.app')
 @section('header')
-Agregar Producto a {{$category->name}}
+Agregar Articulo <small>a <span class="category">{{$category->name}}</span></small>
 @stop
 @section('content')
 <div class="panel panel-widget forms-panel">
-	<div class="forms">
-		<div class="form-grids widget-shadow">
-	   		<div class="form-body">
+			<div class="form-body">
 				<form action="{{ url('admin/products/') }}" method="POST">
 					{{ csrf_field() }}
 					<input type="hidden" value="{{URL::previous()}}" name="redirect">
 					<input type="hidden" value="{{$category->id}}" name="category">
 					<div class="form-group">
-						<label for="inputName">Nombre del producto:</label>
+						<label for="inputName">Nombre del articulo:</label>
 						<input type="text" class="form-control" name="name" value="{{old('name')}}" placeholder="Nombre" required>
 					</div>
 					<div class="form-group">
@@ -28,11 +26,9 @@ Agregar Producto a {{$category->name}}
 								@endforeach
 							</select>
 					</div>
-					<button type="submit" class="btn btn-default">Guardar</button>
+					<button type="submit" class="btn btn-warning">Guardar</button>
 					<a href="{{ URL::previous()}}" class="btn btn-danger">Cancelar</a>
 				</form>
 			</div>
-		</div>
-	</div>
 </div>
 @stop

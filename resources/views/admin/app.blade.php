@@ -30,12 +30,7 @@
 				@include('admin.section.header')
 				<!--content-->
 				<div class="content">
-					@if (session()->has('message'))
-						<div class="alert alert-info">
-							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-							<strong>{{ session()->get('message') }}</strong>
-						</div>
-					@endif
+
 					<div class="page-header">
 					  <h1>
 						@yield('header', 'Menu Principal')
@@ -62,8 +57,23 @@
 		<script src="{{ asset('administrador/js/jquery.fn.gantt.js') }}"></script>
 		<script src="{{ asset('administrador/js/amcharts.js') }}"></script>
 		<script src="{{ asset('administrador/js/serial.js') }}"></script>
+		<script src="{{ asset('administrador/js/toaster.js') }}"></script>
 		<script>
 			$(document).ready(function() {
+				@if (session()->has('message'))
+						$.toaster({
+							toaster:
+									    {
+									        'css'       :
+									        {
+									            'top'      : '80px',
+									        }
+									    },
+							priority : 'success' || null,
+							title    : 'Información' || null,
+							message  : '{{session()->get('message')}}' || 'A message is required'
+						});
+				@endif
 				var toggle = true;
 				$(".sidebar-icon").click(function() {
 					if (toggle)

@@ -3,8 +3,8 @@
  Marcas
 @stop
 @section('content')
-	@foreach ($brands->chunk(4) as $row)
-		<div class="grids_of_4">
+	@foreach ($brands->chunk(6) as $row)
+		<div class="row">
 			@each ('admin.brand.item', $row, 'brand')
 			<div class="clearfix"></div>
 		</div>

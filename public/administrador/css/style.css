@@ -819,10 +819,7 @@ li#menu-academico{
 	#loginForm span a:hover{
 		text-decoration:underline;
 	}
-	input:focus {
-		outline:none;
-	}
-	/*-- header --*/
+
 	.logo {
 		float: left;
 		margin: 1.5em 0;
@@ -835,43 +832,6 @@ li#menu-academico{
 		padding: 1em 0;
 		width:83%;
 		margin:0 auto;
-	}
-	/*search*/
-	.search{
-		position: relative;
-		background: #f3f4f5;
-		border: 1px solid #D8D8D8;
-	}
-	.search form{
-		width:100%;
-	}
-	.search input[type="text"]{
-		margin:0px 0;
-		padding:8px 16px;
-		outline: none;
-		color: #5a5a5a;
-		background: none;
-		border: none;
-		width:91.33333%;
-		line-height: 1.5em;
-		position: relative;
-		font-size: 0.8725em;
-		-webkit-appearance: none;
-		text-transform: capitalize;
-	}
-	.search input[type="text"]:hover{
-		background: #ffffff;
-	}
-	.search input[type="submit"]{
-		background: url('../images/search.png') no-repeat 0px 1px;
-		border: none;
-		cursor: pointer;
-		width: 24px;
-		outline: none;
-		position: absolute;
-		height: 24px;
-		top: 6px;
-		right: 5px;
 	}
 	.log {
 		float: left;
@@ -3555,9 +3515,6 @@ li#menu-academico{
 		margin-right: 0px!important;
 		margin-left: 0px!important;
 	}
-	.form-control {
-		color: #C5C5CF !important;
-	}
 	input[type="date"] {
 		width: 95%;
 		font-size: 16px !important;
@@ -5912,6 +5869,9 @@ li#menu-academico{
 .image .caption .options{
 	background: #222;
 }
+.caption .options .btn{
+	padding: 3px!important;
+}
 .image{
 	border-radius: 0;
 }
@@ -5929,4 +5889,27 @@ ul.categories li img{
 	width: auto;
 	margin: 5px;
 
+}
+ .category{
+	color: #b52e31;
+}
+.product img{
+	max-height: 150px;
+}
+.product h4 a{
+	padding: 13px;
+	color: #fff;
+}
+.product p a{
+	padding: 10px;
+	color: #222;
+}
+.modal-content{
+	border-radius: 0;
+	border-color:rgb(6, 217, 149);
+}
+.modal-content .modal-header{
+	color: #fff;
+	background-color:rgb(6, 217, 149);
+	border-color:rgb(6, 217, 149);
 }
