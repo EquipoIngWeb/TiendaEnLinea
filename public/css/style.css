@@ -1,3 +1,29 @@
 #logo{
 	width: 80px;
 }
+
+#main-carousel .item img{
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.item p{
+	width: 100%;
+	font-size: 30px;
+
+	color: #FFF;
+	background-color: rgba(0,0,0,0.7);
+
+	margin: 0px;
+	padding: 10px;	
+	position: absolute;
+
+	bottom: 0px;
+}
+
+@media screen and (max-width: 700px){
+	.item p{
+		font-size: 20px;
+
+	}
+}

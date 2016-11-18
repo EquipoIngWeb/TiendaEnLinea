@@ -1,6 +1,23 @@
 @extends('layouts.app')
 @section('content')
-		<!-- banner -->
+
+<div id="main-carousel" class="owl-carousel owl-theme">
+
+	<div class="item">
+		<img src="{{asset('images/carrusel/banner_1.jpg')}}" alt="Damas, Caballeros y Niños">
+		<p class="center">Damas, Caballeros y Niños</p>
+	</div>
+	<div class="item">
+		<img src="{{asset('images/carrusel/banner_2.jpg')}}" alt="Todo lo que necesites a tu alcance">
+		<p class="center">Todo lo que necesites a tu alcance</p>
+	</div>
+	<div class="item">
+		<img src="{{asset('images/carrusel/banner_3.jpg')}}" alt="Descubre más con un clic">
+		<p class="center">Descubre más con un clic</p>
+	</div>
+
+</div>
+{{--
 		<div class="banner">
 			<div class="container">
 				<div class="banner-info animated wow zoomIn" data-wow-delay=".5s">
@@ -8,7 +25,7 @@
 						<div class="wmuSliderWrapper">
 							<article style="position: absolute; opacity: 0;">
 								<img src="{{asset('images/carrusel/ba1.jpg')}}" width="100%" height="100%">
-								<!-- <h4>Up to <span>50% <i>Off/-</i></span></h4> -->
+
 								<div class="banner-wrap">
 									<div class="banner-info1">
 										<p>Damas + Caballeros + Niños</p>
@@ -37,8 +54,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- //banner -->
-		<!-- banner-bottom -->
+
 		<div class="banner-bottom">
 			<div class="container">
 				<div class="banner-bottom-grids">
@@ -91,8 +107,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- //banner-bottom -->
-		<!-- collections -->
+
 		<div class="new-collections">
 			<div class="container">
 				<h3 class="animated wow zoomIn" data-wow-delay=".5s">Nuevos productos</h3>
@@ -107,8 +122,7 @@
 					</div>
 				</div>
 			</div>
-			<!-- //collections -->
-			<!-- new-timer -->
+
 			<div class="timer">
 				<div class="container">
 					<div class="timer-grids">
@@ -140,7 +154,6 @@
 									dolorem eum fugiat quo voluptas nulla pariatur.</h4>
 									<p><a class="item_add timer_add" href="#">al carrito </a></p>
 								</div>
-								<!-- <div id="counter"> </div> -->
 
 							</div>
 							<div class="col-md-4 timer-grid-right animated wow slideInRight" data-wow-delay=".5s">
@@ -155,9 +168,7 @@
 						</div>
 					</div>
 				</div>
-				<!-- //new-timer -->
-				<!-- collections-bottom -->
-				<!-- <div class="collections-bottom">
+
 					<div class="container">
 						<div class="collections-bottom-grids">
 							<div class="collections-bottom-grid animated wow slideInLeft" data-wow-delay=".5s">
@@ -174,6 +185,6 @@
 							</form>
 						</div>
 					</div>
-				</div> -->
-				<!-- //collections-bottom -->
+				</div>
+--}}
 @stop

@@ -9,6 +9,8 @@
 
 	<meta name="keywords" content="" />
 	<link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
+	<link href="{{ asset('css/owl.theme.css') }}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
