@@ -41,4 +41,8 @@ class Product extends Model
 	{
 		return $this->hasMany('App\Comment');
 	}
+	public function inventories()
+	{
+		return $this->hasMany('App\Inventory');
+	}
 }

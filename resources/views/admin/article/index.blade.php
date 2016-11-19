@@ -11,30 +11,33 @@
 		color: #222!important;
 	}
 </style>
-	@forelse($category->products->chunk(6) as $products)
-		<div class="row">
-			@foreach ($products as $product)
-				<div class="col-md-2">
-					<div class="thumbnail image product">
-						<a href="{{ url("admin/categories/$category->id/products/$product->id") }}">
-							<img src="{{ $product->image }}" class="img-responsive" width="100%" alt="">
-						</a>
-						<div class="caption">
-							<h4><a href="details.html"> {{$product->name}}</a></h4>
-							<p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> <a href="">{{$product->brand()->first()->name}}</a></p>
-							<div class="options">
-									<button type="submit" class="btn btn-primary btn-delete">
-										<span class="glyphicon glyphicon-trash"></span> ELIMINAR
-									</button>
+	@if (isset($category))
+		@forelse($category->products->chunk(6) as $products)
+			<div class="row">
+				@foreach ($products as $product)
+					<div class="col-md-2">
+						<div class="thumbnail image product">
+							<a href="{{ url("admin/categories/$category->id/products/$product->id") }}">
+								<img src="{{ $product->image }}" class="img-responsive" width="100%" alt="">
+							</a>
+							<div class="caption">
+								<h4><a href="details.html"> {{$product->name}}</a></h4>
+								<p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> <a href="">{{$product->brand()->first()->name}}</a></p>
+								<div class="options">
+										<button type="submit" class="btn btn-primary btn-delete">
+											<span class="glyphicon glyphicon-trash"></span> ELIMINAR
+										</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			@endforeach
-		</div>
-	@empty
-		<h5>Categoria sin Articulos</h5>
-	@endforelse
+				@endforeach
+			</div>
+		@empty
+			<h5>Categoria sin Articulos</h5>
+		@endforelse
+
+	@endif
 	@foreach ($categories as $category)
 		@if (sizeof($category->children)>0)
 			<div class="panel panel-default">

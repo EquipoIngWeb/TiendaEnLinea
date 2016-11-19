@@ -9,4 +9,8 @@ class Color extends Model
     protected $fillable = [
 		'id', 'name', 'example'
 	];
+	public function inventories()
+	{
+		return $this->hasMany('App\Inventory');
+	}
 }
