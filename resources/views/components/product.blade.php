@@ -17,5 +17,6 @@
 
 	{{$product->description}} <br>
 	<b>${{$product->price}}</b> <br>
-	<a href="" class="btn orange">Al carrito</a>
+	
+	<a href="{{route('add_to_cart',['product_id'=>$product->id])}}" class="btn orange">Al carrito</a>
 </div>

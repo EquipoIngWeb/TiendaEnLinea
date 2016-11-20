@@ -17,7 +17,7 @@ Route::get('/checkout',function () {
 
 Route::get('/','homeController@index')->name('home');
 Route::get('/category/{category_id}','categoryController@show')->name('view_category');
-
+Route::get('/add_cart/{product_id}','productController@addToCart')->name('add_to_cart');
 
 Route::get('/view/{product_id}','productController@show')->name('view_product');
 

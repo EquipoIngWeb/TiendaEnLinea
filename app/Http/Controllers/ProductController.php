@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Products;
+use App\Cart;
 use App\Repositories\Categories;
 use App\Repositories\Brands;
 use App\Repositories\Comments;
@@ -17,12 +18,14 @@ class ProductController extends Controller
 	protected $categories;
 	protected $brands;
 	protected $comments;
-	function __construct(Products $products,Categories $categories,Brands $brands,Comments $comments)
+	protected $cart;
+	function __construct(Products $products,Categories $categories,Brands $brands,Comments $comments,Request $request)
 	{
 		$this->products = $products;
 		$this->brands = $brands;
 		$this->categories = $categories;
 		$this->comments = $comments;
+		$this->cart = new Cart($request);
 	}
 	/**
 	 * Display a listing of the resource.
@@ -142,6 +145,12 @@ class ProductController extends Controller
 	public function destroy($id)
 	{
 		//
+	}
+	public function addToCart($id)
+	{
+		$product = $this->products->findOrFail($id);
+		$this->cart->add($product);
+		return redirect()->back()->with('message','Producto agregado a carrito.');
 	}
 	public function saveComment($id,Request $request)
 	{
