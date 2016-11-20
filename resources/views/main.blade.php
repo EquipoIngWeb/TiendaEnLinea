@@ -68,7 +68,9 @@
 	<div class="row">
 		<h2 class="center col s12">Articulos populares</h2>
 		<div id="popular-carousel" class="owl-carousel owl-theme">
-			@each('components.article', $products, 'product')
+			@foreach($products as $product)
+				@include('components.product',['product'=>$product,'format'=>'owl-carousel'])
+			@endforeach
 		</div>
 	</div>
 

@@ -26,6 +26,12 @@ class Category extends Model
 	{
 		return $this->belongsToMany('App\Category', 'subcategories', 'child_id', 'parent_id')->with('children');
 	}
+	public function parent(){
+		if($this->parents()->count() == 0)
+			return 1;
+		return $this->parents()->first();
+
+	}
 	public function getImageAttribute()
 	{
 		$images_array = \Storage::disk('local')->files('images/categories/'.$this->attributes['id'].'-'.$this->attributes['name']);
