@@ -42,7 +42,7 @@ class ProductsTableSeeder extends Seeder
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
-					'name'=>'Playera Blanca Manga ColorsTableSeeder.php',
+					'name'=>'Playera Blanca Manga ',
 					'price'=>'199',
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
@@ -57,7 +57,7 @@ class ProductsTableSeeder extends Seeder
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 				];
-		$category = App\Category::where('name','Ropa')->first();
+		$category = App\Category::where('name','Playeras')->first();
 		foreach ($articles as $article) {
 			$product = new App\Product();
 			$product->fill($article);
@@ -110,7 +110,7 @@ class ProductsTableSeeder extends Seeder
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 			];
-			$category = App\Category::where('name','Calzado')->first();
+			$category = App\Category::where('name','Deportivo')->first();
 			foreach ($articles as $article) {
 				$product = new App\Product();
 				$product->fill($article);

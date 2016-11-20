@@ -26,54 +26,12 @@ class Category extends Model
 	{
 		return $this->belongsToMany('App\Category', 'subcategories', 'child_id', 'parent_id')->with('children');
 	}
-	public function countChildren()
+	public function getImageAttribute()
 	{
-		return count($this->children()->get());
-	}
-	public function countParents()
-	{
-		return count($this->parents()->get());
-	}
-	public function hasChildren()
-	{
-		return $this->countChildren() > 0;
-	}
-	public function hasParents()
-	{
-		return $this->countParents() > 0;
-	}
-	public function isParent($parent)
-	{
-		return $this->parents()->find($parent);
-	}
-	public function getChildren($parents = [])
-	{
-		$children = collect([]);
-		$subcategories= $this->children()->get();
-		foreach ($subcategories as $subcategory) {
-			$flat=false;
-			foreach ($subcategories as $brother) {
-				if ($subcategory->isParent($brother->id)) {
-					$flat=true;
-					break;
-				}
-			}
-			if (!$flat) {
-				if (sizeof($parents)>0) {
-					$count=0;
-					foreach ($parents as $parent) {
-						if ($subcategory->isParent($parent)) {
-							$count++;
-						}
-					}
-					if ($count == sizeof($parents)) {
-						$children->push($subcategory);
-					}
-				}else{
-					$children->push($subcategory);
-				}
-			}
+		$images_array = \Storage::disk('local')->files('images/categories/'.$this->attributes['id'].'-'.$this->attributes['name']);
+		if (sizeof($images_array)==0) {
+			return asset('images/default.jpg');//'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
 		}
-		return $children;
+		return asset($images_array[0]);
 	}
 }

@@ -97,7 +97,8 @@ class ProductController extends Controller
 	public function show($id)
 	{
 		$product = $this->products->findOrFail($id);
-		return view('product.show',compact('product'));
+		$comments = $this->comments->getAprovedOfProduct($id);
+		return view('product.show',compact('product','comments'));
 	}
 
 	/**
@@ -106,9 +107,18 @@ class ProductController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($id)
+	public function edit($category,$product)
 	{
-		//
+    	$root='images/categories/';
+    	$category = $this->categories->findOrFail($category);
+    	$product = $this->products->findOrFail($product);
+    	$root.="$category->id-$category->name/$product->id-$product->name/";
+    	$images_array = \Storage::disk('local')->files($root);
+		$images = collect([]);
+ 		foreach ($images_array as $index => $image) {
+			$images->put($index,['name'=> str_replace([$root,'.png','.jpg'],["",'',''], $image),'url'=> $image]);
+ 		}
+ 		return view('admin.article.show',compact('product','images','root'));
 	}
 
 	/**
@@ -141,7 +151,8 @@ class ProductController extends Controller
 				['user_id'=>Auth::user()->id,'product_id'=>$id]
 			)
 		);
-		 return redirect(route('view_product',['product_id'=>$id]))->with('message','Mensaje agregado');
+
+		 return redirect()->back()->with('message','Mensaje agregado');
 
 	}
 }

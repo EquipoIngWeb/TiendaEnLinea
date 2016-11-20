@@ -15,10 +15,6 @@ class Products  extends BaseRepository
 	public function create($data){
 		return $this->insert($data);
 	}
-	public function getOfCategories($first='',$second='',$third='')
-	{
-
-	}
 }
  ?>
 
