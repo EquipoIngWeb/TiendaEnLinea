@@ -11,9 +11,12 @@ class Inventories  extends BaseRepository
 	public function create($data){
 		return $this->save($data);
 	}
-	public function getAllWithProducts()
+	public function getAllWithProduct()
 	{
-		return $this->getModel()->with('specifications')->get();
+		return $this->getModel()->with(['specification'=>function ($query)
+		{
+			return $query->with('product');
+		}])->get();
 	}
 	public function getBySpecification($specification_id='')
 	{

@@ -63,7 +63,7 @@
 			<li>
 				<a href="{{ url('admin/comments') }}">
 					<i class="fa fa-list"></i>
-					<span>Comentario</span>
+					<span>Comentarios</span>
 				</a>
 			</li>
 
