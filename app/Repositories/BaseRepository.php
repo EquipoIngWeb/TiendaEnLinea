@@ -4,12 +4,13 @@ namespace App\Repositories;
 
 abstract class BaseRepository
 {
-	abstract function getModel();
-
+	protected $model;
+	public function getModel(){
+		return $this->model;
+	}
 	public function getAll(){
 		return $this->getModel()->all();
 	}
-
 	public function paginate($total=15){
 		return $this->getModel()->paginate($total);
 	}

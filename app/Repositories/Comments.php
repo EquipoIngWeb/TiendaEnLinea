@@ -5,14 +5,9 @@ use Illuminate\Http\Request;
 
 class Comments  extends BaseRepository
 {
-	private $model;
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-	function getModel(){
-		return $this->model;
-	}
-
 	public function getAprovedOfProduct($product)
 	{
 		return $this->getModel()->where('status',1)->where('product_id',$product)->with('user')->get();

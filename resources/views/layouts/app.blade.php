@@ -13,7 +13,7 @@
 	<link href="{{ asset('css/owl.transitions.css') }}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet" type="text/css" media="all" />
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-	
+
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Ewert&subset=latin" rel="stylesheet" type="text/css">
 	<link href="//fonts.googleapis.com/css?family=EB Garamond&subset=latin" rel="stylesheet" type="text/css">
@@ -33,6 +33,12 @@
 	<script src="{{ asset('js/materialize.min.js') }}"></script>
 	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('js/script.js') }}"></script>
-		
+		<script>
+			$(document).ready(function() {
+				@if (session()->has('message'))
+ 					Materialize.toast('{{session()->get('message')}}!', 4000) ;
+				@endif
+			});
+		</script>
 </body>
 </html>

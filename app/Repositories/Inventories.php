@@ -5,19 +5,19 @@ use Illuminate\Http\Request;
 
 class Inventories  extends BaseRepository
 {
-	private $model;
 	function __construct(Model $model){
 		$this->model = $model;
-	}
-	function getModel(){
-		return $this->model;
 	}
 	public function create($data){
 		return $this->save($data);
 	}
 	public function getAllWithProducts()
 	{
-		return $this->getModel()->with('product')->get();
+		return $this->getModel()->with('specifications')->get();
+	}
+	public function getBySpecification($specification_id='')
+	{
+		return $this->getModel()->where('specification_id',$specification_id)->first();
 	}
 }
  ?>

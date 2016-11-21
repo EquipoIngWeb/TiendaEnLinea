@@ -7,13 +7,13 @@
 		<ul id="menu" >
 			<li><a href="{{ url('admin') }}"><i class="fa fa-tachometer"></i> <span>Principal</span></a></li>
 			<li>
-				<a href="{{ url('/') }}">
+				<a href="{{ url('admin/sales') }}">
 					<i class="fa fa-shopping-cart"></i>
 					<span>Ventas</span>
 				</a>
 			</li>
 			<li>
-				<a href="{{ url('/') }}">
+				<a href="{{ url('admin/inventories') }}">
 					<i class="fa fa-list-ol"></i>
 					<span>Inventario</span>
 				</a>

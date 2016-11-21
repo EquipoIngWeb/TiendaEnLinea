@@ -8,6 +8,7 @@ use App\Color;
 use App\Size;
 use App\Discount;
 use App\LineSale;
+use App\Inventory;
 class Specification extends Model
 {
 	protected $fillable = [
@@ -32,6 +33,10 @@ class Specification extends Model
 	public function lineSales()
 	{
 		return $this->hasMany(LineSale::class);
+	}
+	public function inventory()
+	{
+		return $this->hasOne(Inventory::class);
 	}
 }
 

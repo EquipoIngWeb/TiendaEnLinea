@@ -7,7 +7,7 @@ Menu Principal
 	<div class="row home">
 		<div class="col-md-3">
 			<div class="thumbnail">
-				<a href="{{ url('/') }}">
+				<a href="{{ url('admin/sales') }}">
 					<div class="icon">
 						<i class="fa fa-shopping-cart"></i>
 					</div>
@@ -117,7 +117,19 @@ Menu Principal
 						<h3>Colores</h3>
 					</div>
 				</a>
-				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="thumbnail">
+				<a href="{{ url('admin/brands') }}">
+					<div class="icon">
+						<i class="fa fa-tags"></i>
+					</div>
+					<div class="caption">
+						<h3>Marcas</h3>
+					</div>
+				</a>
+			</div>
 		</div>
 	</div>
 @stop

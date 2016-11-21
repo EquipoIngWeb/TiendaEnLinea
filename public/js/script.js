@@ -2,6 +2,8 @@ $(function(){
 	// Inicializar componentes de "materializecss".
 	$(".button-collapse").sideNav();
 	$(".dropdown-button").dropdown();
+	 $('select').material_select();
+    $('.modal').modal();
 
 	//owl carousel
 	$("#main-carousel").owlCarousel({

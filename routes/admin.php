@@ -28,6 +28,7 @@ Route::resource('sizes','SizeController');
 Route::resource('colors','ColorController');
 
 Route::resource('products','ProductController');
+Route::resource('sales','SaleController');
 
 Route::post('images/setdefault','ImageController@seDefault');
 Route::post('images/change','ImageController@changeName');
