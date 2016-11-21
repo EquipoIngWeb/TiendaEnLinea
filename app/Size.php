@@ -3,14 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Specification;
 class Size extends Model
 {
     protected $fillable = [
 		'id', 'name'
 	];
-	public function inventories()
+	public function specifications()
 	{
-		return $this->hasMany('App\Inventory');
+		return $this->hasMany(Specification::class);
 	}
 }

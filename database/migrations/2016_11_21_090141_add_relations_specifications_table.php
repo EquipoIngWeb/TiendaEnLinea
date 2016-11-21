@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRelationsDescountsTable extends Migration
+class AddRelationsSpecificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddRelationsDescountsTable extends Migration
      */
     public function up()
     {
-    	Schema::table('discounts', function ($table) {
+    	Schema::table('specifications', function ($table) {
     		$table->foreign('product_id')->references('id')->on('products');
+    		$table->foreign('size_id')->references('id')->on('sizes');
+    		$table->foreign('color_id')->references('id')->on('colors');
     	});
     }
 	/**

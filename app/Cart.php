@@ -2,16 +2,14 @@
 	namespace App;
 
 	class Cart{
-
 		public function add($product)
 		{
 			if($this->total() == 0){
 				session(['cart' => []]);
 			}
-
 			if($this->has($product))
 			 	return $this->justAddOneToProduct($product);
-			
+
 			$this->addNew($product);
 		}
 		public function addNew($product,$quantity=1)
@@ -69,7 +67,7 @@
 			}
 			return false;
 		}
-		
+
 		public function get()
 		{
 			return session('cart');

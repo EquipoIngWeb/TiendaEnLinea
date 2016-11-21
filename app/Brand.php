@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Type;
+use App\Product;
 class Brand extends Model
 {
 	protected $fillable = [
@@ -11,7 +11,7 @@ class Brand extends Model
 	];
 	public function products()
 	{
-		return $this->hasMany('App\Product');
+		return $this->hasMany(Product::class);
 	}
 	public function getImageAttribute()
 	{

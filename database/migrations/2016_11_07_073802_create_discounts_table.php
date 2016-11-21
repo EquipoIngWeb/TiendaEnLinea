@@ -18,7 +18,7 @@ class CreateDiscountsTable extends Migration
             $table->string('name');
             $table->text('descripcion');
             $table->integer('percentage');
-			$table->integer('product_id')->unsigned();
+			$table->integer('specification_id')->unsigned();
             $table->timestamps();
         });
     }
