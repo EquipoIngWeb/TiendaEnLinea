@@ -7,6 +7,7 @@
 	<style>
 		td .btn{
 			padding: 3px 7px;
+
 		}
 	</style>
 	<div class="row">
@@ -18,6 +19,7 @@
 					<tr>
 						<th>#ID</th>
 						<th>Nombre</th>
+						<th>Marca</th>
 						<th>Color</th>
 						<th width="80px">Talla </th>
 						<th>Precio</th>
@@ -30,7 +32,8 @@
 					<tr>
 						<td>{{$inventory->product->id}}</td>
 						<td>{{$inventory->product->name}}</td>
-						<td>{{$inventory->color->name}}</td>
+						<td><img src="{{$inventory->product->brand->image}}" alt="{{$inventory->product->brand->name}}" title="{{$inventory->product->brand->name}}" class="img-responsive" width="50px"></td>
+						<td><div style="background:{{$inventory->color->example}};width: 50px;height: 15px; " title="{{$inventory->color->name}}"></div></td>
 						<td>{{$inventory->size->name}}</td>
 						<td>{{$inventory->price}}</td>
 						<td>{{$inventory->amount}}</td>
@@ -56,6 +59,8 @@
 										<option value="{{$product->id}}">{{$product->name}}</option>
 									@endforeach
 								</select>
+							</td>
+							<td>
 							</td>
 							<td>
 								<select name="color_id"  class="form-control" required="required">
