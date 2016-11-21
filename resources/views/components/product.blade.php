@@ -1,6 +1,6 @@
 
 <div
-	class="center 
+	class="center
 		@if($format == 'owl-carousel')
 			item
 		@elseif($format == 'materialize')
@@ -17,10 +17,5 @@
 
 	{{$product->description}} <br>
 	<b>${{$product->price}}</b> <br>
-<<<<<<< HEAD:resources/views/components/product.blade.php
-	<a href="" class="btn orange">Al carrito</a>
-=======
-	
 	<a href="{{route('add_to_cart',['product_id'=>$product->id])}}" class="btn orange">Al carrito</a>
->>>>>>> 82474d1ca03c465aaad51dd34e6f7a546274f3a3:resources/views/components/product.blade.php
 </div>
