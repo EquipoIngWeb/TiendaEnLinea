@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Comment;
+use App\Score;
 use App\Specification;
 class Product extends Model
 {
@@ -45,5 +46,9 @@ class Product extends Model
 	public function specifications()
 	{
 		return $this->hasMany(Specification::class);
+	}
+	public function scores()
+	{
+		return $this->hasMany(Score::class);
 	}
 }

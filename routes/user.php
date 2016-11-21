@@ -18,3 +18,4 @@ Route::get('/', function (Request $request) {
 });
 Route::post('/view/{product_id}','productController@saveComment')->name('save_comment_product');
 Route::post('/sale', 'SaleController@store');
+Route::post('score', 'ScoreController@store');

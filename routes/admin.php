@@ -29,6 +29,7 @@ Route::resource('colors','ColorController');
 
 Route::resource('products','ProductController');
 Route::resource('sales','SaleController');
+Route::get('scores','ScoreController@index');
 
 Route::post('images/setdefault','ImageController@seDefault');
 Route::post('images/change','ImageController@changeName');

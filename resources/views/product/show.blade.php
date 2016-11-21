@@ -38,6 +38,25 @@
 </div>
 <div class="container row">
 	<div class="col s12 m8 offset-m2">
+		@if (!Auth::guest())
+			<div class="row">
+			<form action="{{ url('user/score/') }}" method="post">
+				{{csrf_field()}}
+				<input type="hidden" name="product_id" value="{{$product->id}}">
+				<h2>Califica el producto:</h2>
+				<div class="input-field col s8">
+					<select name="score" onchange="this.form.submit();">
+						<option value="" disabled selected>Seleccione una opción</option>
+						<option value="0" >0</option>
+						<option value="1" >1</option>
+						<option value="2" >2</option>
+						<option value="3" >3</option>
+						<option value="4" >4</option>
+						<option value="5" >5</option>
+					</select>
+		        </div>
+			</form></div>
+		@endif
 		<h3>Lo que la gente cuenta:</h3>
 		<ul class="collection">
 			@foreach($product->comments as $comment)
@@ -48,19 +67,18 @@
 			</li>
 			@endforeach
 		</ul>
-
 		@if (Auth::guest())
-		<a class="btn" href="{{url('/login')}}">Inicia sesion para dejar un mensaje.</a>
+			<a class="btn" href="{{url('/login')}}">Inicia sesion para dejar un mensaje.</a>
 		@else
-		<form  role="form" method="POST" action="{{ route('save_comment_product',['product_id'=>$product->id]) }}">
-			{{ csrf_field() }}
+			<form  role="form" method="POST" action="{{ route('save_comment_product',['product_id'=>$product->id]) }}">
+				{{ csrf_field() }}
 
-			<div class="input-field col s12">
-				<textarea id="message" name="message" class="materialize-textarea"></textarea>
-				<label for="textarea1">Dejanos un mensaje</label>
-			</div>
-			<input type="submit" value="Dejar mensaje" class="btn">
-		</form>
+				<div class="input-field col s12">
+					<textarea id="message" name="message" class="materialize-textarea"></textarea>
+					<label for="textarea1">Dejanos un mensaje</label>
+				</div>
+				<input type="submit" value="Dejar mensaje" class="btn">
+			</form>
 		@endif
 	</div>
 </div>

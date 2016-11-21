@@ -39,6 +39,11 @@ class User extends Authenticatable
 	{
 	    return $this->hasMany(Comment::class);
 	}
+	public function scores()
+	{
+		return $this->hasMany(Score::class);
+	}
+
 	public function isAdmin()
 	{
 		return $this->attributes['role_id'] == "admin";
@@ -47,4 +52,5 @@ class User extends Authenticatable
 	{
 		return $this->attributes['role_id'] == "user";
 	}
+
 }
