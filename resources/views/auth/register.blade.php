@@ -19,7 +19,7 @@
 				deserunt mollit anim id est laborum.</p> --}}
 			<div class="login-form-grids">
 				{{-- <h5 class="animated wow slideInUp" data-wow-delay=".2s">profile information</h5> --}}
-			    <form class="animated wow slideInUp" data-wow-delay=".2s" role="form" method="POST" action="{{ url('/register') }}">
+			    <form class="animated wow slideInUp" data-wow-delay=".2s" role="form" method="POST" action="{{ url('/store') }}">
                     {{ csrf_field() }}
 
 						<div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
@@ -49,7 +49,7 @@
                                 @endif
                             <!-- </div> -->
                         </div>
-                        
+
 						<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <!-- <label for="email" class="col-md-4 control-label">E-Mail</label> -->
 

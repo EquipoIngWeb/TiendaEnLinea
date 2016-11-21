@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Validator;
 use App\Repositories\Users;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserRequest;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -40,30 +40,29 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    public function store(UserRequest $user)
     {
-        return Validator::make($data, [
-            'username' => 'required|alpha_dash|max:255|unique:users',
-            'full_name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
+		$user = $user->all();
+		$user['confirmation_code'] = str_random(30);
+        $user = $this->users->save($user);
+
+		\Mail::send('email.confirmation', compact('user') , function($message) use ($user) {
+            $message->to($user->email, $user->full_name)
+                ->subject('Confirmación de cuenta de Lara-Shop');
+        });
+        return redirect()->back()->with('message','Gracias por Registrase! Favor de checar su correo.');
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
+    public function confirm($code='')
     {
-        return $this->users->insert($data);
+        $user = $this->users->getByCodeConfirmation($code);
+        if ( ! $user)
+        {
+        	return redirect('/')->with('message','Codigo de confirmación invalido');
+        }
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+        return redirect('/')->with('message','Listo para comenzar a comprar');
     }
 }

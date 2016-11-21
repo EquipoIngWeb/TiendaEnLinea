@@ -53,7 +53,8 @@ class InventoryController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$this->inventories->save($request->all());
+		$inventory = $this->inventories->save($request->all());
+		dd($inventory);
 		return redirect()->back()->with('message','Existencia agregada correctamente');
 	}
 

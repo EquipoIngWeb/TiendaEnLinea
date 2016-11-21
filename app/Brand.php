@@ -13,14 +13,12 @@ class Brand extends Model
 	{
 		return $this->hasMany('App\Product');
 	}
-	public function setImageAttribute($image='')
+	public function getImageAttribute()
 	{
-		$root='images/brands/';
-		if (is_string($image)) {
-			$this->attributes['image'] = $image;
-			return;
+		$image=$this->attributes['image'];
+		if (filter_var($image, FILTER_VALIDATE_URL)) {
+		    return $image;
 		}
-		$nombre = $image->getClientOriginalName();
-		$this->attributes['image'] = $root.$nombre;
+		return asset($image);
 	}
 }

@@ -39,8 +39,19 @@ class BrandController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		 $this->brands->save($request->all());
-		 return redirect('admin/brands')->with('message','Marca registrada con exito!');
+		$root='images/brands/';
+		$name = $request->image->getClientOriginalName();
+		$images_array = \Storage::disk('local')->files($root);
+		foreach ($images_array as $image) {
+			if (strpos($image, $name)) {
+				return redirect()->back()->with('message','Ya hay una imagen con ese nombre!');
+			}
+		}
+	    \Storage::disk('local')->put($root.$name,  \File::get($request->image));
+		$data = $request->except('image');
+		$data['image'] = $root.$name;
+		$this->brands->save($data);
+		return redirect('admin/brands')->with('message','Marca registrada con exito!');
 	}
 
 	/**

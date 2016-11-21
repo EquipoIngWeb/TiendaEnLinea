@@ -12,10 +12,14 @@ class Users  extends BaseRepository
 	function getModel(){
 		return $this->model;
 	}
-	
+
 	public function getUsers()
 	{
 		return $this->getModel()->where('role_id','user')->get();
+	}
+	public function getByCodeConfirmation($code='')
+	{
+		return $this->getModel()->where('confirmation_code',$code)->first();
 	}
 }
  ?>

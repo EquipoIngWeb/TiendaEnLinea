@@ -21,9 +21,11 @@ Route::get('/category/{category_id}','categoryController@show')->name('view_cate
 
 Route::get('/view/{product_id}','productController@show')->name('view_product');
 
-
+Route::post('/store','Auth\RegisterController@store');
 Auth::routes();
 
 Route::get('/principal', 'principalController@index');
 Route::get('/inicio', 'principalController@inicio'); //Vista principal
 Route::get('/category/{id}','ProductController@ofCategory'); //Categorias
+
+Route::get('register/verify/{id}','Auth\RegisterController@confirm');
