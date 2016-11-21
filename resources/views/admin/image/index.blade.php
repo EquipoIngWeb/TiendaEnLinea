@@ -41,7 +41,6 @@
 				    <input type="file"  class="upload" onchange="this.form.submit()"  name="images[]"  multiple=""  accept=" image/jpeg, image/png" />
 				</div>
 			</form>
-
 			@foreach($images->chunk(6) as $imgs)
 				<div class="row">
 					@each ('admin.image.image', $imgs, 'image')

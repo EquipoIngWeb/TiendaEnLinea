@@ -22,7 +22,7 @@
 			@foreach ($category->children as $category_second)
 				<div id="modal{{$category_second->id}}" class="modal bottom-sheet">
 				    <div class="modal-content">
-				      <h4>{{$category_second->name}}</h4>
+				      <h4><a href="{{ url('category/'.$category_second->id) }}">{{$category_second->name}}</a></h4>
 				      <p>
 							@foreach ($category_second->children->chunk(4) as $row)
 								<div class="row">

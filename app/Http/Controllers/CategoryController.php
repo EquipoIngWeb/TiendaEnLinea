@@ -67,9 +67,13 @@ class CategoryController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function show(Request $request,$id)
 	{
-		$category = $this->categories->findOrFail($id);
+		if ($request->has('filter')) {
+			$category = $this->categories->filterBy($id,$request->filter);
+		}else{
+			$category = $this->categories->findOrFail($id);
+		}
 		$products = $category->products;
 		return view('web.products',compact('category','products'));
 	}
