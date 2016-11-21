@@ -9,8 +9,8 @@
 			height: 20px!important;
 		}
 	</style>
-	@foreach ($colors->chunk(4) as $row)
-		<div class="grids_of_4">
+	@foreach ($colors->chunk(6) as $row)
+		<div class="row">
 			@each ('admin.color.item', $row, 'color')
 			<div class="clearfix"></div>
 		</div>

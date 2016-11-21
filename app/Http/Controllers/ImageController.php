@@ -45,6 +45,19 @@ class ImageController extends Controller
     {
         //
     }
+    public function changeName(Request $request)
+    {
+    	$images_array = Storage::disk('local')->files($request->root);
+		foreach ($images_array as $image) {
+			if (strpos($image, $request->name)) {
+        		return redirect()->back()->with('message','Ya hay una imagen con ese nombre! cambie nombre de imagen y vuelva a intentar');
+			}
+		}
+    	$info = pathinfo($request->image);
+    	Storage::move($request->image, $request->root.$request->name.".".$info['extension']);
+        //Storage::disk('local')->delete($request->image);
+        return redirect()->back()->with('message','Imagen default  seleccionada!');
+    }
     public function seDefault(Request $request)
     {
     	$images_array = Storage::disk('local')->files($request->root);
@@ -61,8 +74,8 @@ class ImageController extends Controller
     public function upload(Request $request)
     {
     	foreach ($request->images as $image) {
-		   $nombre = $image->getClientOriginalName();
-	       Storage::disk('local')->put($request->root.'/'.$nombre,  \File::get($image));
+		   $name = $image->getClientOriginalName();
+	       Storage::disk('local')->put($request->root.'/'.$name,  \File::get($image));
     	}
         return redirect()->back()->with('message','Imagen(es) Agregada(s) correctamente!');
     }

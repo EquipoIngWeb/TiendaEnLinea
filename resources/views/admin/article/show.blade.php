@@ -55,14 +55,24 @@ Articulo {{$product->name}}
 											Cambiar nombre a <span class="category">{{$image['name']}}</span>
 											</h4>
 										</div>
-										<form action="{{ url('admin/imagen/change') }}" action="POST">
-										<div class="modal-body">
-
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
-											<button type="submit" class="btn btn-warning">GUARDAR</button>
-										</div>
+										<form action="{{ url('admin/images/change') }}" method="POST">
+											{{ csrf_field() }}
+											<input type="hidden" name="root" value="{{$root}}">
+											<input type="hidden" name="image" value="{{$image['url']}}">
+											<div class="modal-body">
+												<div class="form-horizontal">
+													<div class="form-group">
+														<label for="inputName" class="col-sm-5 control-label">Nuevo nombre:</label>
+														<div class="col-sm-7">
+															<input type="text" name="name" class="form-control" value="{{old('name')}}" required="required">
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
+												<button type="submit" class="btn btn-warning">GUARDAR</button>
+											</div>
 										</form>
 									</div>
 								</div>
