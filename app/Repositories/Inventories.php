@@ -1,9 +1,9 @@
 <?php
 namespace App\Repositories;
-use  App\Size as Model;
+use  App\Inventory as Model;
 use Illuminate\Http\Request;
 
-class Types  extends BaseRepository
+class Inventories  extends BaseRepository
 {
 	private $model;
 	function __construct(Model $model){
@@ -13,7 +13,11 @@ class Types  extends BaseRepository
 		return $this->model;
 	}
 	public function create($data){
-		return $this->insert($data);
+		return $this->save($data);
+	}
+	public function getAllWithProducts()
+	{
+		return $this->getModel()->with('product')->get();
 	}
 }
  ?>

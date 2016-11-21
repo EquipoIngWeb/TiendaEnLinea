@@ -45,7 +45,7 @@ Menu Principal
 		</div>
 		<div class="col-md-3">
 			<div class="thumbnail">
-				<a href="{{ url('/') }}">
+				<a href="{{ url('admin/inventories') }}">
 					<div class="icon">
 						<i class="fa fa-list-ol"></i>
 					</div>

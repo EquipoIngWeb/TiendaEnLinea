@@ -1,16 +1,18 @@
-<div class="grid1_of_4">
-	<div class="content_box ">
-		<h4>
-			 {{$size->name}}
-		</h4>
-		<div class="grid_1 simpleCart_shelfItem">
-			<div class="item_add"><span class="item_price">
+<div class="col-md-2">
+	<div class="thumbnail image">
+		<h3>TALLA</h3>
+		<div class="caption">
+			<h4>
+				 {{$size->name}}
+			</h4>
+			<div class="options">
 				<form action="{{ url("admin/sizes/$size->id") }}" method="POST">
 					{{ csrf_field() }}
 					{{ method_field('DELETE') }}
-					<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></span>
+					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+

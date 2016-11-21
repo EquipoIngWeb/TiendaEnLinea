@@ -3,13 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\Brands;
-class BrandController extends Controller
+use App\Repositories\Inventories;
+use App\Repositories\Products;
+use App\Repositories\Sizes;
+use App\Repositories\Colors;
+
+class InventoryController extends Controller
 {
-	protected $brands;
-	function __construct(Brands $brands)
+	protected $products;
+	protected $sizes;
+	protected $colors;
+	protected $inventories;
+	function __construct(Inventories $inventories,Products $products,Sizes $sizes,Colors $colors)
 	{
-		$this->brands = $brands;
+		$this->inventories = $inventories;
+		$this->products = $products;
+		$this->sizes = $sizes;
+		$this->colors = $colors;
 	}
 	/**
 	 * Display a listing of the resource.
@@ -18,9 +28,13 @@ class BrandController extends Controller
 	 */
 	public function index()
 	{
-		$brands = $this->brands->getAll();
-		return view('admin.brand.index',compact('brands'));
+		$inventories = $this->inventories->getAllWithProducts();
+		$products = $this->products->getAll();
+		$sizes = $this->sizes->getAll();
+		$colors = $this->colors->getAll();
+		return view('admin.inventory.index',compact('inventories','products','sizes','colors'));
 	}
+
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -28,7 +42,7 @@ class BrandController extends Controller
 	 */
 	public function create()
 	{
-		return view('admin.brand.create');
+		//
 	}
 
 	/**
@@ -39,19 +53,9 @@ class BrandController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$root='images/brands/';
-		$name = $request->image->getClientOriginalName();
-		$images_array = \Storage::disk('local')->files($root);
-		foreach ($images_array as $image) {
-			if (strpos($image, $name)) {
-				return redirect()->back()->with('message','Ya hay una imagen con ese nombre!');
-			}
-		}
-	    \Storage::disk('local')->put($root.$name,  \File::get($request->image));
-		$data = $request->except('image');
-		$data['image'] = $root.$name;
-		$this->brands->save($data);
-		return redirect('admin/brands')->with('message','Marca registrada con exito!');
+		$inventory = $this->inventories->save($request->all());
+		dd($inventory);
+		return redirect()->back()->with('message','Existencia agregada correctamente');
 	}
 
 	/**
@@ -85,7 +89,8 @@ class BrandController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		//
+		$this->inventories->update($id,$request->all());
+		return redirect('admin/inventories')->with('message','Existencia Actualizada correctamente!');
 	}
 
 	/**
@@ -96,7 +101,7 @@ class BrandController extends Controller
 	 */
 	public function destroy($id)
 	{
-		 $this->brands->remove($id);
-		 return redirect('admin/brands')->with('message','Marca Eliminada!');
+		$this->inventories->remove($id);
+		return redirect()->back()->with('message','Existencia Borrada!');
 	}
 }
