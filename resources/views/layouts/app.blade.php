@@ -33,6 +33,10 @@
 	<script src="{{ asset('js/materialize.min.js') }}"></script>
 	<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('js/script.js') }}"></script>
-		
+	<script type="text/javascript">
+		$(function(){
+			$('.modal').modal();
+		});
+	</script>
 </body>
 </html>

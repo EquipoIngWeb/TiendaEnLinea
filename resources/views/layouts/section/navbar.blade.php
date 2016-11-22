@@ -7,6 +7,7 @@
 
 		http://materializecss.com/navbar.html
 --}}
+{{--
 @foreach ($categories->getMenu() as $category)
 	<ul id="{{$category->name}}" class="dropdown-content">
 
@@ -20,6 +21,34 @@
 		@endforeach
 	</ul>
 @endforeach
+--}}
+
+
+@foreach ($categories->getMenu() as $category)
+	<div id="{{$category->name}}" class="modal bottom-sheet row">
+		<div class="modal-content col s8">
+			<b class="row">{{$category->name}}</b>
+			<ul>
+				@foreach ($category->children as $category_second)
+					<div class="row">
+					<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}" class="orange btn s12 col">
+						{{$category_second->name}}
+					</a>
+					<hr>
+					@foreach ($category_second->children as $category_third)
+						<li>
+							<a href="{{ route('view_category',['category_id'=>$category_third->id]) }}" class="btn col s12 m4 l4">
+								{{$category_third->name}}
+							</a>
+						</li>	
+					@endforeach
+					</div>
+				@endforeach
+			</ul>
+		</div>
+	</div>
+@endforeach
+  
 
 {{--
 	El menu esta compuesto por 3 partes:
@@ -42,9 +71,7 @@
 			<li><a href="{{route ('home')}}">Inicio</a></li>
 			@foreach ($categories->getMenu() as $category)
 				<li>
-					<a href="#" class="dropdown-button" data-activates="{{$category->name}}">
-						{{$category->name}}
-						<i class="material-icons right">arrow_drop_down</i>
+					<a class="" href="#{{$category->name}}">{{$category->name}}
 					</a>
 				</li>
 			@endforeach
