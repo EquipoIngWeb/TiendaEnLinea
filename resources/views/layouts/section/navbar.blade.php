@@ -1,12 +1,12 @@
 @inject('categories', 'App\Repositories\Categories')
 @foreach ($categories->getMenu() as $category)
 	<div id="{{$category->name}}" class="modal bottom-sheet row">
-		<div class="modal-content col s8">
+		<div class="center modal-content col s12">
 			<b class="row">{{$category->name}}</b>
 			<ul>
 				@foreach ($category->children as $category_second)
 					<div class="row">
-					<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}" class="orange btn s12 col">
+					<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}" class="blue btn s12 col">
 						{{$category_second->name}}
 					</a>
 					<hr>
@@ -33,7 +33,7 @@
 <nav>
 	<div class="nav-wrapper">
 		<a href="{{ route('home') }}" class="brand-logo center hide-on-small-only">
-			<img src="{{asset('img/Logo1.png')}}" alt="Logo lara-shop" id="logo">
+			<img src="{{asset('img/Logo1.png')}}" alt="Logo lara-shop" id="logo" >
 		</a>
 		{{-- Boton para sidebar, telefonos y tablets --}}
 		<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -55,7 +55,7 @@
 		{{-- Auth bar --}}
 		<ul class="right">
 			@if (Auth::guest())
-			<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
+			<li><a href="{{route ('login')}}">Iniciar sesión</a></li>
 			<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
 			@else
 			<li>

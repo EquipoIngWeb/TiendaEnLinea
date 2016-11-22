@@ -11,9 +11,9 @@
 				<div class="input-field col s12">
 				    <select name="filter" onchange="this.form.submit();">
 				      <option value="" disabled selected>Filtros</option>
-				      <option value="down">Precio mas bajos</option>
-				      <option value="up">Precio mas altos</option>
-				      {{-- <option value="alfa">Alfabetico</option> --}}
+				      <option value="down">Precios más bajos</option>
+				      <option value="up">Precios más altos</option>
+				      {{-- <option value="alfa">Alfabético</option> --}}
 				    </select>
 				    <label>Materialize Select</label>
 				  </div>
