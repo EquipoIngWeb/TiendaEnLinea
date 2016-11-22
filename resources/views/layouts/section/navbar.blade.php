@@ -1,29 +1,4 @@
 @inject('categories', 'App\Repositories\Categories')
-
-{{--
-	Nota: La libreria "materializecss" indica que los elementos dropdown
-		de la barra de navegacion deben de ir afuera de la misma, y dentro
-		solo se agregara el enlace para accionar dicho dropdown.
-
-		http://materializecss.com/navbar.html
---}}
-{{--
-@foreach ($categories->getMenu() as $category)
-	<ul id="{{$category->name}}" class="dropdown-content">
-
-		@foreach ($category->children as $category_second)
-			<li>
-				<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}">
-					{{$category_second->name}}
-				</a>
-			</li>
-			<li class="divider"></li>
-		@endforeach
-	</ul>
-@endforeach
---}}
-
-
 @foreach ($categories->getMenu() as $category)
 	<div id="{{$category->name}}" class="modal bottom-sheet row">
 		<div class="modal-content col s8">
@@ -48,14 +23,13 @@
 		</div>
 	</div>
 @endforeach
-  
 
 {{--
 	El menu esta compuesto por 3 partes:
 		- Menu normal
 		- Auth bar
 		- Menu responsivo
---}}
+		--}}
 <nav>
 	<div class="nav-wrapper">
 		<a href="{{ route('home') }}" class="brand-logo center hide-on-small-only">
@@ -77,30 +51,31 @@
 			@endforeach
 		</ul>
 
+
 		{{-- Auth bar --}}
 		<ul class="right">
 			@if (Auth::guest())
-				<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
-				<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
+			<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
+			<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
 			@else
-				<li>
-					<a href="#" class="dropdown-button" data-activates="user-menu">
-						{{ Auth::user()->full_name }}
-						<i class="material-icons right">arrow_drop_down</i>
-					</a>
-					<ul id="user-menu" class="dropdown-content">
-						<li style="opacity: 0;"><a href=""></a></li>
-						<li ><a href="{{ url(Auth::user()->role_id) }}">Princial</a></li>
-						<li>
-							<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-								Logout
-							</a>
-							<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-								{{ csrf_field() }}
-							</form>
-						</li>
-					</ul>
-				</li>
+			<li>
+				<a href="#" class="dropdown-button" data-activates="user-menu">
+					{{ Auth::user()->full_name }}
+					<i class="material-icons right">arrow_drop_down</i>
+				</a>
+				<ul id="user-menu" class="dropdown-content">
+					<li style="opacity: 0;"><a href=""></a></li>
+					<li ><a href="{{ url(Auth::user()->role_id) }}">Princial</a></li>
+					<li>
+						<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+							Logout
+						</a>
+						<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+							{{ csrf_field() }}
+						</form>
+					</li>
+				</ul>
+			</li>
 			@endif
 		</ul>
 
@@ -108,18 +83,19 @@
 		<ul class="side-nav" id="mobile-menu">
 			<li><a href="{{route ('home')}}">Inicio</a></li>
 			@foreach ($categories->getMenu() as $category)
-				<li class="divider"></li>
-				<li class="active"><a href="">{{$category->name}}</a></li>
-				@foreach ($category->children as $category_second)
-					<li>
-						<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}">
-							{{$category_second->name}}
-						</a>
-					</li>
-				@endforeach
+			<li class="divider"></li>
+			<li class="active"><a href="">{{$category->name}}</a></li>
+			@foreach ($category->children as $category_second)
+			<li>
+				<a href="{{ route('view_category',['category_id'=>$category_second->id]) }}">
+					{{$category_second->name}}
+				</a>
+			</li>
+			@endforeach
 
 			@endforeach
 
 		</ul>
 	</div>
 </nav>
+

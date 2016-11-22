@@ -3,12 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Specification;
 
-class Discount extends Model
+class LineSale extends Model
 {
-     protected $fillable = [
-		'id', 'specification_id', 'name', 'description','percentage'
+	 protected $fillable = [
+		'id', 'specification_id', 'price', 'amount','sale_id'
 	];
 	public function specification()
 	{

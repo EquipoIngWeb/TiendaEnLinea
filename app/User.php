@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Role;
+use App\Comment;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -27,7 +29,7 @@ class User extends Authenticatable
     ];
 	public function role()
 	{
-	    return $this->belongsTo(Role::class, 'role_id', 'id');
+	    return $this->belongsTo(Role::class);
 	}
 	public function setPasswordAttribute($password)
 	{
@@ -35,9 +37,8 @@ class User extends Authenticatable
 	}
 	public function comments()
 	{
-	    return $this->hasMany('App\Comment', 'user_id', 'id');
+	    return $this->hasMany(Comment::class);
 	}
-
 	public function isAdmin()
 	{
 		return $this->attributes['role_id'] == "admin";

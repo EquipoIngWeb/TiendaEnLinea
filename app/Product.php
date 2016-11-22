@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Comment;
+use App\Specification;
 class Product extends Model
 {
 	protected $fillable = [
@@ -39,10 +40,10 @@ class Product extends Model
 	}
 	public function comments()
 	{
-		return $this->hasMany('App\Comment');
+		return $this->hasMany(Comment::class);
 	}
-	public function inventories()
+	public function specifications()
 	{
-		return $this->hasMany('App\Inventory');
+		return $this->hasMany(Specification::class);
 	}
 }

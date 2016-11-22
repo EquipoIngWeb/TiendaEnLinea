@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
+use App\Product;
 
 class Comment extends Model
 {
@@ -11,10 +13,10 @@ class Comment extends Model
 	];
 	public function user()
 	{
-	    return $this->hasOne('App\User','id','user_id');
+		return $this->belongsTo(User::class);
 	}
 	public function product()
 	{
-	    return $this->hasOne('App\Product','id','product_id');
+		return $this->belongsTo(Product::class);
 	}
 }

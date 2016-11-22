@@ -40,7 +40,7 @@ class ProductController extends Controller
 	public function ofCategories($category='')
 	{
 		$category = $this->categories->getOfCategories($category);
-		$categories=$category->children;
+		$categories = $category->children;
 		return view('admin.article.index',compact('categories','category'));
 	}
 

@@ -5,16 +5,10 @@ use Illuminate\Http\Request;
 
 class Products  extends BaseRepository
 {
-	private $model;
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-	function getModel(){
-		return $this->model;
-	}
-	public function create($data){
-		return $this->insert($data);
-	}
+
 }
  ?>
 

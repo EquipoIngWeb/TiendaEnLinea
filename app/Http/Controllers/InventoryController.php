@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Repositories\Specifications;
 use App\Repositories\Inventories;
 use App\Repositories\Products;
 use App\Repositories\Sizes;
@@ -14,9 +15,12 @@ class InventoryController extends Controller
 	protected $sizes;
 	protected $colors;
 	protected $inventories;
-	function __construct(Inventories $inventories,Products $products,Sizes $sizes,Colors $colors)
+	protected $specifications;
+
+	function __construct(Inventories $inventories,Products $products,Sizes $sizes,Colors $colors,Specifications $specifications)
 	{
 		$this->inventories = $inventories;
+		$this->specifications = $specifications;
 		$this->products = $products;
 		$this->sizes = $sizes;
 		$this->colors = $colors;
@@ -28,7 +32,7 @@ class InventoryController extends Controller
 	 */
 	public function index()
 	{
-		$inventories = $this->inventories->getAllWithProducts();
+		$inventories = $this->inventories->getAllWithProduct();
 		$products = $this->products->getAll();
 		$sizes = $this->sizes->getAll();
 		$colors = $this->colors->getAll();
@@ -53,8 +57,13 @@ class InventoryController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$inventory = $this->inventories->save($request->all());
-		dd($inventory);
+		$specification = $this->specifications->save($request->all());
+
+		$inventory = [
+					'specification_id'=>$specification->id,
+					'amount'=> $request->amount
+						];
+		$inventory = $this->inventories->save($inventory);
 		return redirect()->back()->with('message','Existencia agregada correctamente');
 	}
 

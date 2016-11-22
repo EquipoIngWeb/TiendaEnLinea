@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRelationsInventoriesTable extends Migration
+class AddRelationInventoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddRelationsInventoriesTable extends Migration
     public function up()
     {
     	Schema::table('inventories', function ($table) {
-    		$table->foreign('product_id')->references('id')->on('products');
-    		$table->foreign('color_id')->references('id')->on('colors');
-    		$table->foreign('size_id')->references('id')->on('sizes');
+    		$table->foreign('specification_id')->references('id')->on('specifications');
     	});
     }
 	/**
@@ -28,5 +26,4 @@ class AddRelationsInventoriesTable extends Migration
 	{
 		Schema::disableForeignKeyConstraints();
 	}
-
 }
