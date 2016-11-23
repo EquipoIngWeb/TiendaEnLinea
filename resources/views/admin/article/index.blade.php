@@ -66,7 +66,7 @@
 					{{ csrf_field() }}
 					<div class="fileUpload btn btn-primary">
 					    <span>CSV</span>
-					    <input type="file" name="csv" class="upload"onchange="this.form.submit()"   accept=".csv" />
+					    <input type="file" name="csv" class="upload" onchange="this.form.submit()"   accept=".csv" />
 					</div>
 				</form>
 				@forelse($category->products->chunk(6) as $products)
