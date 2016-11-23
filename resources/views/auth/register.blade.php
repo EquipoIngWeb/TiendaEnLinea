@@ -4,9 +4,9 @@
 	<div class="container row">
 		<div class="col s12 m6 offset-m3">
 			<h1>Registrese Aquí</h1>
-			<form role="form" method="POST" action="{{ url('/register') }}">
+			<form role="form" method="POST" action="{{ url('store') }}">
 				{{ csrf_field() }}
-				
+
 				<div class="input-field col s12">
 					<input id="username" type="text" name="username" value="{{ old('username') }}" required autofocus>
 					<label for="user">Usuario</label>
