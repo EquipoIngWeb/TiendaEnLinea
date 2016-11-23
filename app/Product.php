@@ -51,4 +51,8 @@ class Product extends Model
 	{
 		return $this->hasMany(Score::class);
 	}
+	public function inventories()
+	{
+		return $this->hasMany('App\Inventory');
+	}
 }

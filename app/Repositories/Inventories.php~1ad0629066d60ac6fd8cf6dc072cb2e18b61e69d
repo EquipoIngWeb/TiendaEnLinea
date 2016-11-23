@@ -1,27 +1,23 @@
 <?php
 namespace App\Repositories;
-use  App\User as Model;
+use  App\Inventory as Model;
 use Illuminate\Http\Request;
 
-class Users  extends BaseRepository
+class Inventories  extends BaseRepository
 {
+	private $model;
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-<<<<<<< HEAD
-=======
 	function getModel(){
 		return $this->model;
 	}
->>>>>>> 1ad0629066d60ac6fd8cf6dc072cb2e18b61e69d
-
-	public function getUsers()
-	{
-		return $this->getModel()->where('role_id','user')->get();
+	public function create($data){
+		return $this->save($data);
 	}
-	public function getByCodeConfirmation($code='')
+	public function getAllWithProducts()
 	{
-		return $this->getModel()->where('confirmation_code',$code)->first();
+		return $this->getModel()->with('product')->get();
 	}
 }
  ?>
