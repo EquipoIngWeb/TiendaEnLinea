@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 	<div class="container row">
 		<div class="col s12 m6 offset-m3">
 			<h1>Registrese Aquí</h1>
@@ -78,4 +79,5 @@
 				</form>
 			</div>
 		</div>
+	</div>
 @endsection

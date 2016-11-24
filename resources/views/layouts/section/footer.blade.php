@@ -45,7 +45,7 @@
 		<div class="footer-grids">
 			<div class="col-md-3 footer-grid animated wow slideInLeft" data-wow-delay=".5s">
 				<h3>Acerca de Nosotros</h3>
-				<p>Somos una empresa confiable en donde tu podrás encontrar todo lo que estés bucando
+				<p>Somos una empresa confiable en donde tu podras encontras todo lo que estés bucando
 				sin perder tu tiempo, rápido y seguro.</span>
 				</p>
 			</div>

@@ -8,12 +8,6 @@ class Users  extends BaseRepository
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-<<<<<<< HEAD
-=======
-	function getModel(){
-		return $this->model;
-	}
->>>>>>> 1ad0629066d60ac6fd8cf6dc072cb2e18b61e69d
 
 	public function getUsers()
 	{
