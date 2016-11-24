@@ -7,10 +7,6 @@
 	<style>
 		td .btn{
 			padding: 3px 7px;
-<<<<<<< HEAD
-=======
-
->>>>>>> 1ad0629066d60ac6fd8cf6dc072cb2e18b61e69d
 		}
 	</style>
 	<div class="row">
@@ -33,21 +29,12 @@
 				<tbody>
 					@foreach ($inventories as $inventory)
 					<tr>
-<<<<<<< HEAD
 						<td>{{$inventory->specification->id}}</td>
 						<td>{{$inventory->specification->product->name}}</td>
 						<td><img src="{{$inventory->specification->product->brand->image}}" alt="{{$inventory->specification->product->brand->name}}" title="{{$inventory->specification->product->brand->name}}" class="img-responsive" width="50px"></td>
 						<td><div style="background:{{$inventory->specification->color->example}};width: 50px;height: 15px; " title="{{$inventory->specification->color->name}}"></div></td>
 						<td>{{$inventory->specification->size->name}}</td>
 						<td>{{$inventory->specification->price}}</td>
-=======
-						<td>{{$inventory->product->id}}</td>
-						<td>{{$inventory->product->name}}</td>
-						<td><img src="{{$inventory->product->brand->image}}" alt="{{$inventory->product->brand->name}}" title="{{$inventory->product->brand->name}}" class="img-responsive" width="50px"></td>
-						<td><div style="background:{{$inventory->color->example}};width: 50px;height: 15px; " title="{{$inventory->color->name}}"></div></td>
-						<td>{{$inventory->size->name}}</td>
-						<td>{{$inventory->price}}</td>
->>>>>>> 1ad0629066d60ac6fd8cf6dc072cb2e18b61e69d
 						<td>{{$inventory->amount}}</td>
 						<td>
 							<a href="{{ url("admin/inventories/$inventory->id/edit") }}" class="btn btn-success"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
