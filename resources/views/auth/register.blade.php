@@ -4,15 +4,8 @@
 	<div class="container row">
 		<div class="col s12 m6 offset-m3">
 			<h1>Registrese Aquí</h1>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 			<form role="form" method="POST" action="{{ url('/store') }}">
-=======
-			<form role="form" method="POST" action="{{ url('store') }}">
->>>>>>> 0d15d5d845f3542d2f5dba64a4a0b1f46ce2480a
-=======
-			<form role="form" method="POST" action="{{ url('store') }}">
->>>>>>> d3730c98a0dc620f1b5ed174f58574afca9be011
 				{{ csrf_field() }}
 
 				<div class="input-field col s12">
