@@ -25,7 +25,9 @@
 <body>
 
 	@include('layouts.section.navbar')
+
 	@yield('content')
+
 	@include('layouts.section.footer')
 
 

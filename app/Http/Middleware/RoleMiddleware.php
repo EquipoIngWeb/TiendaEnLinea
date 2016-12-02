@@ -16,8 +16,8 @@ class RoleMiddleware
     public function handle($request, Closure $next, $role)
 	{
 		if ($request->user()->role_id != $role) {
-			return redirect()->to($request->user()->role_id);
-		}
+            return redirect()->to($request->user()->role_id);
+        }
 		return $next($request);
 	}
 }
