@@ -8,6 +8,7 @@ use App\Product;
 
 class Comment extends Model
 {
+    protected $table="comments";
     protected $fillable = [
 		'id', 'message','user_id','product_id','status'
 	];
