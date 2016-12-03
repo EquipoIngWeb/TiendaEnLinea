@@ -7,30 +7,26 @@ use Illuminate\Support\Collection;
 class Category extends Model
 {
 	protected $fillable = [
-	'id', 'name','description','image'
+	'id', 'name','description','image','gender_id'
 	];
 	public function save(array $options = [])
 	{
     	parent::save();
 		\Storage::disk('local')->makeDirectory('images/categories/'.$this->attributes['id'].'-'.$this->attributes['name']);
     }
+	public function gender()
+	{
+		// belongsTo(RelatedModel, foreignKey = gender_id, keyOnRelatedModel = id)
+		return $this->belongsTo(\App\Gender::class);
+	}
+	public function subcategories()
+	{
+		// hasMany(RelatedModel, foreignKeyOnRelatedModel = category_id, localKey = id)
+		return $this->hasMany(\App\Subcategory::class);
+	}
 	public function products()
 	{
-		return $this->belongsToMany('App\Product', 'products_categories', 'category_id', 'product_id');
-	}
-	public function children()
-	{
-		return $this->belongsToMany('App\Category', 'subcategories', 'parent_id', 'child_id')->with('children');
-	}
-	public function parents()
-	{
-		return $this->belongsToMany('App\Category', 'subcategories', 'child_id', 'parent_id')->with('children');
-	}
-	public function parent(){
-		if($this->parents()->count() == 0)
-			return 1;
-		return $this->parents()->first();
-
+		return $this->subcategories()->products();
 	}
 	public function getImageAttribute()
 	{

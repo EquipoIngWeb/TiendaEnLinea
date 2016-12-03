@@ -14,8 +14,7 @@ class AddRelationsSubcategoriesTable extends Migration
     public function up()
 	{
 		Schema::table('subcategories', function ($table) {
-			$table->foreign('child_id')->references('id')->on('categories');
-			$table->foreign('parent_id')->references('id')->on('categories');
+			$table->foreign('category_id')->references('id')->on('categories');
 		});
 	}
 	/**

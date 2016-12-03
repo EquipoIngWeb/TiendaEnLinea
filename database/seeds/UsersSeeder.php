@@ -13,7 +13,6 @@ class UsersSeeder extends Seeder
     {
         $user = new App\User();
         $user->username ="rafael";
-        $user->birthdate =\Carbon\Carbon::now();
         $user->full_name ="Rafael Gonzalez Castro";
         $user->email ="rafa.gc2807@gmail.com";
         $user->password ="asd123";
@@ -24,7 +23,6 @@ class UsersSeeder extends Seeder
 
         $user = new App\User();
         $user->username ="aida";
-        $user->birthdate =\Carbon\Carbon::now();
         $user->full_name ="Aida Lizeth Rochin";
         $user->email ="aidarochin@gmail.com";
         $user->password ="soloyo";

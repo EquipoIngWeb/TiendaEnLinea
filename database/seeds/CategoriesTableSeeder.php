@@ -11,54 +11,52 @@ class CategoriesTableSeeder extends Seeder
 	 */
 	public function run()
 	{
-
-		$zapatos = new App\Category();
-		$zapatos->name="Calzado";
-		$zapatos->save();
-
-		$caballero = new App\Category();
+		$caballero = new App\Gender();
 		$caballero->name="Caballero";
 		$caballero->save();
-		$caballero->parents()->attach($zapatos->id);
 
-		$dama = new App\Category();
+		$dama = new App\Gender();
 		$dama->name="Dama";
 		$dama->save();
-		$dama->parents()->attach($zapatos->id);
+
+
+		$calzado_caballero = new App\Category();
+		$calzado_caballero->name="Calzado";
+		$calzado_caballero->gender_id = $caballero->id;
+		$calzado_caballero->save();
+
+		$calzado_dama = new App\Category();
+		$calzado_dama->name="Calzado";
+		$calzado_dama->gender_id = $dama->id;
+		$calzado_dama->save();
+
+		$ropa_caballero = new App\Category();
+		$ropa_caballero->name="Ropa";
+		$ropa_caballero->gender_id = $caballero->id;
+		$ropa_caballero->save();
+
+		$ropa_dama = new App\Category();
+		$ropa_dama->name="Ropa";
+		$ropa_dama->gender_id = $dama->id;
+		$ropa_dama->save();
+
 
 		$categories_caballero = [
-		'Bota',
-		'Sandalia',
-		'Flat',
-		'Sneaker',
-		'Deportivo',
-		'Pantufla',
-			//Solo dama
-			// 'Zapatilla',
+			'Bota',
+			'Sandalia',
+			'Flat',
+			'Sneaker',
+			'Deportivo',
+			'Pantufla',
 		];
 		foreach ($categories_caballero as $category) {
-			$c = App\Category::create(['name'=> $category ]);
-			$caballero->children()->attach($c->id);
+			App\Subcategory::create(['name'=> $category,'category_id'=>$calzado_caballero->id]);
 		}
+
 		$categories_dama = array_merge($categories_caballero,['Zapatilla']);
 		foreach ($categories_dama as $category) {
-			$c = App\Category::create(['name'=> $category ]);
-			$dama->children()->attach($c->id);
+			App\Subcategory::create(['name'=> $category,'category_id'=>$calzado_dama->id]);
 		}
-
-		$ropa = new App\Category();
-		$ropa->name="Ropa";
-		$ropa->save();
-
-		$caballero = new App\Category();
-		$caballero->name="Caballero";
-		$caballero->save();
-		$caballero->parents()->attach($ropa->id);
-
-		$dama = new App\Category();
-		$dama->name="Dama";
-		$dama->save();
-		$dama->parents()->attach($ropa->id);
 
 		$categories_ropa_dama = [
 		'Playeras',
@@ -81,8 +79,7 @@ class CategoriesTableSeeder extends Seeder
 		'Ropa Interior',
 		];
 		foreach ($categories_ropa_dama as $category) {
-			$c = App\Category::create(['name'=> $category ]);
-			$dama->children()->attach($c->id);
+			App\Subcategory::create(['name'=> $category,'category_id'=>$ropa_dama->id]);
 		}
 
 		$categories_ropa_caballero = [
@@ -105,23 +102,22 @@ class CategoriesTableSeeder extends Seeder
 		];
 
 		foreach ($categories_ropa_caballero as $category) {
-			$c = App\Category::create(['name'=> $category ]);
-			$caballero->children()->attach($c->id);
+			App\Subcategory::create(['name'=> $category,'category_id'=>$ropa_caballero->id]);
 		}
 
 		$categories_ropa_infantil = ['Ropa de Niña','Ropa de Niño'];
-		$infantil = new App\Category();
+		$infantil = new App\Gender();
 		$infantil->name="Infantil";
 		$infantil->save();
-		$infantil->parents()->attach($ropa->id);
+
+		$ropa_infantil = new App\Category();
+		$ropa_infantil->name="Ropa";
+		$ropa_infantil->gender_id = $infantil->id;
+		$ropa_infantil->save();
+
 		foreach ($categories_ropa_infantil as $category) {
-			$c = App\Category::create(['name'=> $category ]);
-			$infantil->children()->attach($c->id);
+			App\Subcategory::create(['name'=> $category,'category_id'=>$ropa_infantil->id]);
 		}
-		$infantil = new App\Category();
-		$infantil->name="Infantil";
-		$infantil->save();
-		$infantil->parents()->attach($zapatos->id);
 
 	}
 }
