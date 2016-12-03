@@ -16,6 +16,6 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request) {
     return $request->user();
 });
-Route::post('/view/{product_id}','productController@saveComment')->name('save_comment_product');
+Route::post('/view/{product_id}','ProductController@saveComment')->name('save_comment_product');
 Route::post('/sale', 'SaleController@store');
 Route::post('score', 'ScoreController@store');
