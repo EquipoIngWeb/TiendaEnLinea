@@ -18,10 +18,9 @@ class CategoryController extends Controller
 	}
 	public function index()
 	{
-		$categories = $this->categories->getMenu();
+		$categories = $this->categories->getAll();
 		return view('admin.category.index',compact('categories'));
 	}
-
 	public function add($id_first="")
 	{
 		$route="/";

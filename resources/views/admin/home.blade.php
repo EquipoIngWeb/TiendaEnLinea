@@ -59,12 +59,12 @@ Menu Principal
 	<div class="row home">
 		<div class="col-md-3">
 			<div class="thumbnail">
-				<a href="{{ url('/admin/categories') }}">
+				<a href="{{ url('/admin/genders') }}">
 					<div class="icon">
 						<i class="fa fa-sitemap"></i>
 					</div>
 					<div class="caption">
-						<h3>Categorias</h3>
+						<h3>Géneros y Categorias</h3>
 					</div>
 				</a>
 			</div>

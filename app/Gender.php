@@ -31,6 +31,13 @@ class Gender extends Model
 	}
 	public function getImageAttribute()
 	{
-		return asset('images/'.$this->attributes['image']);
+		return asset($this->attributes['image']);
+	}
+	public function setImageAttribute($image='')
+	{
+		$root='images/genders/';
+		$name = $image->getClientOriginalName();
+		\Storage::disk('local')->put($root.$name,  \File::get($image));
+		$this->attributes['image'] = $root.$name;
 	}
 }

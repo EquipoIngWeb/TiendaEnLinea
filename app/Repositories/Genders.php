@@ -18,7 +18,9 @@ class Genders  extends BaseRepository
 	}
 	public function getWithProducts($id)
 	{
-		return $this->getModel()->where('id',$id)->with('products')->get();
+		return $this->getModel()->where('id',$id)->with(['categories'=>function($query=''){
+				$query->with('products');
+		}])->first();
 	}
 	// public function filterBy($category,$filter='')
 	// {

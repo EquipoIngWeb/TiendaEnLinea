@@ -34,10 +34,10 @@ class Product extends Model
 		return $this->belongsTo(Brand::class);
 	}
 	public function getImageAttribute(){
-		if (sizeof($this->images()->get()) <= 0) {
+		// if (sizeof($this->images()->get()) <= 0) {
 			return asset('images/default.png');//'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
-		}
-		return $this->images()->first()->name;
+		// }
+		// return $this->images()->first()->name;
 	}
 	public function comments()
 	{

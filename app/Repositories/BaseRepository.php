@@ -38,15 +38,13 @@ abstract class BaseRepository
 	public function update($id,Array $datos){
 		 $model = $this->findOrFail($id);
 		 $model->fill($datos);
-		 $model->save();
-		 return $model;
+		 return $model->save();
 	}
 	public function insert(Array $data){
 		return $this->getModel()->create($data);
 	}
 	public function remove($id){
 		$model = $this->findOrFail($id);
-		$model->delete();
-		return $model ;
+		return $model->delete();
 	}
 }
