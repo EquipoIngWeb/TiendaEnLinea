@@ -38,6 +38,7 @@
 			$('.modal').modal();
 		});
 		$(document).ready(function() {
+
 			@if (session()->has('message'))
 					Materialize.toast('{{session()->get('message')}}!', 4000) ;
 			@endif

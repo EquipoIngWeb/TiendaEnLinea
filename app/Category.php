@@ -26,7 +26,8 @@ class Category extends Model
 	}
 	public function products()
 	{
-		return $this->subcategories()->products();
+		// hasManyThrough(FarModel, closeModel, keyOnCloseModel = category_id, keyOnFarModel = through_id)
+		return $this->hasManyThrough(\App\Product::class, \App\Subcategory::class);
 	}
 	public function getImageAttribute()
 	{

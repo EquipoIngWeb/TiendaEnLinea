@@ -15,8 +15,18 @@ class Gender extends Model
 		// hasMany(RelatedModel, foreignKeyOnRelatedModel = gender_id, localKey = id)
 		return $this->hasMany(\App\Category::class);
 	}
-	public function products()
+	public function scopeProducts($query,$id)
 	{
-		return $this->categories()->subcategories()->products();
+	    $query
+	        ->join('categories', 'genders.id', '=', 'categories.gender_id')
+	        ->join('subcategories', 'categories.id', '=', 'subcategories.category_id')
+	        ->join('products', 'subcategories.id', '=', 'products.subcategory_id')
+	        ->where('genders.id',$id);
+	    return $query;
+	}
+	public function subcategories()
+	{
+		// hasManyThrough(FarModel, closeModel, keyOnCloseModel = gender_id, keyOnFarModel = through_id)
+		return $this->hasManyThrough(Subcategory::class, Category::class);
 	}
 }

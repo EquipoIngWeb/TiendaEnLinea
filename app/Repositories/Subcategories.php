@@ -1,14 +1,13 @@
 <?php
 namespace App\Repositories;
-use  App\Category as Model;
+use  App\Subcategory as Model;
 use Illuminate\Http\Request;
 
-class Categories  extends BaseRepository
+class Subcategories  extends BaseRepository
 {
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-
 
 	// public function filterBy($category,$filter='')
 	// {

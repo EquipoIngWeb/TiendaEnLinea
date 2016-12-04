@@ -1,15 +1,25 @@
 <?php
 namespace App\Repositories;
-use  App\Category as Model;
+use  App\Gender as Model;
 use Illuminate\Http\Request;
 
-class Categories  extends BaseRepository
+class Genders  extends BaseRepository
 {
 	function __construct(Model $model){
 		$this->model = $model;
 	}
 
-
+	public function getAllFull()
+	{
+		return $this->getModel()->with(['categories'=>function($query)
+		{
+			$query->with('subcategories');
+		}])->get();
+	}
+	public function getWithProducts($id)
+	{
+		return $this->getModel()->where('id',$id)->with('products')->get();
+	}
 	// public function filterBy($category,$filter='')
 	// {
 	// 	if ($filter=='down') {
@@ -29,6 +39,7 @@ class Categories  extends BaseRepository
 	//  		}])->first();
 	// 	}
 	// }
+
 	// public function getOfCategories($category='',$filter='')
 	// {
 	// 	if ($filter=='') {

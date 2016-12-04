@@ -57,12 +57,13 @@ class ProductsTableSeeder extends Seeder
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 				];
-		$category = App\Category::where('name','Playeras')->first();
+		$gender = App\Gender::where('name','Dama')->first();
+		$category = App\Category::where('name','Ropa')->where('gender_id',$gender->id)->first();
+		$subcategory = App\Subcategory::where('name','Playeras')->where('category_id',$category->id)->first();
 		foreach ($articles as $article) {
 			$product = new App\Product();
-			$product->fill($article);
+			$product->fill(array_merge($article,['subcategory_id'=>$subcategory->id]));
 			$product->save();
-			$product->categories()->attach($category->id);
 		}
 		$articles=[[
 					'name'=>'Tenis Blanco',
@@ -110,12 +111,12 @@ class ProductsTableSeeder extends Seeder
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 			];
-			$category = App\Category::where('name','Deportivo')->first();
+			$category = App\Category::where('name','Calzado')->where('gender_id',$gender->id)->first();
+			$subcategory = App\Subcategory::where('name','Deportivo')->where('category_id',$category->id)->first();
 			foreach ($articles as $article) {
 				$product = new App\Product();
-				$product->fill($article);
+				$product->fill(array_merge($article,['subcategory_id'=>$subcategory->id]));
 				$product->save();
-				$product->categories()->attach($category->id);
 			}
 	}
 }

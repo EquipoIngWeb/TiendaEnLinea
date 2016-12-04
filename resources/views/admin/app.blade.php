@@ -90,7 +90,6 @@
 					}
 					toggle = !toggle;
 				});
-
 			});
 		</script>
 		<script src="{{ asset('administrador/js/menu_jquery.js') }}"></script>

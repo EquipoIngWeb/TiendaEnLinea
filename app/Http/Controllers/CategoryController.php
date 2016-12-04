@@ -4,26 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Categories;
+use App\Repositories\Genders;
 
 
 class CategoryController extends Controller
 {
 	protected $categories;
-	function __construct(Categories $categories)
+	protected $genders;
+	function __construct(Categories $categories,Genders $genders)
 	{
 		$this->categories = $categories;
+		$this->genders = $genders;
 	}
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
 	public function index()
 	{
-		$this->categories->updateMenu();
 		$categories = $this->categories->getMenu();
 		return view('admin.category.index',compact('categories'));
 	}
+
 	public function add($id_first="")
 	{
 		$route="/";
@@ -40,33 +38,18 @@ class CategoryController extends Controller
 		}
 		return redirect('admin/categories')->with('message','Categoria agregada satistactoriamente');
 	}
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+
 	public function create()
 	{
 		return view('admin.category.create');
 	}
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
+
 	public function store(Request $request)
 	{
 		$this->categories->save($request->all());
 		return redirect('admin/categories')->with('message','Categoria agregada satistactoriamente');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function show(Request $request,$id)
 	{
 		if ($request->has('filter')) {
@@ -75,27 +58,15 @@ class CategoryController extends Controller
 			$category = $this->categories->findOrFail($id);
 		}
 		$products = $category->products;
-		return view('web.products',compact('category','products'));
+		$genders = $this->genders->getAllFull();
+		return view('web.products',compact('category','products','genders'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function edit($id)
 	{
 		return view('admin.category.create');
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function update(Request $request, $id)
 	{
 		//
