@@ -69,6 +69,11 @@ class SaleController extends Controller
     	return redirect()->back()->with('message','Articulo Pedido a la tienda. Espere su respuesta');
     }
 
+    public function addToCart()
+    {
+        return redirect()->back()->with('message','Articulo Pedido a la tienda. Espere su respuesta');
+    }
+
     /**
      * Display the specified resource.
      *
