@@ -16,7 +16,6 @@ class AddRelationsSpecificationsTable extends Migration
     	Schema::table('specifications', function ($table) {
     		$table->foreign('product_id')->references('id')->on('products');
     		$table->foreign('size_id')->references('id')->on('sizes');
-    		$table->foreign('color_id')->references('id')->on('colors');
     	});
     }
 	/**

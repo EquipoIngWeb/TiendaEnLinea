@@ -14,46 +14,55 @@ class ProductsTableSeeder extends Seeder
 		$articles=[[
 					'name'=>'Tank Top Negro Mickey',
 					'price'=>'519',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Blanca Manga V',
 					'price'=>'199',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Azul Rayas',
 					'price'=>'248',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Beige',
 					'price'=>'298',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Azul Marino',
 					'price'=>'332',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Gris Jaspe',
 					'price'=>'248',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Blanca Manga ',
 					'price'=>'199',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Playera Azul Marino sin Mangas',
 					'price'=>'199',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Blusa Gris Cuello Redondo',
 					'price'=>'259',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 				];
@@ -69,35 +78,42 @@ class ProductsTableSeeder extends Seeder
 					'name'=>'Tenis Blanco',
 					'price'=>'339',
 					'brand_id'=>App\Brand::all()->random(1)->id,
+					'color_id'=>App\Color::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Xssr',
 					'price'=>'699',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Bg3',
 					'price'=>'699',
 					'brand_id'=>App\Brand::all()->random(1)->id,
+					'color_id'=>App\Color::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Mnt',
 					'price'=>'699',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Dc Flash 2 Tx M Shoe Blk',
 					'price'=>'699',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Negro',
 					'price'=>'429',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis Rosa',
 					'price'=>'339',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[

@@ -3,14 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Specification;
+use App\Product;
 class Color extends Model
 {
     protected $fillable = [
 		'id', 'name', 'example'
 	];
-	public function specifications()
+	public function products()
 	{
-		return $this->hasMany(Specification::class);
+		return $this->hasMany(Product::class);
 	}
 }

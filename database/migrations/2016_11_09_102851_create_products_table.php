@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->integer('price')->default(0.0);
         	$table->integer('brand_id')->unsigned()->nullable();
+            $table->integer('color_id')->unsigned();
             $table->integer('subcategory_id')->unsigned();
             $table->timestamps();
         });

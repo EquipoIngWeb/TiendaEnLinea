@@ -32,7 +32,7 @@
 						<td>{{$inventory->specification->id}}</td>
 						<td>{{$inventory->specification->product->name}}</td>
 						<td><img src="{{$inventory->specification->product->brand->image}}" alt="{{$inventory->specification->product->brand->name}}" title="{{$inventory->specification->product->brand->name}}" class="img-responsive" width="50px"></td>
-						<td><div style="background:{{$inventory->specification->color->example}};width: 50px;height: 15px; " title="{{$inventory->specification->color->name}}"></div></td>
+						<td><div style="background:{{$inventory->specification->product->color->example}};width: 50px;height: 15px; " title="{{$inventory->specification->product->color->name}}"></div></td>
 						<td>{{$inventory->specification->size->name}}</td>
 						<td>{{$inventory->specification->price}}</td>
 						<td>{{$inventory->amount}}</td>
@@ -62,12 +62,6 @@
 							<td>
 							</td>
 							<td>
-								<select name="color_id"  class="form-control" required="required">
-									<option value="" desabled>Seleccione una opcion</option>
-									@foreach ($colors as $color)
-										<option value="{{$color->id}}">{{$color->name}}</option>
-									@endforeach
-								</select>
 							</td>
 							<td>
 								<select name="size_id"  class="form-control" required="required">

@@ -58,7 +58,6 @@ class InventoryController extends Controller
 	public function store(Request $request)
 	{
 		$specification = $this->specifications->save($request->all());
-
 		$inventory = [
 					'specification_id'=>$specification->id,
 					'amount'=> $request->amount

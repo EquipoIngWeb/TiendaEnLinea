@@ -18,7 +18,6 @@ class CreateSpecificationsTable extends Migration
             $table->integer('price');
 			$table->integer('product_id')->unsigned();
 			$table->integer('size_id')->unsigned();
-			$table->integer('color_id')->unsigned();
 			$table->timestamps();
 		});
 	}

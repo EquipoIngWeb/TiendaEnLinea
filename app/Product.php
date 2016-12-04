@@ -6,13 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 use App\Comment;
 use App\Score;
 use App\Brand;
+use App\Color;
 use App\Subcateory;
 use App\Specification;
 class Product extends Model
 {
 	protected $fillable = [
-	'id', 'name','price','brand_id','subcategory_id'
+	'id', 'name','price','color','brand_id','color_id','subcategory_id'
 	];
+	public function color()
+	{
+		return $this->belongsTo(Color::class);
+	}
 
 	public function subcateory()
 	{

@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Product;
-use App\Color;
 use App\Size;
 use App\Discount;
 use App\LineSale;
@@ -12,7 +11,7 @@ use App\Inventory;
 class Specification extends Model
 {
 	protected $fillable = [
-		'id', 'size_id','color_id','product_id','price'
+		'id', 'size_id','product_id','price'
 	];
 	public function product()
 	{
@@ -21,10 +20,6 @@ class Specification extends Model
 	public function size()
 	{
 		return $this->belongsTo(Size::class);
-	}
-	public function color()
-	{
-		return $this->belongsTo(Color::class);
 	}
 	public function discount()
 	{

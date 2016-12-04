@@ -15,6 +15,7 @@ class AddRelationProductsTable extends Migration
     {
         Schema::table('products', function ($table) {
             $table->foreign('brand_id')->references('id')->on('brands');
+            $table->foreign('color_id')->references('id')->on('colors');
             $table->foreign('subcategory_id')->references('id')->on('subcategories');
         });
     }
