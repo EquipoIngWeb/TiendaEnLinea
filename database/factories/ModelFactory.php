@@ -26,7 +26,7 @@ $factory->define(App\Brand::class, function (Faker\Generator $faker) {
     return [
         'url' => $faker->domainName,
         'name' => $faker->company,
-        'image' => $faker->imageUrl
+        'image' => $faker->imageUrl(1900,700, 'fashion', false)
     ];
 });
 

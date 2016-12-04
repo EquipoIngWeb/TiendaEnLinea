@@ -18,13 +18,15 @@ class SubcategoryController extends Controller
 	public function show(Request $request,$id)
 	{
 		if ($request->has('filter')) {
-			$category = $this->subcategories->filterBy($id,$request->filter);
+			$subcategory = $this->subcategories->filterBy($id,$request->filter);
 		}else{
-			$category = $this->subcategories->findOrFail($id);
+			$subcategory = $this->subcategories->findOrFail($id);
 		}
-		$products = $category->products;
+		$products = $subcategory->products;
 		$genders = $this->genders->getAllFull();
-		return view('web.products',compact('category','products','genders'));
+		$title = $subcategory->name." - ".$subcategory->category->name." - ".$subcategory->category->gender->name;
+		$category=$subcategory;
+		return view('web.products',compact('category','products','genders','title'));
 	}
 
 }

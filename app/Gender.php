@@ -29,4 +29,8 @@ class Gender extends Model
 		// hasManyThrough(FarModel, closeModel, keyOnCloseModel = gender_id, keyOnFarModel = through_id)
 		return $this->hasManyThrough(Subcategory::class, Category::class);
 	}
+	public function getImageAttribute()
+	{
+		return asset('images/'.$this->attributes['image']);
+	}
 }

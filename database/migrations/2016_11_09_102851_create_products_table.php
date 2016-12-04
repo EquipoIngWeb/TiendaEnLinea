@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateProductsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
@@ -18,8 +13,8 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->integer('price')->default(0.0);
-        	$table->integer('brand_id')->unsigned()->nullable();
-            $table->integer('color_id')->unsigned();
+            $table->integer('brand_id')->unsigned()->nullable();
+        	$table->integer('color_id')->unsigned()->nullable();
             $table->integer('subcategory_id')->unsigned();
             $table->timestamps();
         });
