@@ -1,3 +1,8 @@
+<style>
+ .bottom-sheet {
+	max-height: 84%!important;
+}
+</style>
 @inject('gender', 'App\Gender')
 @foreach ($gender->get() as $gender)
 	<div id="{{$gender->name}}" class="modal bottom-sheet row">

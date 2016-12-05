@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
 			$table->increments('id');
 			$table->string('name');
 			$table->text('description')->nullable();
-			$table->string('image')->default('categories/default.png');
+			$table->string('image')->default('categories/default.jpg');
 			$table->integer('gender_id')->unsigned();
 			$table->timestamps();
 		});

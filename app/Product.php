@@ -8,6 +8,7 @@ use App\Score;
 use App\Brand;
 use App\Color;
 use App\Subcateory;
+use App\Image;
 use App\Specification;
 class Product extends Model
 {
@@ -18,7 +19,10 @@ class Product extends Model
 	{
 		return $this->belongsTo(Color::class);
 	}
-
+	public function images(){
+		// hasMany(RelatedModel, foreignKeyOnRelatedModel = product_id, localKey = id)
+		return $this->hasMany(Image::class);
+	}
 	public function subcateory()
 	{
 	// belongsTo(RelatedModel, foreignKey = subcateory_id, keyOnRelatedModel = id)
@@ -29,20 +33,12 @@ class Product extends Model
 		// belongsTo(RelatedModel, foreignKey = brand_id, keyOnRelatedModel = id)
 		return $this->belongsTo(Brand::class);
 	}
-	// public function getImageAttribute()
-	// {
-	// 	$category=$this->categories()->first();
-	// 	$images_array = \Storage::disk('local')->files('images/categories/'.$category->id.'-'.$category->name.'/'.$this->attributes['id'].'-'.$this->attributes['name']);
-	// 	if (sizeof($images_array)==0) {
-	// 		return asset('images/default.png');//'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
-	// 	}
-	// 	foreach ($images_array as $image) {
-	// 		if (strpos($image, 'default')) {
-	// 			return asset($image);
-	// 		}
-	// 	}
-	// 	return asset($images_array[0]);
-	// }
+	public function getImageAttribute(){
+		// if (sizeof($this->images()->get()) <= 0) {
+			return asset('images/default.png');//'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
+		// }
+		// return $this->images()->first()->name;
+	}
 	public function comments()
 	{
 		return $this->hasMany(Comment::class);

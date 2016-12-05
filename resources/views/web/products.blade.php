@@ -1,9 +1,25 @@
 @extends('layouts.app')
 @section('content')
-
-
+<style>
+	.header-title{
+		background:url('{{$category->image}}');
+		background-size: cover;
+		width: 100%;
+		height: 300px;
+	}
+	.header-title .title{
+		margin: 1px auto;
+		font-size: 60px;
+	    text-shadow: 5px 1px 10px rgba(0,0,0,0.6);
+		font-weight: 400;
+	}
+</style>
+<div class="header-title valign-wrapper ">
+<div class="title white-text valign center-align center">
+		{{$title or $category->name}}
+</div>
+</div>
 	<div class="row">
-		<h1 class="center">{{$category->name}}</h1>
 		<div class="col s12 m9 l10">
 			<form action="{{ url('/category/'.$category->id) }}" method="GET">
 				{{csrf_field()}}

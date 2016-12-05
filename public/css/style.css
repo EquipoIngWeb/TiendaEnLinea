@@ -86,8 +86,6 @@ nav a{
 .owl-buttons{
 	display: none;
 }
-
-
 @media screen and (max-width: 700px){
 	.item p{
 		font-size: 20px;

@@ -25,9 +25,9 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{ url('/admin/categories') }}">
+				<a href="{{ url('/admin/genders') }}">
 					<i class="fa fa-sitemap"></i>
-					<span>Categorias</span>
+					<span>Géneros y Categorias</span>
 				</a>
 			</li>
 			<li>
@@ -43,38 +43,34 @@
 				</a>
 			</li>
 			<li>
-				<a href="{{ url('admin/brands') }}">
-					<i class="fa fa-tags"></i>
-					<span>Marcas</span>
-				</a>
-			</li>
-			<li>
-				<a href="{{ url('admin/sizes') }}">
-					<i class="fa fa-sliders"></i>
-					<span>Tallas</span>
-				</a>
-			</li>
-			<li>
-				<a href="{{ url('admin/colors') }}">
-					<i class="fa fa-hashtag"></i>
-					<span>Colores</span>
-				</a>
-			</li>
-			<li>
 				<a href="{{ url('admin/comments') }}">
 					<i class="fa fa-list"></i>
 					<span>Comentarios</span>
 				</a>
 			</li>
-
-			{{-- <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span> New Arrivals</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+			<li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span>Otros</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 				<ul id="menu-academico-sub" >
-					<li id="menu-academico-avaliacoes" ><a href="shoes.html">Shoes</a></li>
-					<li id="menu-academico-avaliacoes" ><a href="products.html">Watches</a></li>
-					<li id="menu-academico-boletim" ><a href="sunglasses.html">Sunglasses</a></li>
+					<li>
+						<a href="{{ url('admin/sizes') }}">
+							<i class="fa fa-sliders"></i>
+							<span>Tallas</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{ url('admin/colors') }}">
+							<i class="fa fa-hashtag"></i>
+							<span>Colores</span>
+						</a>
+					</li>
+					<li>
+						<a href="{{ url('admin/brands') }}">
+							<i class="fa fa-tags"></i>
+							<span>Marcas</span>
+						</a>
+					</li>
 				</ul>
 			</li>
-			 --}}
+
 		</ul>
 	</div>
 </div>

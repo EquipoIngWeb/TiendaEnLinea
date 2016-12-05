@@ -13,8 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 Route::get('/','AdminController@index');
+
+Route::resource('genders','GenderController');
+
 Route::get('users','AdminController@users');
 Route::delete('users/{id}','UserController@destroy');
+
 Route::get('categories/{category}/products','ProductController@ofCategories');
 Route::get('categories/{category}/products/create','ProductController@create');
 Route::get('categories/{category}/products/{id}','ProductController@edit');

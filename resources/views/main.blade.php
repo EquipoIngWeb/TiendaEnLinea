@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
+<style>
+	.card .card-image{
+	max-height: 250px;
+	overflow: hidden;
+}
 
+</style>
 <div id="main-carousel" class="owl-carousel owl-theme">
 
 	<div class="item">
@@ -21,7 +27,7 @@
 <div class="container">
 	<div class="row">
 		<h1 class="center col s12">No pierdas mas tiempo,<br>encuentra con nosotros lo que necesitas</h1>
-		
+
 		<div class="col s12 m6 l4">
 			<div class="card">
 				<div class="card-image">

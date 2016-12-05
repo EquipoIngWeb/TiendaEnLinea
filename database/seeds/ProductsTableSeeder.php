@@ -119,11 +119,13 @@ class ProductsTableSeeder extends Seeder
 					[
 					'name'=>'Tenis Con Plataforma DANNICA',
 					'price'=>'2199',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					],
 					[
 					'name'=>'Tenis ELLIAS',
 					'price'=>'1449',
+					'color_id'=>App\Color::all()->random(1)->id,
 					'brand_id'=>App\Brand::all()->random(1)->id,
 					]
 			];

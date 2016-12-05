@@ -18,10 +18,9 @@ class CategoryController extends Controller
 	}
 	public function index()
 	{
-		$categories = $this->categories->getMenu();
+		$categories = $this->categories->getAll();
 		return view('admin.category.index',compact('categories'));
 	}
-
 	public function add($id_first="")
 	{
 		$route="/";
@@ -59,7 +58,8 @@ class CategoryController extends Controller
 		}
 		$products = $category->products;
 		$genders = $this->genders->getAllFull();
-		return view('web.products',compact('category','products','genders'));
+		$title = $category->name." - ".$category->gender->name;
+		return view('web.products',compact('title','category','products','genders'));
 	}
 
 	public function edit($id)

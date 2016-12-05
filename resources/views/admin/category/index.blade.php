@@ -73,7 +73,6 @@ Categorias
 			@endforeach
 		</ul>
 		<a href="{{ url('/admin/categories/create') }}" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nueva Categoria Principal</a>
-
 	</div>
 </div>
 @stop
