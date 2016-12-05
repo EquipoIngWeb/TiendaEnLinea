@@ -14,9 +14,7 @@ class Brands  extends BaseRepository
 		return $this->getModel()->where('name',$name)->first();
 	}
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -27,4 +25,6 @@ class Brands  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>
+

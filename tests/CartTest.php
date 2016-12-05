@@ -18,7 +18,7 @@ class CartTest extends TestCase
         # Verificar que se agregue la cantidad correcta.
         $this->assertEquals(
             120,
-            $cart->find(1)['quantity']
+            $cart->find(1)['amount']
         );
 
         # Solo se deben de agregar 2 debido a que se esta agregando dos veces el mismo.

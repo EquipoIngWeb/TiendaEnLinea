@@ -11,9 +11,7 @@ class Scores  extends BaseRepository
 
 
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -24,4 +22,6 @@ class Scores  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>
+

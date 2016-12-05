@@ -18,9 +18,7 @@ class Users  extends BaseRepository
 		return $this->getModel()->where('confirmation_code',$code)->first();
 	}
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -31,4 +29,6 @@ class Users  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>
+

@@ -66,8 +66,7 @@ class Genders  extends BaseRepository
 
 
 }
-?>
- <!--
+ 	/*
 		getModel()
 		getAll()
 		paginate($total=15)
@@ -78,4 +77,5 @@ class Genders  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-	-->
+	*/
+?>

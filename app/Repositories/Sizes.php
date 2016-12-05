@@ -10,9 +10,7 @@ class Sizes  extends BaseRepository
 	}
 
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -23,4 +21,6 @@ class Sizes  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>
+

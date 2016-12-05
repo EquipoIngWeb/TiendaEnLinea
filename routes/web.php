@@ -21,7 +21,11 @@ Route::get('/category/{id}','CategoryController@show')->name('view_category');
 Route::get('/gender/{id}','GenderController@show')->name('view_gender');
 Route::get('/subcategory/{id}','SubcategoryController@show')->name('view_subcategory');
 
-Route::get('/add_cart/{product_id}','ProductController@addToCart')->name('add_to_cart');
+#Route::get('/add_cart/{product_id}','ProductController@addToCart')->name('add_to_cart');
+Route::get('/remove_cart/{product_id}','SaleController@removeFromCart');
+Route::get('/buy_the_cart/','SaleController@buyAllFromCart');
+
+Route::get('/cart','SaleController@viewCart')->name('view_cart');
 
 Route::get('/view/{product_id}','ProductController@show')->name('view_product');
 

@@ -9,11 +9,12 @@ class Specifications  extends BaseRepository
 		$this->model = $model;
 	}
 
-
+	public function getIn($ids)
+	{
+		return $this->model->whereIn('id',$ids)->with('product')->get();
+	}
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -24,4 +25,6 @@ class Specifications  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>
+

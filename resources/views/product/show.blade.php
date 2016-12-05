@@ -19,7 +19,7 @@
 			@foreach ($product->specifications as $specification)
 				<span> {{$specification->size->name}} /</span>
 			@endforeach
-			<form action="{{ url('user/sale/') }}" method="post">
+			<form action="{{ url('user/sale/addToCart') }}" method="post">
 				{{csrf_field()}}
 				<h2>Especificaciones:</h2>
 				<div class="input-field col s8">
@@ -36,7 +36,7 @@
 					<input placeholder="Cantidad" name="amount" type="number" min="1" value="1" class="validate">
 					<label for="first_name">Cantidad:</label>
 		        </div>
-				<button type="submit" class="btn">COMPRAR</button>
+				<button type="submit" class="btn">Agregar al carrito</button>
 			</form>
 		@else
 		<b class="red-text">Sin tallas disponibles</b>

@@ -9,9 +9,7 @@ class Colors extends BaseRepository
 		$this->model = $model;
 	}
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -22,4 +20,6 @@ class Colors extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+ */
+ ?>
+

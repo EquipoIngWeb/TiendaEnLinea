@@ -11,9 +11,8 @@ class LineSales  extends BaseRepository
 
 
 }
- ?>
 
- <!--
+/*
 		getModel()
 		getAll()
 		pag
@@ -24,4 +23,5 @@ class LineSales  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>

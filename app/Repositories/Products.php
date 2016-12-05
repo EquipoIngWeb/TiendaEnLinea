@@ -8,11 +8,8 @@ class Products  extends BaseRepository
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-
 }
- ?>
-
- <!--
+ /*
 		getModel()
 		getAll()
 		pag
@@ -23,4 +20,6 @@ class Products  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-  -->
+  */
+ ?>
+

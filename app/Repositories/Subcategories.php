@@ -54,8 +54,7 @@ class Subcategories  extends BaseRepository
 
 
 }
-?>
- <!--
+ /*
 		getModel()
 		getAll()
 		paginate($total=15)
@@ -66,4 +65,5 @@ class Subcategories  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-	-->
+	*/
+?>

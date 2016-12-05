@@ -55,9 +55,7 @@ class Categories  extends BaseRepository
 
 
 }
-?>
- <!--
-		getModel()
+/*		getModel()
 		getAll()
 		paginate($total=15)
 		findOrFail($id)
@@ -67,4 +65,5 @@ class Categories  extends BaseRepository
 		save(Array $data)
 		update($id,Array $datos)
 		remove($id)
-	-->
+*/
+?>
