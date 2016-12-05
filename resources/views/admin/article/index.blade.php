@@ -1,4 +1,12 @@
 @extends('admin.app')
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['name'=>'Articulos']
+		];
+	@endphp
+@stop
 @section('header')
 	Articulos
 	<a href="{{ url('admin/filecsv/format') }}" class="btn btn-primary"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> Formato CSV</a>
@@ -6,7 +14,7 @@
 		{{ csrf_field() }}
 		<div class="fileUpload btn btn-warning">
 		    <span><span class="glyphicon glyphicon-file" aria-hidden="true"></span>SUBIR Archivo CSV</span>
-		    <input type="file" name="csv" class="upload" onchange="this.form.submit()"   accept=".csv" />
+		    <input type="file" name="csv" class="upload" onchange="this.form.submit()"   />
 		</div>
 	</form>
 	<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"  class="btn btn-warning"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo articulo</a>

@@ -101,9 +101,11 @@ class Cart{
 	{
 		$cart = $this->get();
 		$ids = [];
-		foreach($cart as $item){
-			if(isset($item['id']))
-				array_push($ids,$item['id']);
+		if (is_array($cart)) {
+			foreach($cart as $item){
+				if(isset($item['id']))
+					array_push($ids,$item['id']);
+			}
 		}
 		return $ids;
 	}

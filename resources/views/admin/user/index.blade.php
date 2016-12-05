@@ -1,4 +1,12 @@
 @extends('admin.app')
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['name'=>'Usuarios']
+		];
+	@endphp
+@stop
 @section('header')
  Usuarios de la Plataforma
 @stop

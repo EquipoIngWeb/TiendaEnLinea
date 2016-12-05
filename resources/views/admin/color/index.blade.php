@@ -1,4 +1,12 @@
 @extends('admin.app')
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['name'=>'Colores']
+		];
+	@endphp
+@stop
 @section('header')
  Colores de Articulos
 @stop

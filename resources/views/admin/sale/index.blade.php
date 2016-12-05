@@ -1,5 +1,12 @@
 @extends('admin.app')
-
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['name'=>'Ventas']
+		];
+	@endphp
+@stop
 @section('header')
 	Venta <small>de Articulos</small>
 @stop

@@ -1,4 +1,12 @@
 @extends('admin.app')
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['name'=>'Tallas ']
+		];
+	@endphp
+@stop
 @section('header')
  Tallas de Articulos
 @stop

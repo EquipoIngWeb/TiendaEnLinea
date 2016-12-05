@@ -18,6 +18,7 @@ Route::post('filecsv','FileCsvController@load');
 Route::post('filecsv/store','FileCsvController@store');
 Route::get('filecsv/format','FileCsvController@format');
 
+Route::resource('banners','BannerController');
 Route::resource('genders','GenderController');
 Route::resource('subcategories','SubcategoryController');
 

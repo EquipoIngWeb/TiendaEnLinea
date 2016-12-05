@@ -56,12 +56,12 @@ class FileCsvController extends Controller
 			if ($brand = $this->brands->filterByName($product['brand_name'])){
 				$prd = array_merge($prd,['brand_id' => $brand->id,'brand_name' => $brand->name]);
 			}else{
-				$flat=false;
+				$flat = false;
 			}
 			if ($color = $this->colors->filterByName($product['color_name'])){
 				$prd = array_merge($prd,['color_id' => $color->id,'color_name' => $color->name]);
 			}else{
-				$flat=false;
+				$flat = false;
 			}
 			if ($gender = $this->genders->filterByName($product['gender_name'])) {
 				$prd = array_merge($prd,['gender_id' => $gender->id,'gender_name' => $gender->name]);
@@ -87,15 +87,49 @@ class FileCsvController extends Controller
 	{
 		foreach ($request->product as $product) {
 			$p = $this->products->save($product);
-			if ($product['image']) {
-				$this->images->save(['name'=>$product['image'],'product_id'=>$p->id]);
-			}
-		}
-		foreach ($request->product_v as $product) {
-			$p = $this->products->save($product);
-			if ($product['image']) {
+			if (isset($product['image'])) {
 				$this->images->save(['image'=>$product['image'],'product_id'=>$p->id]);
 			}
+		}
+
+		$products_corrects =collect([]);
+		$products_incorrects =collect([]);
+		foreach ($request->product_v as $product) {
+			$flat=true;
+			$prd = ['name'=>$product['name'],'description'=>$product['description']];
+			if (isset($product['brand_id']) && $brand = $this->brands->find($product['brand_id'])){
+				$prd = array_merge($prd,['brand_id' => $brand->id,'brand_name' => $brand->name]);
+			}else{
+				$flat = false;
+			}
+			if (isset($product['color_id']) && $color = $this->colors->find($product['color_id'])){
+				$prd = array_merge($prd,['color_id' => $color->id,'color_name' => $color->name]);
+			}else{
+				$flat = false;
+			}
+			if (isset($product['gender_id']) && $gender = $this->genders->find($product['gender_id'])) {
+				$prd = array_merge($prd,['gender_id' => $gender->id,'gender_name' => $gender->name]);
+				if (isset($product['category_id']) && $category = $this->categories->find($product['category_id'])) {
+					$prd = array_merge($prd,['category_id' => $category->id,'category_name' => $category->name]);
+					if (isset($product['subcategory_id']) && $subcategory = $this->subcategories->find($product['subcategory_id'])) {
+						$prd = array_merge($prd,['subcategory_id' => $subcategory->id,'subcategory_name' => $subcategory->name]);
+						if ($flat) {
+								$p = $this->products->save($product);
+								if (isset($product['image'])) {
+									$this->images->save(['image'=>$product['image'],'product_id'=>$p->id]);
+								}
+							continue;
+						}
+					}
+				}
+			}
+			$products_incorrects->push($prd);
+		}
+		if (!$products_incorrects->isEmpty()) {
+			$genders = $this->genders->getAllFull();
+			$brands = $this->brands->getAll();
+			$colors = $this->colors->getAll();
+			return view('admin.article.csv.index',compact('products_corrects','products_incorrects','genders','brands','colors'));
 		}
 		return redirect('admin/products')->with('message','Productos del archivo agregados correctament, ahora vallaa agregar existencia');
 	}

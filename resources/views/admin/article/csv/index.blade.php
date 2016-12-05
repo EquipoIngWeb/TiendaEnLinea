@@ -61,7 +61,7 @@
 									<input type="hidden" name="product[{{$loop->index}}][subcategory_id]" value="{{$product['subcategory_id']}}">
 								</td>
 								<td>
-									<input type="file" name="product[{{$loop->index}}][image]" class="form-control" required="required" accept=" image/jpeg, image/png">
+									<input type="file" name="product[{{$loop->index}}][image]" class="form-control" accept=" image/jpeg, image/png">
 								</td>
 							</tr>
 					@endforeach
@@ -218,7 +218,7 @@
 									{{isset($product['subcategory_name'])?$product['subcategory_name']:''}}
 								</td>
 								<td>
-									<input type="file" name="product_v[{{$loop->index}}][image]" class="form-control" required="required" accept=" image/jpeg, image/png">
+									<input type="file" name="product_v[{{$loop->index}}][image]" class="form-control" accept=" image/jpeg, image/png">
 								</td>
 							</tr>
 					@endforeach

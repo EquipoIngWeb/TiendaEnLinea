@@ -131,6 +131,18 @@ Menu Principal
 				</a>
 			</div>
 		</div>
+		<div class="col-md-3">
+			<div class="thumbnail">
+				<a href="{{ url('admin/banners') }}">
+					<div class="icon">
+						<i class="fa fa-briefcase"></i>
+					</div>
+					<div class="caption">
+						<h3>Banners</h3>
+					</div>
+				</a>
+			</div>
+		</div>
 	</div>
 @stop
 

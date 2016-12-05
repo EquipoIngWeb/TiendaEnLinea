@@ -8,20 +8,12 @@
 
 </style>
 <div id="main-carousel" class="owl-carousel owl-theme">
-
-	<div class="item">
-		<img src="{{asset('images/carrusel/banner_1.jpg')}}" alt="Damas, Caballeros y Niños">
-		<p class="center">Damas, Caballeros y Niños</p>
-	</div>
-	<div class="item">
-		<img src="{{asset('images/carrusel/banner_2.jpg')}}" alt="Todo lo que necesites a tu alcance">
-		<p class="center">Todo lo que necesites a tu alcance</p>
-	</div>
-	<div class="item">
-		<img src="{{asset('images/carrusel/banner_3.jpg')}}" alt="Descubre más con un clic">
-		<p class="center">Descubre más con un clic</p>
-	</div>
-
+	@foreach ($banners as $banner)
+		<div class="item">
+			<img src="{{$banner->image}}" alt="Damas, Caballeros y Niños">
+			<p class="center">{{$banner->description}}</p>
+		</div>
+	@endforeach
 </div>
 
 <div class="container">
@@ -35,10 +27,7 @@
 					<span class="card-title">Descuentos de hasta el 50%</span>
 				</div>
 				<div class="card-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<p>...</p>
 				</div>
 			</div>
 		</div>
@@ -49,10 +38,7 @@
 					<span class="card-title">Encuentra lo más nuevo</span>
 				</div>
 				<div class="card-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<p>...</p>
 				</div>
 			</div>
 		</div>
@@ -63,10 +49,7 @@
 					<span class="card-title">Los mejores diseños de temporada</span>
 				</div>
 				<div class="card-content">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<p>...</p>
 				</div>
 			</div>
 		</div>

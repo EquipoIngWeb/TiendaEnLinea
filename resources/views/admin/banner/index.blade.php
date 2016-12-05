@@ -3,55 +3,59 @@
 	@php
 		$breadcrumb=[
 			['url'=>url('admin'),'name'=>'Ménu Principal'],
-			['name'=>'Marcas']
+			['name'=>'Banners ']
 		];
 	@endphp
 @stop
 @section('header')
  Marcas
+<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"  class="btn btn-default">Nuevo Banner</a>
+
 @stop
 @section('content')
-	@foreach ($brands->chunk(6) as $row)
+	@foreach ($banners->chunk(2) as $row)
 		<div class="row">
-			@each ('admin.brand.item', $row, 'brand')
-			<div class="clearfix"></div>
+			@foreach ($row as $banner)
+				<div class="col-md-6">
+					<div class="thumbnail image product">
+						<img src="{{ $banner->image }}"  alt="" >
+						<div class="caption">
+							<h4><a href="details.html"> {{$banner->description}}</a></h4>
+							<div class="options">
+								<a href="{{ url("admin/banners/$banner->id/edit") }}" class="btn btn-primary">editar</a>
+								<form action="{{ url("admin/banners/$banner->id") }}" method="POST">
+									{{ csrf_field() }}
+									{{ method_field('DELETE') }}
+									<button type="submit" class="btn btn-primary btn-delete">Eliminar</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			@endforeach
 		</div>
 	@endforeach
-	<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"  class="btn btn-default">Nueva Marca</a>
-
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">
-			<form action="{{ url('admin/brands') }}" method="POST" class="form-horizontal" ccept-charset="UTF-8" enctype="multipart/form-data" style="display: block;">
+			<form action="{{ url('admin/banners') }}" method="POST" class="form-horizontal" ccept-charset="UTF-8" enctype="multipart/form-data" style="display: block;">
 				{{csrf_field()}}
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="gridSystemModalLabel">Nueva Marca de Articulo</h4>
+					<h4 class="modal-title" id="gridSystemModalLabel">Nuevo Banner</h4>
 				</div>
 				<div class="modal-body">
-					<div class="form-group has-feedback {{ $errors->has('name')?'has-error ':''}}">
-				    	<label class="col-sm-2 control-label" >Nombre:</label>
+					<div class="form-group has-feedback {{ $errors->has('description')?'has-error ':''}}">
+				    	<label class="col-sm-2 control-label" >Descripción a mostrar:</label>
 					    <div class="col-sm-10">
-							<input type="text" name="name" class="form-control" value="{{old('name')}}" required="required">
-						    @if ($errors->has('name'))
+							<input type="text" name="description" class="form-control" value="{{old('description')}}" required="required">
+						    @if ($errors->has('description'))
 					    	<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 		                        <span class="help-block">
-		                            <strong>{{ $errors->first('name') }}</strong>
+		                            <strong>{{ $errors->first('description') }}</strong>
 		                        </span>
 		                    @endif
 					    </div>
-					</div>
-					<div class="form-group has-feedback {{ $errors->has('name')?'has-error ':''}}">
-						<label for="inputUrl" class="col-sm-2 control-label">Url Página:</label>
-						<div class="col-sm-10">
-							<input type="url" name="url"  class="form-control" value="" required="required" title="">
-						    @if ($errors->has('url'))
-					    	<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-		                        <span class="help-block">
-		                            <strong>{{ $errors->first('url') }}</strong>
-		                        </span>
-		                    @endif
-						</div>
 					</div>
 					<div class="form-group has-feedback {{ $errors->has('image')?'has-error ':''}}">
 					    	<label class="col-sm-2 control-label" >Imagen:</label>
