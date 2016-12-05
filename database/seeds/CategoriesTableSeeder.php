@@ -62,20 +62,10 @@ class CategoriesTableSeeder extends Seeder
 		'Playeras',
 		'Blusas',
 		'Vestidos',
-		// 'Camisas',
-		// 'Suéter',
 		'Sacos',
-		// 'Sudaderas',
 		'Pantalones',
-		// 'Jeans',
-		// 'Leggings',
-		// 'Shorts',
-		// 'Faldas',
 		'Trajes de Baño',
-		// 'Chalecos',
 		'Pants',
-		// 'Chamarras',
-		// 'Abrigos',
 		'Ropa Interior',
 		];
 		foreach ($categories_ropa_dama as $category) {
@@ -87,18 +77,10 @@ class CategoriesTableSeeder extends Seeder
 		'Sacos',
 		'Playeras',
 		'Camisas',
-		// 'Suéter',
-		// 'Sudaderas',
-		// 'Chamarras',
-		// 'Chalecos',
 		'Pantalones',
-		// 'Trajes de Baño',
 		'Jeans',
-		// 'Shorts',
-		// 'Abrigos',
 		'Pants',
 		'Pijama',
-		// 'Ropa Interior'
 		];
 
 		foreach ($categories_ropa_caballero as $category) {
