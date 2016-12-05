@@ -22,6 +22,7 @@ class GenderController extends Controller
 		$gender = $this->genders->findOrFail($id);
 		return view('admin.gender.edit',compact('gender'));
 	}
+	
     public function show(Request $request,$id=''){
 		if ($request->has('filter')) {
 			$category = $this->genders->filterBy($id,$request->filter);
@@ -37,6 +38,7 @@ class GenderController extends Controller
 		$genders = $this->genders->getAllFull();
 		return view('web.products',compact('category','products','genders'));
     }
+
     public function store(GenderRequest $request){
     	$this->genders->save($request->all());
     	return redirect()->back()->with('message','Genero registrado con exito');

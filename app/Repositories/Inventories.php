@@ -23,16 +23,4 @@ class Inventories  extends BaseRepository
 		return $this->getModel()->where('specification_id',$specification_id)->first();
 	}
 }
- /*
-		getModel()
-		getAll()
-		pag
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-*/
- ?>
+?>

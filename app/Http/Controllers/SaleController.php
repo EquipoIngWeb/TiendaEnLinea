@@ -96,11 +96,27 @@ class SaleController extends Controller
        $cart = $this->cart->getWithPrices();
        return view('product.shoppingCart',compact('cart'));
     }
-    public function buyAllFromCart()
+    public function sendEmail()
+    {
+        $user = \Auth::user();
+        $user->confirmation_code = str_random(30);
+        $user->save();
+        $cart = $this->cart->getWithPrices();
+
+       return view('email.confirmationCart',compact('cart','user'));
+        \Mail::send('email.confirmationCart', compact('user','cart') , function($message) use ($user) {
+            $message->to($user->email, $user->full_name)
+                ->subject('Confirmación de compra de Lara-Shop');
+        });
+        return redirect()->back()->with('message','Se ha enviado un correo de confirmacion, revisa tu correo.');
+    }
+    public function buyAllFromCart($confirmation_code)
     {
         $cart = $this->cart->getWithPrices();
         $user_id = \Auth::user()->id;
-
+        $user = \Auth::user();
+        if($confirmation_code!= $user['confirmation_code'])
+            return redirect('user/cart')->with('message','Codigo de confirmacion incorrecto');
        \DB::beginTransaction();
        foreach ($cart as $item) {
 
@@ -119,12 +135,12 @@ class SaleController extends Controller
                 $inventory->save();
             }else{
                 \DB::rollBack();
-                return redirect()->back()->with('message','Articulos Insificientes');
+                return redirect('user/cart')->with('message','Articulos Insificientes');
             }
        }
        \DB::commit();
        $this->cart->clear();
-        return redirect()->back()->with('message','Su compra ha sido realizada :)');
+        return redirect('user/cart')->with('message','Su compra ha sido realizada :)');
     }
     /**
      * Display the specified resource.

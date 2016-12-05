@@ -3,14 +3,14 @@ namespace App;
 use App\Repositories\Specifications;
 use App\Specification;
 /*Almacena la informacion en la sesion*/
-/*  Metodos publicos [add,has,get,find,total]*/
+/*  Metodos publicos [add,has,get,find,total,getWithPrices,getOnlyIds]*/
 class Cart{
 
 	public function add($product, $amount = 1)
 	{
 		# Inicializar carrito si no hay productos.
 		if($this->total() == 0){
-			session(['cart' => []]);
+			$this->clear();
 		}
 		# Si el producto ya esta en el carrito, agregarle la cantidad.
 		if($this->has($product))
@@ -42,8 +42,6 @@ class Cart{
 		$cart[$product_index] = ['id'=>$product,'amount'=>$amount];
 		# Almacenar el producto.
 		session(['cart' => $cart]);
-
-
 	}
 	/* ¿ Tiene el producto ? */
 	public function has($product)
@@ -80,10 +78,12 @@ class Cart{
 		}
 		return false;
 	}
+	/* Borra todos los articulos del carrito. */
 	public function clear()
 	{
 		session(['cart' => []]);
 	}
+	/* Borrar del carrito el producto. */
 	public function remove($product)
 	{
 		$cart = $this->get();
@@ -96,6 +96,7 @@ class Cart{
 	{
 		return session('cart');
 	}
+	/* Obtener el carrito de los id's. */
 	public function getOnlyIds()
 	{
 		$cart = $this->get();

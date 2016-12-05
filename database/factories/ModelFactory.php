@@ -43,3 +43,13 @@ $factory->define(App\Category::class, function (Faker\Generator $faker) {
         'description' => $faker->paragraph
     ];
 });
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+    return [
+        'message' => $faker->word,
+        'product_id' => '1',
+        'user_id' => rand(1,3),
+        'status' => rand(0,1)
+
+    ];
+});

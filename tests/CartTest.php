@@ -7,6 +7,7 @@ use App\Cart;
 
 class CartTest extends TestCase
 {
+
     public function testAddingToCart()
     {
         $cart = new Cart();
@@ -15,7 +16,7 @@ class CartTest extends TestCase
         $cart->add(1,20);
         $cart->add(2,20);
 
-        # Verificar que se agregue la cantidad correcta.
+        # Verificar que se agreguen correctamente.
         $this->assertEquals(
             120,
             $cart->find(1)['amount']

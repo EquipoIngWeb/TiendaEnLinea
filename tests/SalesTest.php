@@ -12,7 +12,7 @@ use App\Specification;
 class SalesTest extends TestCase
 {
 	protected $authUser;
-
+/*
 	public function testAddingToCart()
 	{
 		# Obtener el carrito.
@@ -22,6 +22,7 @@ class SalesTest extends TestCase
 		# Agregar un producto al carrito.
 		$this->asSomeAuthUser()->post('/user/sale/addToCart',$fakeData);
 
+
 		$this->assertEquals(
 			1,
 			$cart->total(),
@@ -29,7 +30,7 @@ class SalesTest extends TestCase
 		);
 	}
 
-
+*/
 
 	private function getSomeProduct($amount = 1)
 	{

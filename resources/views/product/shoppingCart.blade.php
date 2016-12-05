@@ -16,11 +16,11 @@
 					<td>{{$item->amount}}</td>
 					<td>{{$item->product->name}}</td>
 					<td>${{$item->product->price}}</td>
-					<td><a href="{{url("remove_cart/$item->id")}}" class="btn red">X</a></td>
+					<td><a href="{{url("user/remove_cart/$item->id")}}" class="btn red">X</a></td>
 				</tr>
 			@endforeach
 		</table>
-		<a href="{{url("/buy_the_cart")}}" class="btn col s12">Finalizar compra</a>
+		<a href="{{url("user/sendEmailForCart")}}" class="btn col s12">Finalizar compra</a>
 	</div>
 </div>
 @endsection
