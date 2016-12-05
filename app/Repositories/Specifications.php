@@ -9,6 +9,8 @@ class Specifications  extends BaseRepository
 		$this->model = $model;
 	}
 
-
+	public function getIn($ids)
+	{
+		return $this->model->whereIn('id',$ids)->with('product')->get();
+	}
 }
-

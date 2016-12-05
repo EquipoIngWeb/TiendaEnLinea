@@ -23,4 +23,3 @@ class Inventories  extends BaseRepository
 		return $this->getModel()->where('specification_id',$specification_id)->first();
 	}
 }
-

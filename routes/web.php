@@ -11,25 +11,48 @@
 |
 */
 
-Route::get('/checkout',function () {
-	return view('checkout');
-});
 
+# Pagina principal.
 Route::get('/','HomeController@index')->name('home');
 
-Route::get('/category/{id}','CategoryController@showPublic')->name('view_category');
-Route::get('/gender/{id}','GenderController@showPublic')->name('view_gender');
-Route::get('/subcategory/{id}','SubcategoryController@showPublic')->name('view_subcategory');
+/*Auth*/
+	Auth::routes();
+	# Activar cuenta.
+	Route::get(
+		'register/verify/{id}',
+		'Auth\RegisterController@confirm'
+	);
+	# Registrar usuario
+	Route::post('/store','Auth\RegisterController@store');
+
+/* Consultar ropa */
+	# Ver ropa de un genero en especifico.
+	Route::get(
+		'/gender/{id}',
+		'GenderController@showPublic'
+	)->name('view_gender');
+	# ver ropa de una categoria.
+	Route::get(
+		'/category/{id}',
+		'CategoryController@showPublic'
+	)->name('view_category');
+	# Ver ropa de una subcategoria.
+	Route::get(
+		'/subcategory/{id}',
+		'SubcategoryController@showPublic'
+	)->name('view_subcategory');
+	# Ver un producto en especifico.
+	Route::get(
+		'/view/{product_id}',
+		'ProductController@showPublic'
+	)->name('view_product');
 
 Route::get('/add_cart/{product_id}','ProductController@addToCart')->name('add_to_cart');
-
-Route::get('/view/{product_id}','ProductController@showPublic')->name('view_product');
 
 Route::post('/store','Auth\RegisterController@store');
 Auth::routes();
 
-Route::get('/principal', 'PrincipalController@index');
-Route::get('/inicio', 'PrincipalController@inicio'); //Vista principal
+// Route::get('/principal', 'PrincipalController@index');
+// Route::get('/inicio', 'PrincipalController@inicio'); //Vista principal
 // Route::get('/category/{id}','ProductController@ofCategory'); //Categorias
 
-Route::get('register/verify/{id}','Auth\RegisterController@confirm');

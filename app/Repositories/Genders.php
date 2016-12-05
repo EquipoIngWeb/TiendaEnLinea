@@ -8,7 +8,8 @@ class Genders  extends BaseRepository
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-
+	# Obtener los articulos por genero.
+	#	Cada genero con sus respectivas ccategorias y subcategorias.
 	public function getAllFull()
 	{
 		return $this->getModel()->with(['categories'=>function($query)

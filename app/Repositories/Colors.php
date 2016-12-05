@@ -1,6 +1,6 @@
 <?php
 namespace App\Repositories;
-use  App\Color as Model;
+use App\Color as Model;
 use Illuminate\Http\Request;
 
 class Colors extends BaseRepository
@@ -14,5 +14,3 @@ class Colors extends BaseRepository
 	}
 
 }
-
-

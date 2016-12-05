@@ -8,6 +8,4 @@ class Sales  extends BaseRepository
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-
-
 }

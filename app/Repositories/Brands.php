@@ -1,11 +1,16 @@
 <?php
 namespace App\Repositories;
-use  App\Brand as Model;
+use App\Brand as Model;
 use Illuminate\Http\Request;
 
-class Brands  extends BaseRepository
+/*
+	Marcas
+*/
+
+class Brands extends BaseRepository
 {
-	function __construct(Model $model){
+	function __construct(Model $model)
+	{
 		$this->model = $model;
 	}
 

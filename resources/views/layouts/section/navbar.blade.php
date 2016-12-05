@@ -63,6 +63,7 @@
 			<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
 			<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
 			@else
+			<li><a href="{{url('user/cart')}}">Carrito</a></li>
 			<li>
 				<a href="#" class="dropdown-button" data-activates="user-menu">
 					{{ Auth::user()->full_name }}
