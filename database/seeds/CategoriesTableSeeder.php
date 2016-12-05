@@ -43,11 +43,11 @@ class CategoriesTableSeeder extends Seeder
 
 		$categories_caballero = [
 			'Bota',
-			'Sandalia',
-			'Flat',
+			// 'Sandalia',
+			// 'Flat',
 			'Sneaker',
 			'Deportivo',
-			'Pantufla',
+			// 'Pantufla',
 		];
 		foreach ($categories_caballero as $category) {
 			App\Subcategory::create(['name'=> $category,'category_id'=>$calzado_caballero->id]);
@@ -62,20 +62,20 @@ class CategoriesTableSeeder extends Seeder
 		'Playeras',
 		'Blusas',
 		'Vestidos',
-		'Camisas',
-		'Suéter',
+		// 'Camisas',
+		// 'Suéter',
 		'Sacos',
-		'Sudaderas',
+		// 'Sudaderas',
 		'Pantalones',
-		'Jeans',
-		'Leggings',
-		'Shorts',
-		'Faldas',
+		// 'Jeans',
+		// 'Leggings',
+		// 'Shorts',
+		// 'Faldas',
 		'Trajes de Baño',
-		'Chalecos',
+		// 'Chalecos',
 		'Pants',
-		'Chamarras',
-		'Abrigos',
+		// 'Chamarras',
+		// 'Abrigos',
 		'Ropa Interior',
 		];
 		foreach ($categories_ropa_dama as $category) {
@@ -87,18 +87,18 @@ class CategoriesTableSeeder extends Seeder
 		'Sacos',
 		'Playeras',
 		'Camisas',
-		'Suéter',
-		'Sudaderas',
-		'Chamarras',
-		'Chalecos',
+		// 'Suéter',
+		// 'Sudaderas',
+		// 'Chamarras',
+		// 'Chalecos',
 		'Pantalones',
-		'Trajes de Baño',
+		// 'Trajes de Baño',
 		'Jeans',
-		'Shorts',
-		'Abrigos',
+		// 'Shorts',
+		// 'Abrigos',
 		'Pants',
 		'Pijama',
-		'Ropa Interior'
+		// 'Ropa Interior'
 		];
 
 		foreach ($categories_ropa_caballero as $category) {
