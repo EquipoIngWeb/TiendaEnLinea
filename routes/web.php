@@ -17,13 +17,13 @@ Route::get('/checkout',function () {
 
 Route::get('/','HomeController@index')->name('home');
 
-Route::get('/category/{id}','CategoryController@show')->name('view_category');
-Route::get('/gender/{id}','GenderController@show')->name('view_gender');
-Route::get('/subcategory/{id}','SubcategoryController@show')->name('view_subcategory');
+Route::get('/category/{id}','CategoryController@showPublic')->name('view_category');
+Route::get('/gender/{id}','GenderController@showPublic')->name('view_gender');
+Route::get('/subcategory/{id}','SubcategoryController@showPublic')->name('view_subcategory');
 
 Route::get('/add_cart/{product_id}','ProductController@addToCart')->name('add_to_cart');
 
-Route::get('/view/{product_id}','ProductController@show')->name('view_product');
+Route::get('/view/{product_id}','ProductController@showPublic')->name('view_product');
 
 Route::post('/store','Auth\RegisterController@store');
 Auth::routes();

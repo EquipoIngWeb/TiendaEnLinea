@@ -17,4 +17,3 @@ class Comments  extends BaseRepository
 		return $this->getModel()->where('status',0)->with('user')->with('product')->get();
 	}
 }
- ?>

@@ -1,5 +1,12 @@
-		return view('admin.gender.index',compact('genders'));
 @extends('admin.app')
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['name'=>'Géneros']
+		];
+	@endphp
+@stop
 @section('header')
 Géneros <small>Con Categorias</small>
 <a href="" data-toggle="modal" data-target=".bs-example-modal-lg" class="btn btn-warning"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nuevo Género</a>

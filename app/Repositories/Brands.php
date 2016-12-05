@@ -13,18 +13,8 @@ class Brands  extends BaseRepository
 	{
 		return $this->getModel()->where('name',$name)->first();
 	}
+	public function filterByName($name='')
+	{
+		return $this->getModel()->where('name','LIKE',"%$name%")->first();
+	}
 }
- ?>
-
- <!--
-		getModel()
-		getAll()
-		pag
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-  -->

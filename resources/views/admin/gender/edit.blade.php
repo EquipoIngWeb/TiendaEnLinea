@@ -1,4 +1,13 @@
 @extends('admin.app')
+@section('breadcrumb')
+	@php
+		$breadcrumb=[
+			['url'=>url('admin'),'name'=>'Ménu Principal'],
+			['url'=>url('admin/genders/'),'name'=>'Generos'],
+			['name'=>'Edición '.$gender->name]
+		];
+	@endphp
+@stop
 @section('header')
 {{$gender->name}}<small>Edición</small>
 @stop
@@ -47,7 +56,7 @@
 						</div>
 				</div>
 				<div class="modal-footer">
-					<button type="reset" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					<a href="{{ url('admin/genders') }}" class="btn btn-default">Cancelar</a>
 					<button type="submit" class="btn btn-primary">Guardar</button>
 				</div>
 			</form>

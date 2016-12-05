@@ -41,6 +41,20 @@
 				@include('admin.section.header')
 				<!--content-->
 				<div class="content">
+					@if (isset($breadcrumb))
+						@yield('breadcrumb')
+						<ol class="breadcrumb">
+							@foreach ($breadcrumb as $bc)
+								@if (isset($bc['url']))
+									<li>
+										<a href="{{$bc['url']}}">{{$bc['name']}}</a>
+									</li>
+								@else
+								<li class="active">{{$bc['name']}}</li>
+								@endif
+							@endforeach
+						</ol>
+					@endif
 
 					<div class="page-header">
 					  <h1>

@@ -13,7 +13,7 @@ use App\Specification;
 class Product extends Model
 {
 	protected $fillable = [
-	'id', 'name','price','color','brand_id','color_id','subcategory_id'
+	'id', 'name','price','brand_id','color_id','subcategory_id'
 	];
 	public function color()
 	{
@@ -23,10 +23,10 @@ class Product extends Model
 		// hasMany(RelatedModel, foreignKeyOnRelatedModel = product_id, localKey = id)
 		return $this->hasMany(Image::class);
 	}
-	public function subcateory()
+	public function subcategory()
 	{
 	// belongsTo(RelatedModel, foreignKey = subcateory_id, keyOnRelatedModel = id)
-	return $this->belongsTo(Subcateory::class);
+	return $this->belongsTo(Subcategory::class);
 	}
 	public function brand()
 	{
@@ -34,10 +34,10 @@ class Product extends Model
 		return $this->belongsTo(Brand::class);
 	}
 	public function getImageAttribute(){
-		// if (sizeof($this->images()->get()) <= 0) {
+		if (sizeof($this->images()->get()) <= 0) {
 			return asset('images/default.png');//'http://simpledeveloper.com/wp-content/uploads/2014/08/how-to-use-laravel-model.jpg';
-		// }
-		// return $this->images()->first()->name;
+		}
+		return $this->images()->first()->name;
 	}
 	public function comments()
 	{

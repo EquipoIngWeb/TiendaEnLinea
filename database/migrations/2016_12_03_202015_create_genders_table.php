@@ -17,7 +17,7 @@ class CreateGendersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('image')->default('categories/default.jpg');
+            $table->string('image')->default('images/categories/default.jpg');
             $table->timestamps();
         });
     }

@@ -14,7 +14,12 @@ use Illuminate\Http\Request;
 */
 Route::get('/','AdminController@index');
 
+Route::post('filecsv','FileCsvController@load');
+Route::post('filecsv/store','FileCsvController@store');
+Route::get('filecsv/format','FileCsvController@format');
+
 Route::resource('genders','GenderController');
+Route::resource('subcategories','SubcategoryController');
 
 Route::get('users','AdminController@users');
 Route::delete('users/{id}','UserController@destroy');

@@ -6,24 +6,43 @@ use Illuminate\Http\Request;
 use App\Repositories\Products;
 use App\Cart;
 use App\Repositories\Categories;
+use App\Repositories\Subcategories;
+use App\Repositories\Genders;
 use App\Repositories\Brands;
+use App\Repositories\Colors;
+use App\Repositories\Images;
 use App\Repositories\Comments;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\ProductRequest;
 
-
-class ProductController extends Controller
-{
+class ProductController extends Controller{
 	protected $products;
+	protected $genders;
 	protected $categories;
+	protected $subcategories;
 	protected $brands;
+	protected $colors;
+	protected $images;
 	protected $comments;
 	protected $cart;
-	function __construct(Products $products,Categories $categories,Brands $brands,Comments $comments,Request $request)
+	function __construct(Products $products,
+	                     Genders $genders,
+	                     Categories $categories,
+	                     Subcategories $subcategories,
+	                     Colors $colors,
+	                     Brands $brands,
+	                     Images $images,
+	                     Comments $comments
+	                     )
 	{
 		$this->products = $products;
 		$this->brands = $brands;
+		$this->genders = $genders;
+		$this->colors = $colors;
+		$this->images = $images;
 		$this->categories = $categories;
+		$this->subcategories = $subcategories;
 		$this->comments = $comments;
 		$this->cart = new Cart($request);
 	}
@@ -32,10 +51,25 @@ class ProductController extends Controller
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
-		$categories = $this->categories->getFirsts();
-		return view('admin.article.index',compact('categories'));
+		if ($request->has('subcategory_id')) {
+			$products = $this->products->filterBySubcategories($request->subcategory_id);
+		}else{
+			if ($request->has('category_id')) {
+				$products = $this->products->filterByCategories($request->category_id);
+			}else{
+				if ($request->has('brand_id')) {
+					$products = $this->products->filterByBrands($request->brand_id);
+				}else{
+					$products = $this->products->paginate(24);
+				}
+			}
+		}
+		$brands = $this->brands->getAll();
+		$colors = $this->colors->getAll();
+		$genders = $this->genders->getAllFull();
+		return view('admin.article.index',compact('genders','products','brands','colors'));
 	}
 	public function ofCategories($category='')
 	{
@@ -43,7 +77,6 @@ class ProductController extends Controller
 		$categories = $category->children;
 		return view('admin.article.index',compact('categories','category'));
 	}
-
 	public function ofCategory($category='')
 	{
 
@@ -66,38 +99,22 @@ class ProductController extends Controller
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store(Request $request)
+	public function store(ProductRequest $request)
 	{
-		$category = $this->categories->find($request->category);
-		$product= $this->products->save($request->except('category'));
-		$product->categories()->attach($category->id);
-		\Storage::disk('local')->makeDirectory('images/categories/'.$category->id.'-'.$category->name.'/'.$product->id.'-'.$product->name);
-		return redirect()->to($request->redirect)->with('message','Articulo registrado con exito');
+		$product = $this->products->save($request->all());
+		if ($request->hasFile('image')) {
+			$this->images->save(['image'=>$request->image,'product_id'=>$product->id]);
+		}
+		return redirect()->back()->with('message','Articulo registrado con exito');
 	}
-	public function csv(Request $request,$category='')
-	{
-		$category = $this->categories->find($category);
-		$nombre = $request->csv->getClientOriginalName();
-		Excel::load($request->csv, function($reader) use ($category){
-			foreach ($reader->get() as $article) {
-				$product = $this->products->save([
-				                      'name' => $article->nombre,
-				                      'price' => $article->precio,
-				                      'brand_id' => $this->brands->getByName($article->marca)->id
-				                      ]);
-     			$product->categories()->attach($category->id);
-				\Storage::disk('local')->makeDirectory('images/categories/'.$category->id.'-'.$category->name.'/'.$product->id.'-'.$product->name);
-			}
-		});
-		return redirect()->back()->with('message','Articulos agregados correctamente');
-	}
+
 	/**
 	 * Display the specified resource.
 	 *
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function show($id)
+	public function showPublic($id)
 	{
 		$product = $this->products->findOrFail($id);
 		$comments = $this->comments->getAprovedOfProduct($id);
@@ -110,18 +127,15 @@ class ProductController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit($category,$product)
+	public function edit($product)
 	{
-    	$root='images/categories/';
-    	$category = $this->categories->findOrFail($category);
+    	$brands = $this->brands->getAll();
+		$colors = $this->colors->getAll();
+		$genders = $this->genders->getAllFull();
+
     	$product = $this->products->findOrFail($product);
-    	$root.="$category->id-$category->name/$product->id-$product->name/";
-    	$images_array = \Storage::disk('local')->files($root);
-		$images = collect([]);
- 		foreach ($images_array as $index => $image) {
-			$images->put($index,['name'=> str_replace([$root,'.png','.jpg'],["",'',''], $image),'url'=> $image]);
- 		}
- 		return view('admin.article.show',compact('product','images','root'));
+    	// $images_array = \Storage::disk('local')->files($root);
+ 		return view('admin.article.edit',compact('product','brands','colors','genders'));
 	}
 
 	/**
@@ -133,7 +147,17 @@ class ProductController extends Controller
 	 */
 	public function update(Request $request, $id)
 	{
-		//
+		$product = $this->products->update($id,$request->all());
+		$product =$this->products->find($id);
+		if ($request->hasFile('image')) {
+			if (!$image = $product->images->first()) {
+				$this->images->save(['image'=>$request->image,'product_id'=>$id]);
+			}else{
+				$image->image = $request->image;
+				$image->save();
+			}
+		}
+		return redirect('admin/products')->with('message','Articulo actualizado con exito');
 	}
 
 	/**
@@ -144,7 +168,11 @@ class ProductController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		$this->images->getModel()->where('product_id',$id)->delete();
+		if ($this->products->remove($id)) {
+			return redirect()->back()->with('message','Producto eliminado correctamente.');
+		}
+		return redirect()->back()->with('message','Producto no pudo ser eliminado.');
 	}
 	public function addToCart($id)
 	{

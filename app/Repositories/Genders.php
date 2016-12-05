@@ -16,12 +16,21 @@ class Genders  extends BaseRepository
 			$query->with('subcategories');
 		}])->get();
 	}
+	public function getWithCategories($id='')
+	{
+		return $this->getModel()->where('id',$id)->with('categories')->first();
+	}
 	public function getWithProducts($id)
 	{
 		return $this->getModel()->where('id',$id)->with(['categories'=>function($query=''){
 				$query->with('products');
 		}])->first();
 	}
+	public function filterByName($name='')
+	{
+		return $this->getModel()->where('name','LIKE',"%$name%")->first();
+	}
+
 	// public function filterBy($category,$filter='')
 	// {
 	// 	if ($filter=='down') {
@@ -68,16 +77,3 @@ class Genders  extends BaseRepository
 
 
 }
-?>
- <!--
-		getModel()
-		getAll()
-		paginate($total=15)
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-	-->

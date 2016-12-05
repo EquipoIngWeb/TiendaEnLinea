@@ -18,17 +18,3 @@ class Users  extends BaseRepository
 		return $this->getModel()->where('confirmation_code',$code)->first();
 	}
 }
- ?>
-
- <!--
-		getModel()
-		getAll()
-		pag
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-  -->

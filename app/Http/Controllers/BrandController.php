@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Brands;
+use App\Http\Requests\BrandRequest;
+
 class BrandController extends Controller
 {
 	protected $brands;

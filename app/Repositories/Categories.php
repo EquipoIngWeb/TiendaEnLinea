@@ -9,6 +9,10 @@ class Categories  extends BaseRepository
 		$this->model = $model;
 	}
 
+	public function filterByName($name='',$gender_id)
+	{
+		return $this->getModel()->where('name','LIKE',"%$name%")->where('gender_id',$gender_id)->first();
+	}
 
 	// public function filterBy($category,$filter='')
 	// {
@@ -52,19 +56,5 @@ class Categories  extends BaseRepository
 	//  		}])->first();
 	// 	}
 	// }
-
-
 }
-?>
- <!--
-		getModel()
-		getAll()
-		paginate($total=15)
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-	-->
+

@@ -8,7 +8,7 @@
 	<div class="col s12 m5 offset-m1">
 		<br><br>
 		<h5>Marca:</h5>
-		<p><img src="{{$product->brand->image}}" alt="Marca {{$product->brand->name}}" class="responsive-img" width="50px"></p>
+		<p><img src="{{$product->brand->image}}" alt="Marca {{$product->brand->name}}" class="responsive-img" width="140px"></p>
 		<h5>Descripcion:</h5>
 		<p>{{$product->description or 'No hay descripcion disponible.'}}</p>
 		<h5>Precio: <div style="display: inline-block;"><b>$</b> <span class="price">{{ $product->price }} </span><b style="font-size: 0.8em;" class="orange-text">MXN</b></div></h5>

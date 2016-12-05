@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
 protected $fillable = [
-	'id', 'name','produc_id'
+	'id', 'image','product_id'
 	];
 	public function product()
 	{
 		// belongsTo(RelatedModel, foreignKey = product_id, keyOnRelatedModel = id)
 		return $this->belongsTo(\App\Product::class);
 	}
+	public function setImageAttribute($image='')
+	{
+		$root='images/products/';
+		$name = $image->getClientOriginalName();
+		\Storage::disk('local')->put($root.$name,  \File::get($image));
+		$this->attributes['image'] = $root.$name;
+	}
 	public function getNameAttribute()
 	{
-		return asset($this->attributes['name']);
+		return asset($this->attributes['image']);
 	}
 }

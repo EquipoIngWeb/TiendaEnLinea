@@ -8,18 +8,11 @@ class Colors extends BaseRepository
 	function __construct(Model $model){
 		$this->model = $model;
 	}
-}
- ?>
+	public function filterByName($name='')
+	{
+		return $this->getModel()->where('name','LIKE',"%$name%")->first();
+	}
 
- <!--
-		getModel()
-		getAll()
-		pag
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-  -->
+}
+
+

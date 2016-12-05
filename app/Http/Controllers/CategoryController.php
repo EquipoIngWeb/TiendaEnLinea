@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Categories;
 use App\Repositories\Genders;
-
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -27,7 +27,7 @@ class CategoryController extends Controller
 		if ($id_first!="") {
 			$route.=$id_first."/";
 		}
-		return view('admin.category.add',compact('route'));
+		return view('admin.gender.category.add',compact('route'));
 	}
 	public function attach(Request $request,$id_first="")
 	{
@@ -40,16 +40,20 @@ class CategoryController extends Controller
 
 	public function create()
 	{
-		return view('admin.category.create');
+		return view('admin.gender.category.create');
 	}
 
-	public function store(Request $request)
+	public function store(CategoryRequest $request)
 	{
 		$this->categories->save($request->all());
-		return redirect('admin/categories')->with('message','Categoria agregada satistactoriamente');
+		return redirect()->back()->with('message','Categoria agregada satistactoriamente');
 	}
-
-	public function show(Request $request,$id)
+	public function show($id='')
+	{
+		$category = $this->categories->findOrFail($id);
+		return view('admin.gender.category.show',compact('category'));
+	}
+	public function showPublic(Request $request,$id)
 	{
 		if ($request->has('filter')) {
 			$category = $this->categories->filterBy($id,$request->filter);
@@ -64,12 +68,15 @@ class CategoryController extends Controller
 
 	public function edit($id)
 	{
-		return view('admin.category.create');
+		$category = $this->categories->findOrFail($id);
+		return view('admin.gender.category.edit',compact('category'));
 	}
 
-	public function update(Request $request, $id)
-	{
-		//
+	public function update(CategoryRequest $request, $id){
+		if (!$this->categories->update($id,$request->all())) {
+    		return redirect()->back()->with('message','La categoria no pudo ser acatualizado con exito');
+    	}
+    	return redirect('admin/genders/'.$request->gender_id)->with('message','Categoria actualizada con exito');
 	}
 
 	/**
@@ -80,6 +87,9 @@ class CategoryController extends Controller
 	 */
 	public function destroy($id)
 	{
-		//
+		if (!$this->categories->remove($id)) {
+	    	return redirect()->back()->with('message','La categoria no pudo ser borrado');
+    	}
+    	return redirect()->back()->with('message','Categoria borrada con exito');
 	}
 }

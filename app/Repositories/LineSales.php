@@ -11,17 +11,3 @@ class LineSales  extends BaseRepository
 
 
 }
- ?>
-
- <!--
-		getModel()
-		getAll()
-		pag
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-  -->

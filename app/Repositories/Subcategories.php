@@ -8,6 +8,10 @@ class Subcategories  extends BaseRepository
 	function __construct(Model $model){
 		$this->model = $model;
 	}
+	public function filterByName($name='',$category_id)
+	{
+		return $this->getModel()->where('name','LIKE',"%$name%")->where('category_id',$category_id)->first();
+	}
 
 	// public function filterBy($category,$filter='')
 	// {
@@ -54,16 +58,3 @@ class Subcategories  extends BaseRepository
 
 
 }
-?>
- <!--
-		getModel()
-		getAll()
-		paginate($total=15)
-		findOrFail($id)
-		find($id)
-		count()
-		searchFor($field,$value)
-		save(Array $data)
-		update($id,Array $datos)
-		remove($id)
-	-->
