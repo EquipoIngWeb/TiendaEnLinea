@@ -26,6 +26,6 @@ class Banner extends Model
 		if (filter_var($image, FILTER_VALIDATE_URL)) {
 		    return $image;
 		}
-		return asset($image);
+		return asset('storage/'.$image);
 	}
 }

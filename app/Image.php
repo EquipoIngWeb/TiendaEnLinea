@@ -23,6 +23,6 @@ protected $fillable = [
 	}
 	public function getNameAttribute()
 	{
-		return asset($this->attributes['image']);
+		return asset('storage/'.$this->attributes['image']);
 	}
 }

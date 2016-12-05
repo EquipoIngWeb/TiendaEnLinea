@@ -31,7 +31,7 @@ class Category extends Model
 	}
 	public function getImageAttribute()
 	{
-		return asset($this->attributes['image']);
+		return asset('storage/'.$this->attributes['image']);
 	}
 	public function setImageAttribute($image='')
 	{
