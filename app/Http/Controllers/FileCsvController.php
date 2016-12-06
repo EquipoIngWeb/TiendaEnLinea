@@ -86,12 +86,11 @@ class FileCsvController extends Controller
     public function store(Request $request)
 	{
 		foreach ($request->product as $product) {
-			$p = $this->products->save($product);
+			$p = $this->products->firstOrCreate($product);
 			if (isset($product['image'])) {
-				$this->images->save(['image'=>$product['image'],'product_id'=>$p->id]);
+				$this->images->firstOrCreate(['image'=>$product['image'],'product_id'=>$p->id]);
 			}
 		}
-
 		$products_corrects =collect([]);
 		$products_incorrects =collect([]);
 		foreach ($request->product_v as $product) {
@@ -114,9 +113,9 @@ class FileCsvController extends Controller
 					if (isset($product['subcategory_id']) && $subcategory = $this->subcategories->find($product['subcategory_id'])) {
 						$prd = array_merge($prd,['subcategory_id' => $subcategory->id,'subcategory_name' => $subcategory->name]);
 						if ($flat) {
-								$p = $this->products->save($product);
+								$p = $this->products->firstOrCreate($product);
 								if (isset($product['image'])) {
-									$this->images->save(['image'=>$product['image'],'product_id'=>$p->id]);
+									$this->images->firstOrCreate(['image'=>$product['image'],'product_id'=>$p->id]);
 								}
 							continue;
 						}
