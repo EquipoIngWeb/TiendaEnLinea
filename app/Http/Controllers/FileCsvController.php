@@ -86,7 +86,12 @@ class FileCsvController extends Controller
     public function store(Request $request)
 	{
 		foreach ($request->product as $product) {
-			$p = $this->products->firstOrCreate($product);
+			$p = $this->products->firstOrCreate(['name'=>$producto['name'],
+				                                    'description'=>$producto['description'],
+													'color_id'=>$producto['color_id'],
+													'brand_id'=>$producto['brand_id'],
+													'subcategory_id'=>$producto['subcategory_id']
+													]);
 			if (isset($product['image'])) {
 				$this->images->firstOrCreate(['image'=>$product['image'],'product_id'=>$p->id]);
 			}
@@ -113,7 +118,12 @@ class FileCsvController extends Controller
 					if (isset($product['subcategory_id']) && $subcategory = $this->subcategories->find($product['subcategory_id'])) {
 						$prd = array_merge($prd,['subcategory_id' => $subcategory->id,'subcategory_name' => $subcategory->name]);
 						if ($flat) {
-								$p = $this->products->firstOrCreate($product);
+								$p = $this->products->firstOrCreate(['name'=>$producto['name'],
+								                                    'description'=>$producto['description'],
+																	'color_id'=>$producto['color_id'],
+																	'brand_id'=>$producto['brand_id'],
+																	'subcategory_id'=>$producto['subcategory_id']
+																	]);
 								if (isset($product['image'])) {
 									$this->images->firstOrCreate(['image'=>$product['image'],'product_id'=>$p->id]);
 								}
