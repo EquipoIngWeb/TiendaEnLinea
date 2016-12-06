@@ -212,10 +212,8 @@
 													@endforeach
 												@endif
 											@endforeach
-
 										</select>
 									@endif
-									{{isset($product['subcategory_name'])?$product['subcategory_name']:''}}
 								</td>
 								<td>
 									<input type="file" name="product_v[{{$loop->index}}][image]" class="form-control" accept=" image/jpeg, image/png">
