@@ -37,7 +37,6 @@ abstract class BaseRepository
 	public function firstOrCreate(Array $data){
 		return $this->getModel()->firstOrCreate($data);
 	}
-	firstOrCreate
 	public function update($id,Array $datos){
 		 $model = $this->findOrFail($id);
 		 $model->fill($datos);
