@@ -9,6 +9,7 @@
 @stop
 @section('header')
  Marcas
+	<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"  class="btn btn-warning"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nueva Marca</a>
 @stop
 @section('content')
 	@foreach ($brands->chunk(6) as $row)
@@ -17,8 +18,6 @@
 			<div class="clearfix"></div>
 		</div>
 	@endforeach
-	<a href="" data-toggle="modal" data-target=".bs-example-modal-lg"  class="btn btn-default">Nueva Marca</a>
-
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 	<div class="modal-dialog modal-lg" role="document">
 		<div class="modal-content">

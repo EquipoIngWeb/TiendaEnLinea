@@ -12,9 +12,10 @@
 					<form action="{{ url("admin/brands/$brand->id") }}" method="POST">
 						{{ csrf_field() }}
 						{{ method_field('DELETE') }}
-						<button type="submit" class="btn btn-primary btn-delete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+						<button type="submit" class="btn btn-primary btn-delete">Borrar</button>
 					</form>
 				@endif
+				<a href="{{ url('admin/brands/'.$brand->id.'/edit') }}" class="btn btn-primary">Editar</a>
 			</div>
 		</div>
 	</div>
