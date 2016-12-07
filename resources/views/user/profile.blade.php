@@ -18,7 +18,7 @@
 					<li><b>Direccion:</b> {{$user->address}}</li>
 					<li><b>Codigo Postal:</b> {{$user->postal_code}}</li>
 				</ul>
-				<a href="{{ url('user/profile/edit')}}" class="btn blue">Editar Perfil</a>
+				<a href="{{ url(Auth::user()->role_id.'/profile/edit')}}" class="btn blue">Editar Perfil</a>
 			</div>
 		</div>
 	</div>
