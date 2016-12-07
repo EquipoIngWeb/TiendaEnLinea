@@ -9,7 +9,7 @@
         <div>
         	<h5>Estimado {{$user['full_name']}}</h5>
         	<p>
-        		Su le notifica que esta apunto de realizar la siguiente compra:
+        		Se le notifica que esta apunto de realizar la siguiente compra:
 
         	</p>
             <table class="centered">
@@ -28,7 +28,7 @@
                     </tr>
                 @endforeach
             </table>
-            Porfavor  siga el siguiente enlace para confirmar su compra en Lara-shop
+            Porfavor siga el siguiente enlace para confirmar su compra en Lara-shop
             <a href=" {{ url('user/buy_the_cart/' . $user['confirmation_code']) }}">
                 Confirmar compra
             </a>
