@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\Users;
 use App\Repositories\Sales;
-use App\Repositories\lineSales;
+use App\Repositories\LineSales;
 class UserController extends Controller
 {
     protected $sales;
-	function __construct(Users $users,Sales $sales,lineSales $lineSales)
+	function __construct(Users $users,Sales $sales,LineSales $lineSales)
 	{
 		$this->users = $users;
         $this->sales = $sales;

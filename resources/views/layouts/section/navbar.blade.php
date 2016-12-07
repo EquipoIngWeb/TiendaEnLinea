@@ -61,33 +61,36 @@
 			<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
 			<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
 			@else
-				<li>
-					@inject('cart', 'App\Cart')
-					<a href="{{url('user/cart')}}">Carrito
-					@if ($cart->total()>0)
-							<span class="badge">{{$cart->total()}}</span>
-					@endif
-					</a>
-				</li>
-			<li>
-				<a href="#" class="dropdown-button" data-activates="user-menu">
-					{{ Auth::user()->full_name }}
-					<i class="material-icons right">arrow_drop_down</i>
-				</a>
-				<ul id="user-menu" class="dropdown-content">
-					<li style="opacity: 0;"><a href=""></a></li>
-					<li ><a href="{{ url(Auth::user()->role_id.'/profile') }}">Mi Perfil</a></li>
-					<li ><a href="{{ url(Auth::user()->role_id) }}">Princial</a></li>
+
+				@if (Auth::user()->role_id == "user")
 					<li>
-						<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-							Logout
+						@inject('cart', 'App\Cart')
+						<a href="{{url('user/cart')}}">Carrito
+						@if ($cart->total()>0)
+								<span class="badge">{{$cart->total()}}</span>
+						@endif
 						</a>
-						<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-							{{ csrf_field() }}
-						</form>
 					</li>
-				</ul>
-			</li>
+				@endif
+				<li>
+					<a href="#" class="dropdown-button" data-activates="user-menu">
+						{{ Auth::user()->full_name }}
+						<i class="material-icons right">arrow_drop_down</i>
+					</a>
+					<ul id="user-menu" class="dropdown-content">
+						<li style="opacity: 0;"><a href=""></a></li>
+						<li ><a href="{{ url(Auth::user()->role_id.'/profile') }}">Mi Perfil</a></li>
+						<li ><a href="{{ url(Auth::user()->role_id) }}">Princial</a></li>
+						<li>
+							<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+								Logout
+							</a>
+							<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+								{{ csrf_field() }}
+							</form>
+						</li>
+					</ul>
+				</li>
 			@endif
 		</ul>
 

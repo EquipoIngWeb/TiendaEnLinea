@@ -69,7 +69,7 @@ class SaleController extends Controller
 			\DB::rollBack();
     		return redirect()->back()->with('message','Articulos Insificientes');
 		}
-    	return redirect()->back()->with('message','Articulo Pedido a la tienda. Espere su respuesta');
+    	return redirect()->back()->with('message','Articulos Pedido a la tienda. Espere su respuesta');
     }
 
     public function addToCart(Request $request)
@@ -106,16 +106,28 @@ class SaleController extends Controller
     public function sendEmail()
     {
         $user = \Auth::user();
+        $validator = \Validator::make($user->toArray(), [
+            'phone' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'address' => 'required',
+            'postal_code' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return redirect('user/profile/edit')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         $user->confirmation_code = str_random(30);
         $user->save();
         $cart = $this->cart->getWithPrices();
 
-       return view('email.confirmationCart',compact('cart','user'));
+       // return view('email.confirmationCart',compact('cart','user'));
         \Mail::send('email.confirmationCart', compact('user','cart') , function($message) use ($user) {
             $message->to($user->email, $user->full_name)
                 ->subject('Confirmación de compra de Lara-Shop');
         });
-        return redirect()->back()->with('message','Se ha enviado un correo de confirmacion, revisa tu correo.');
+        return redirect('/')->with('message','Se ha enviado un correo de confirmacion, revisa tu correo.');
     }
     public function buyAllFromCart($confirmation_code)
     {

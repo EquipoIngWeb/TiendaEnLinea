@@ -19,6 +19,6 @@ class Users  extends BaseRepository
 	}
 	public function getByUsername($username)
 	{
-		return $this->getModel()->where('username',$username)->first();
+		return $this->getModel()->where('username',$username)->firstOrFail();
 	}
 }
