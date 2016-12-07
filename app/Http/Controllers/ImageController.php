@@ -74,7 +74,7 @@ class ImageController extends Controller
     public function upload(Request $request)
     {
     	foreach ($request->images as $image) {
-		   $name = $image->getClientOriginalName();end(explode(".", $str))
+		   $name = $image->getClientOriginalName();
 	       Storage::disk('local')->put($request->root.'/'.$name,  \File::get($image));
     	}
         return redirect()->back()->with('message','Imagen(es) Agregada(s) correctamente!');
