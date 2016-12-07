@@ -27,7 +27,7 @@
 					<span class="card-title">Descuentos de hasta el 50%</span>
 				</div>
 				<div class="card-content">
-					<p>...</p>
+					<p>Te sorprenderá todo lo que <br>puedes encontrar con grandes <br>precios.</p>
 				</div>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 					<span class="card-title">Encuentra lo más nuevo</span>
 				</div>
 				<div class="card-content">
-					<p>...</p>
+					<p>Solo aquí tenemos para ti <br> las mejores marcas y los <br>diseños más nuevos.</p>
 				</div>
 			</div>
 		</div>
@@ -49,7 +49,7 @@
 					<span class="card-title">Los mejores diseños de temporada</span>
 				</div>
 				<div class="card-content">
-					<p>...</p>
+					<p>No pierdas más tiempo y se parte de <br>nosotros y permanece con <br>estilo.</p>
 				</div>
 			</div>
 		</div>
