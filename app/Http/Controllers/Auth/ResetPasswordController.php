@@ -20,6 +20,15 @@ class ResetPasswordController extends Controller
     protected $redirectTo='/';
     use ResetsPasswords;
 
+    protected function resetPassword($user, $password)
+    {
+        $user->forceFill([
+            'password' => $password,
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        $this->guard()->login($user);
+    }
     /**
      * Create a new controller instance.
      *

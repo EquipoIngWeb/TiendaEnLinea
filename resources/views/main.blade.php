@@ -9,9 +9,9 @@
 </style>
 <div id="main-carousel" class="owl-carousel owl-theme">
 	@foreach ($banners as $banner)
-		<div class="item">
+		<div class="item" >
 			<img src="{{$banner->image}}" alt="Damas, Caballeros y Niños">
-			<p class="center">{{$banner->description}}</p>
+			<p class="center" >{{$banner->description}}</p>
 		</div>
 	@endforeach
 </div>
@@ -62,8 +62,6 @@
 			@endforeach
 		</div>
 	</div>
-
-
 
 </div>
 @stop
