@@ -34,9 +34,12 @@ class InventoryController extends Controller
 	{
 		$inventories = $this->inventories->getAllWithProduct();
 		$products = $this->products->getAll();
+		$products_no_specifications = $this->products->getModel()->withCount('specifications')->get()->filter(function ($value, $key) {
+		    return $value->specifications_count == 0;
+		});
 		$sizes = $this->sizes->getAll();
 		$colors = $this->colors->getAll();
-		return view('admin.inventory.index',compact('inventories','products','sizes','colors'));
+		return view('admin.inventory.index',compact('products_no_specifications','inventories','products','sizes','colors'));
 	}
 
 	/**
