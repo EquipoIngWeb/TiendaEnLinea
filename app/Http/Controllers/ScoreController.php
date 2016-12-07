@@ -20,9 +20,6 @@ class ScoreController extends Controller
     public function score($product_id='',$score)
     {
         $user_id = \Auth::user()->id;
-        if ($this->scores->hasScore($user_id)) {
-            return redirect()->back()->with('message','No puede calificar el producto 2 veces o mas');
-        }
         $this->scores->save(compact('user_id','product_id','score'));
         return redirect()->back()->with('message','Gracias por calificar nuestros producto');
     }
