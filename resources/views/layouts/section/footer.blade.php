@@ -1,13 +1,15 @@
 <footer class="page-footer">
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m5">
+			<div class="col s12 m4">
 				<b class="big-font">Acerca de nosotros</b>
 				<hr>
-				Somos una empresa confiable en donde tu podras encontras todo lo que estés bucando sin perder tu tiempo, rápido y seguro.
+				Somos una empresa confiable en donde tu podras
+				encontras todo lo que estés bucando sin perder
+				tu tiempo, rápido y seguro.
 
 			</div>
-			<div class="col s12 m5">
+			<div class="col s12 m4">
 				<b class="big-font">Contáctanos</b>
 				<hr>
 
@@ -25,6 +27,15 @@
 					<i class="material-icons">phone</i>
 					+52 (6673) 15-1726
 				</div>
+			</div>
+			<div class="col s12 m4">
+				<b class="big-font">Integrantes</b>
+				<hr>
+				Chavez Madrid Juan
+				<br>Gonzalez Castro Rafael
+				<br>Perez Herrera Ramon
+				<br>Rochin Ramirez Aida
+				<br>Valenzuela Sosa Veronica
 			</div>
 		</div>
 	</div>
