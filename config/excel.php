@@ -425,8 +425,8 @@ return array(
 
         'encoding'                => array(
 
-             'input'   => 'iso-8859-1',
-               'output' => 'iso-8859-1'
+             'input'   => 'UTF-8', //iso-8859-1
+               'output' => 'UTF-8'
 
         ),
 

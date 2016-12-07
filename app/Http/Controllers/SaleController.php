@@ -96,6 +96,10 @@ class SaleController extends Controller
     }
     public function viewCart()
     {
+        $size = sizeof(\Session::get('cart'));
+        if ($size == 0) {
+            return redirect()->back()->with('message','No hay ningun articulo en el carrito!');
+        }
        $cart = $this->cart->getWithPrices();
        return view('product.shoppingCart',compact('cart'));
     }

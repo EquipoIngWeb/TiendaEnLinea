@@ -43,11 +43,25 @@ class FileCsvController extends Controller
     public function load(Request $request)
 	{
 		$products =collect([]);
-		Excel::load($request->csv, function($reader) use ($products){
-			foreach ($reader->get() as $article) {
-				$products->push($article->toArray());
+		$name = explode(".",$request->csv->getClientOriginalName());
+		if (end($name)=='csv') {
+			Excel::load($request->csv, function($reader) use ($products){
+				foreach ($reader->get() as $article) {
+					$products->push($article->toArray());
+				}
+			});
+		}else{
+			if (end($name)=='xls' || end($name)=='xlsx') {
+				$sheet = Excel::selectSheetsByIndex(0)->load($request->csv,function($reader) use ($products){
+				foreach ($reader->get() as $article) {
+					$products->push($article->toArray());
+				}
+			});
+			}else{
+				return redirect()->back()->with('message','Archivo no admitido');
 			}
-		});
+		}
+
 		$products_corrects =collect([]);
 		$products_incorrects =collect([]);
 		foreach ($products as $product) {

@@ -12,6 +12,11 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('profile','UserController@myProfile');
+Route::get('profile/edit','UserController@edit');
+Route::put('profile/','UserController@update');
+
 Route::get('/','UserController@show');
 Route::get('/ticket/{sale_id}','UserController@ticket');
 
@@ -51,7 +56,7 @@ Route::get(
 		'/sendEmailForCart',
 		'SaleController@sendEmail'
 	);
-	
+
 /*
 Route::post(
 	'/sale',

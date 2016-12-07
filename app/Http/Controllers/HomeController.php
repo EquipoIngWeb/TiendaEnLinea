@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $products = $this->products->paginate();
+        $products = $this->products->getTrendies();
         $banners = $this->banners->getAll();
         return view('main',compact('products','banners'));
     }

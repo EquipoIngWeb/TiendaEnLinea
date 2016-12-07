@@ -42,16 +42,20 @@ class SubcategoryController extends Controller
 	}
 	public function showPublic(Request $request,$id)
 	{
+		$subcategory = $this->subcategories->find($id);
 		if ($request->has('filter')) {
-			$subcategory = $this->subcategories->filterBy($id,$request->filter);
+			if ($request->filter == 'down')
+				$products = $subcategory->products->sortBy('price');
+			else
+				$products = $subcategory->products->sortByDesc('price');
 		}else{
-			$subcategory = $this->subcategories->findOrFail($id);
+				$products = $subcategory->products;
 		}
-		$products = $subcategory->products;
 		$genders = $this->genders->getAllFull();
 		$title = $subcategory->name." - ".$subcategory->category->name." - ".$subcategory->category->gender->name;
-		$category=$subcategory;
-		return view('web.products',compact('category','products','genders','title'));
+		$category = $subcategory;
+		$route = 'subcategory/'.$id;
+		return view('web.products',compact('route','category','products','genders','title'));
 	}
 
 }

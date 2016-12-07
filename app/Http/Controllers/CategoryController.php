@@ -55,15 +55,18 @@ class CategoryController extends Controller
 	}
 	public function showPublic(Request $request,$id)
 	{
-		if ($request->has('filter')) {
-			$category = $this->categories->filterBy($id,$request->filter);
-		}else{
-			$category = $this->categories->findOrFail($id);
-		}
+		$category = $this->categories->find($id);
 		$products = $category->products;
+		if ($request->has('filter')) {
+			if ($request->filter == 'down')
+				$products = $category->products->sortBy('price');
+			else
+				$products = $category->products->sortByDesc('price');
+		}
 		$genders = $this->genders->getAllFull();
 		$title = $category->name." - ".$category->gender->name;
-		return view('web.products',compact('title','category','products','genders'));
+		$route = 'category/'.$id;
+		return view('web.products',compact('route','title','category','products','genders'));
 	}
 
 	public function edit($id)

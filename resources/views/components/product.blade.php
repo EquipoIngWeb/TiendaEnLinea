@@ -14,6 +14,6 @@
 	</a>
 	<a href="{{ route('view_product',['product_id'=>$product->id]) }}">{{$product->name}}</a>
 	{{$product->description}} <br>
-	<b>${{$product->price}}</b> <br>
+	<b>Desde $ {{$product->price}} <small>MXN</small></b> <br>
 	<a href="{{route('view_product',['product_id'=>$product->id])}}" class="btn orange">Ver Detalles</a>
 </div>

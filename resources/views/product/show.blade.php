@@ -70,7 +70,7 @@
 				@if ($comment->status == 1)
 					<li class="collection-item">
 						<i class="material-icons">person_pin</i>
-						<span class="title"><b>{{$comment->user->username}}</b></span>
+						<span class="title"><a href="{{ url('profile/'.$comment->user->username) }}"><b>{{$comment->user->username}}</b></a></span>
 						<p>{{$comment->message}}</p>
 					</li>
 				@endif

@@ -47,6 +47,13 @@ Route::get('/','HomeController@index')->name('home');
 		'ProductController@showPublic'
 	)->name('view_product');
 
+	Route::get(
+		'/products',
+		'ProductController@showAll'
+	);
+
+Route::get('profile/{username}','UserController@profile');
+
 Route::get('/add_cart/{product_id}','ProductController@addToCart')->name('add_to_cart');
 
 Route::post('/store','Auth\RegisterController@store');

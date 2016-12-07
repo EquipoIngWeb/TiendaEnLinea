@@ -43,7 +43,6 @@
 		{{-- Boton para sidebar, telefonos y tablets --}}
 		<a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
-
 		{{-- Menu normal --}}
 		<ul class="left hide-on-med-and-down">
 
@@ -54,16 +53,22 @@
 					</a>
 				</li>
 			@endforeach
+			<li><a href="{{url ('products')}}">Productos</a></li>
 		</ul>
-
-
 		{{-- Auth bar --}}
 		<ul class="right">
 			@if (Auth::guest())
 			<li><a href="{{route ('login')}}">Iniciar sesion</a></li>
 			<li class="active"><a href="{{url ('/register')}}">Registrarse</a></li>
 			@else
-			<li><a href="{{url('user/cart')}}">Carrito</a></li>
+				<li>
+					@inject('cart', 'App\Cart')
+					<a href="{{url('user/cart')}}">Carrito
+					@if ($cart->total()>0)
+							<span class="badge">{{$cart->total()}}</span>
+					@endif
+					</a>
+				</li>
 			<li>
 				<a href="#" class="dropdown-button" data-activates="user-menu">
 					{{ Auth::user()->full_name }}
@@ -71,6 +76,7 @@
 				</a>
 				<ul id="user-menu" class="dropdown-content">
 					<li style="opacity: 0;"><a href=""></a></li>
+					<li ><a href="{{ url(Auth::user()->role_id.'/profile') }}">Mi Perfil</a></li>
 					<li ><a href="{{ url(Auth::user()->role_id) }}">Princial</a></li>
 					<li>
 						<a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">

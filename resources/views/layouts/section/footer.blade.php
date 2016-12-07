@@ -1,13 +1,13 @@
 <footer class="page-footer">
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m5">
+			<div class="col s12 m4">
 				<b class="big-font">Acerca de nosotros</b>
 				<hr>
 				Somos una empresa confiable en donde tu podras encontras todo lo que estés bucando sin perder tu tiempo, rápido y seguro.
 
 			</div>
-			<div class="col s12 m5">
+			<div class="col s12 m4">
 				<b class="big-font">Contáctanos</b>
 				<hr>
 
@@ -24,6 +24,28 @@
 				<div>
 					<i class="material-icons">phone</i>
 					+52 (6673) 15-1726
+				</div>
+			</div>
+			<div class="col s12 m4">
+				<b class="big-font">Enlaces</b>
+				<hr>
+				<div>
+					<a style="color: white;" href="{{ url('/') }}">
+					<i class="material-icons">location_on</i>
+						Pagina Principal
+					</a>
+				</div>
+				<div>
+					<a style="color: white;" href="{{ url('login') }}">
+						<i class="material-icons">input</i>
+						Inicio de sesión
+					</a>
+				</div>
+				<div>
+					<a style="color: white;" href="{{ url('register') }}">
+					<i class="material-icons">person_pin</i>
+						Registro
+					</a>
 				</div>
 			</div>
 		</div>

@@ -46,11 +46,18 @@ class ProductController extends Controller{
 		$this->comments = $comments;
 		$this->cart = new Cart($request);
 	}
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+	public function showAll(Request $request)
+	{
+		if ($request->has('filter')) {
+			$products = $this->products->filterBy($request->filter);
+		}else{
+			$products = $this->products->getAll();
+		}
+		$genders = $this->genders->getAllFull();
+		$title = " Todos Los Productos";
+		$route = "products";
+		return view('web.products',compact('route','title','products','genders'));
+	}
 	public function index(Request $request)
 	{
 		if ($request->has('subcategory_id')) {
@@ -81,11 +88,7 @@ class ProductController extends Controller{
 	{
 
 	}
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return \Illuminate\Http\Response
-	 */
+
 	public function create($category)
 	{
 		$category = $this->categories->find($category);
@@ -93,12 +96,6 @@ class ProductController extends Controller{
 		return view('admin.article.create',compact('category','brands'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
 	public function store(ProductRequest $request)
 	{
 		$product = $this->products->save($request->all());
@@ -108,12 +105,6 @@ class ProductController extends Controller{
 		return redirect()->back()->with('message','Articulo registrado con exito');
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function showPublic($id)
 	{
 		$product = $this->products->findOrFail($id);
@@ -121,30 +112,15 @@ class ProductController extends Controller{
 		return view('product.show',compact('product','comments'));
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function edit($product)
 	{
     	$brands = $this->brands->getAll();
 		$colors = $this->colors->getAll();
 		$genders = $this->genders->getAllFull();
-
     	$product = $this->products->findOrFail($product);
-    	// $images_array = \Storage::disk('local')->files($root);
- 		return view('admin.article.edit',compact('product','brands','colors','genders'));
+    	return view('admin.article.edit',compact('product','brands','colors','genders'));
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function update(Request $request, $id)
 	{
 		$product = $this->products->update($id,$request->all());
@@ -160,12 +136,6 @@ class ProductController extends Controller{
 		return redirect('admin/products')->with('message','Articulo actualizado con exito');
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function destroy($id)
 	{
 		$this->images->getModel()->where('product_id',$id)->delete();
@@ -174,12 +144,14 @@ class ProductController extends Controller{
 		}
 		return redirect()->back()->with('message','Producto no pudo ser eliminado.');
 	}
+
 	public function addToCart($id)
 	{
 		$product = $this->products->findOrFail($id);
 		$this->cart->add($product);
 		return redirect()->back()->with('message','Producto agregado a carrito.');
 	}
+
 	public function saveComment($id,Request $request)
 	{
 		$this->comments->save(
@@ -190,6 +162,5 @@ class ProductController extends Controller{
 		);
 
 		 return redirect()->back()->with('message','Mensaje agregado');
-
 	}
 }

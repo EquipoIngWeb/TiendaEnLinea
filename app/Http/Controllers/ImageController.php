@@ -58,7 +58,7 @@ class ImageController extends Controller
         //Storage::disk('local')->delete($request->image);
         return redirect()->back()->with('message','Imagen default  seleccionada!');
     }
-    public function seDefault(Request $request)
+    public function setDefault(Request $request)
     {
     	$images_array = Storage::disk('local')->files($request->root);
 		foreach ($images_array as $image) {
@@ -74,7 +74,7 @@ class ImageController extends Controller
     public function upload(Request $request)
     {
     	foreach ($request->images as $image) {
-		   $name = $image->getClientOriginalName();
+		   $name = $image->getClientOriginalName();end(explode(".", $str))
 	       Storage::disk('local')->put($request->root.'/'.$name,  \File::get($image));
     	}
         return redirect()->back()->with('message','Imagen(es) Agregada(s) correctamente!');

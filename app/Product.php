@@ -13,7 +13,7 @@ use App\Specification;
 class Product extends Model
 {
 	protected $fillable = [
-	'id', 'name','price','brand_id','color_id','subcategory_id'
+	'id', 'name','description','price','brand_id','color_id','subcategory_id'
 	];
 	public function color()
 	{
@@ -50,5 +50,12 @@ class Product extends Model
 	public function scores()
 	{
 		return $this->hasMany(Score::class);
+	}
+	public function getPriceAttribute()
+	{
+		if ($price = $this->specifications()->min('price')) {
+			return $price;
+		}
+		return $this->attributes['price'];
 	}
 }

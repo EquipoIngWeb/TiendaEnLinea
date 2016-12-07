@@ -23,19 +23,23 @@ class GenderController extends Controller
 		return view('admin.gender.edit',compact('gender'));
 	}
     public function showPublic(Request $request,$id=''){
-		if ($request->has('filter')) {
-			$category = $this->genders->filterBy($id,$request->filter);
-		}else{
-			$category = $this->genders->getWithProducts($id);
-		}
-		$products =collect([]);
-		foreach ($category->categories as $cat) {
+		$gender = $this->genders->find($id);
+		$products = collect([]);
+		foreach ($gender->categories as $cat) {
 			foreach ($cat->products as $product) {
 				$products->push($product);
 			}
 		}
+		if ($request->has('filter')) {
+			if ($request->filter == 'down')
+				$products = $products->sortBy('price');
+			else
+				$products = $products->sortByDesc('price');
+		}
 		$genders = $this->genders->getAllFull();
-		return view('web.products',compact('category','products','genders'));
+		$category=$gender;
+		$route = 'genders/'.$id;
+		return view('web.products',compact('route','category','products','genders'));
     }
     public function show($id)
     {

@@ -15,11 +15,16 @@ class UserController extends Controller
         $this->sales = $sales;
         $this->lineSales = $lineSales;
 	}
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function profile($username='')
+    {
+        $user = $this->users->getByUsername($username);
+        return view('web.profile',compact('user'));
+    }
+    public function myProfile()
+    {
+        $user = \Auth::user();
+        return view('user.profile',compact('user'));
+    }
     public function index()
     {
         //
@@ -32,7 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -66,7 +71,6 @@ class UserController extends Controller
             return redirect()->back()->with('message','Ha ocurrido un error :(');
         $ticket = $this->lineSales->ticket($sale_id);
         return view('product.ticket',compact('ticket','user'));
-        
     }
     /**
      * Show the form for editing the specified resource.
@@ -74,9 +78,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $user = \Auth::user();
+        return view('user.edit',compact('user'));
     }
 
     /**
@@ -86,11 +91,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $user = \Auth::user();
+        if ($this->users->update($user->id,$request->all())) {
+            return redirect('user/profile')->with('message','Se ha actualizado su perfil!');
+        }
+        return redirect('user/edit')->with('message','No se a podido actualizar su información!');
     }
-
     /**
      * Remove the specified resource from storage.
      *

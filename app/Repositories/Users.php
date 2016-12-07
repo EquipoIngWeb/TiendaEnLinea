@@ -17,4 +17,8 @@ class Users  extends BaseRepository
 	{
 		return $this->getModel()->where('confirmation_code',$code)->first();
 	}
+	public function getByUsername($username)
+	{
+		return $this->getModel()->where('username',$username)->first();
+	}
 }
