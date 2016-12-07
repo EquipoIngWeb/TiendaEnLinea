@@ -23,6 +23,9 @@ class Subcategory extends Model
 	}
 	public function getImageAttribute()
 	{
+		if ($this->attributes['image']=='images/categories/default.jpg') {
+			return $this->category()->first()->image;
+		}
 		return asset('storage/'.$this->attributes['image']);
 	}
 	public function setImageAttribute($image='')
