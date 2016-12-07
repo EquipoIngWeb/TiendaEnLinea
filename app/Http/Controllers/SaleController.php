@@ -74,6 +74,9 @@ class SaleController extends Controller
 
     public function addToCart(Request $request)
     {
+        if(!$request->specification_id){
+            return redirect()->back()->with('message','No se selecciono ningun articulo');
+        }
         $specification = $this->specifications->find($request->specification_id);
         $inventory = $this->inventories->getBySpecification($specification->id);
         if ($inventory->amount < $request->amount) {
@@ -117,12 +120,12 @@ class SaleController extends Controller
         $user = \Auth::user();
         if($confirmation_code!= $user['confirmation_code'])
             return redirect('user/cart')->with('message','Codigo de confirmacion incorrecto');
-       \DB::beginTransaction();
-       foreach ($cart as $item) {
+        \DB::beginTransaction();
+        $sale = $this->sales->save(['user_id'=>$user_id]);
+        foreach ($cart as $item) {
 
             $inventory = $this->inventories->getBySpecification($item->id);
             if ($inventory->amount >= $item->amount) {
-                $sale = $this->sales->save(['user_id'=>$user_id]);
                 $line_sale = [
                     'sale_id'=>$sale->id,
                     'specification_id'=>$item->id,

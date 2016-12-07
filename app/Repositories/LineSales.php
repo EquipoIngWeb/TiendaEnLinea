@@ -9,5 +9,11 @@ class LineSales  extends BaseRepository
 		$this->model = $model;
 	}
 
-
+	public function ticket($sale_id)
+	{
+		return $this->model->where('sale_id',$sale_id)->with(['specification'=>function($query){
+			$query->with('product');
+			$query->with('size');
+		}])->get();
+	}
 }

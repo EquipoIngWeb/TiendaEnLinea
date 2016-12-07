@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\Users;
+use App\Repositories\Sales;
+use App\Repositories\lineSales;
 class UserController extends Controller
 {
-	function __construct(Users $users)
+    protected $sales;
+	function __construct(Users $users,Sales $sales,lineSales $lineSales)
 	{
 		$this->users = $users;
+        $this->sales = $sales;
+        $this->lineSales = $lineSales;
 	}
     /**
      * Display a listing of the resource.
@@ -47,11 +52,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $user = \Auth::user();
+        $myShoppings = $this->sales->getOfUser($user->id);
+        return view('user.profile',compact('user','myShoppings'));
     }
-
+    public function ticket($sale_id)
+    {
+        $user = \Auth::user();
+        $sale = $this->sales->find($sale_id);
+        if($sale->user_id != $user->id)
+            return redirect()->back()->with('message','Ha ocurrido un error :(');
+        $ticket = $this->lineSales->ticket($sale_id);
+        return view('product.ticket',compact('ticket','user'));
+        
+    }
     /**
      * Show the form for editing the specified resource.
      *

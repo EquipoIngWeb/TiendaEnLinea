@@ -16,7 +16,7 @@
 					<tr>
 						<td>{{$item->amount}}</td>
 						<td>{{$item->product->name}}</td>
-						<td>${{$item->product->price}}</td>
+						<td>${{$item->price}}</td>
 						<td><a href="{{url("user/remove_cart/$item->id")}}" class="btn red">X</a></td>
 					</tr>
 				@endforeach

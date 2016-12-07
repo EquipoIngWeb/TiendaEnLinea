@@ -8,7 +8,7 @@ use App\LineSale;
 class Sale extends Model
 {
    protected $fillable = [
-		'id','user_id','country','address','postal_code','city','phone'
+		'id','user_id','country','address','postal_code','city','phone','updated_at'
 	];
 
 	public function lineSales()
@@ -18,5 +18,9 @@ class Sale extends Model
 	public function user()
 	{
 		return $this->belongsTo(User::class);
+	}
+	public function getDateAttribute()
+	{
+		return $this->updated_at;
 	}
 }

@@ -12,9 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/',function(){
-	return 'HOLA';
-});
+Route::get('/','UserController@show');
+Route::get('/ticket/{sale_id}','UserController@ticket');
 
 # Guardar un comentario.
 Route::post(
