@@ -5,7 +5,7 @@
 		@if (isset($category))
 			background:url('{{$category->image}}');
 		@else
-			background: {{ asset('storage/images/categories/default.jpg') }};
+			background:url('{{asset('storage/images/categories/default.jpg') }}');
 		@endif
 		background-size: cover;
 		width: 100%;
