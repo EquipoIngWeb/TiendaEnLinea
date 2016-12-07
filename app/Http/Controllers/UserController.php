@@ -61,7 +61,7 @@ class UserController extends Controller
     {
         $user = \Auth::user();
         $myShoppings = $this->sales->getOfUser($user->id);
-        return view('user.profile',compact('user','myShoppings'));
+        return view('user.main',compact('user','myShoppings'));
     }
     public function ticket($sale_id)
     {
