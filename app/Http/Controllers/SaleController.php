@@ -122,6 +122,8 @@ class SaleController extends Controller
         $user = \Auth::user();
         if($confirmation_code!= $user['confirmation_code'])
             return redirect('user/cart')->with('message','Codigo de confirmacion incorrecto');
+        $user['confirmation_code'] = '';
+        $user->save();
         \DB::beginTransaction();
         $sale = $this->sales->save(['user_id'=>$user_id]);
         foreach ($cart as $item) {
@@ -143,7 +145,7 @@ class SaleController extends Controller
        }
        \DB::commit();
        $this->cart->clear();
-        return redirect('user/cart')->with('message','Su compra ha sido realizada :)');
+        return redirect('/')->with('message','Su compra ha sido realizada :)');
     }
     // public function payWithPaypal(Request $request){
     //     if ($request->type== 'paypal') {
