@@ -82,11 +82,11 @@
 									{{$linesale->amount}}
 								</td>
 								<td>
-									{{$linesale->price + $linesale->amount}}<small>MXN</small>
+									{{$linesale->price * $linesale->amount}}<small>MXN</small>
 								</td>
 							</tr>
 							@php
-								$total = $total + $linesale->price + $linesale->amount;
+								$total = $total + $linesale->price * $linesale->amount;
 							@endphp
 						@endforeach
 							<tr>
