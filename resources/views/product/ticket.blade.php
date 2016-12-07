@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 	<div class="container">
-		<div class="row">
-			<div class="col s12 m10 offset-m1  l8 offset-l2">
+		<div id="pintable" class="row">
+			<div  class="col s12 m10 offset-m1  l8 offset-l2">
 				<h1>
 				</h1>
-				<h2>Información Perosnal</h2>
+				<h2>Información Personal</h2>
 				<table class="striped">
 					<tbody>
 						<tr>
@@ -32,9 +32,16 @@
 							<th>Codigo Postal</th>
 							<td>{{$user->postal_code}}</td>
 						</tr>
+						<tr>
+							<th>Numero de Compra</th>
+							<td>{{$sale->id}}</td>
+						</tr>
+						<tr>
+							<th>Fecha Compra</th>
+							<td>{{$sale->created_at}}</td>
+						</tr>
 					</tbody>
 				</table>
-
 				<h2>Descripción de Venta</h2>
 				<table class="bordered">
 					<thead>
@@ -95,5 +102,19 @@
 				</table>
 			</div>
 		</div>
+		<div class="row center-align">
+			<button id="print" class="btn blue">Imprimir</button>
+			<p>NOTA: Si lo anterior no funciona y desea imprimir este comprobante de pago. Presione Ctrl + P al mismo tiempo y Prosiga a imprimir.</p>
+		</div>
 	</div>
 @endsection
+@section('script')
+	<script src="{{ asset('js/printArea.js') }}"></script>
+	<script>
+		$(document).ready(function() {
+			$('#print').click(function(event) {
+				$('#pintable').printArea();
+			});
+		});
+	</script>
+@stop
