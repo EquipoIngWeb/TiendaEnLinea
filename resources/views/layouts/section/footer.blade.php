@@ -1,16 +1,16 @@
 <footer class="page-footer">
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m4">
+			<div class="col s12 m3">
 				<b class="big-font">Acerca de nosotros</b>
 				<hr>
-				Somos una empresa confiable en donde tu podras encontras todo lo que estés bucando sin perder tu tiempo, rápido y seguro.
-
+				Somos una empresa confiable en donde tu podras
+				encontras todo lo que estés bucando sin perder
+				tu tiempo, rápido y seguro.
 			</div>
-			<div class="col s12 m4">
+			<div class="col s12 m3">
 				<b class="big-font">Contáctanos</b>
 				<hr>
-
 				<div>
 					<i class="material-icons">location_on</i>
 					Tec de Culiacan, Culiacan Sinaloa.
@@ -26,7 +26,7 @@
 					+52 (6673) 15-1726
 				</div>
 			</div>
-			<div class="col s12 m4">
+			<div class="col s12 m3">
 				<b class="big-font">Enlaces</b>
 				<hr>
 				<div>
@@ -48,6 +48,16 @@
 					</a>
 				</div>
 			</div>
+			<div class="col s12 m3">
+				<b class="big-font">Integrantes</b>
+				<hr>
+				<div> .-' Chavez Madrid Juan Daniel</div>
+				<div> .-' Gonzalez Castro Rafael</div>
+				<div> .-' Perez Herrera Ramon</div>
+				<div> .-' Rochin Ramirez Aida</div>
+				<div> .-' Valenzuela Sosa Veronica</div>
+			</div>
+
 		</div>
 	</div>
 	<br>
