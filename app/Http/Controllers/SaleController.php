@@ -23,33 +23,18 @@ class SaleController extends Controller
         $this->inventories = $inventories;
 		$this->cart = $cart;
 	}
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
 		$sales = $this->sales->getAll();
 		return view('admin.sale.index',compact('sales'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+     public function ticket($sale_id)
+     {
+        $sale = $this->sales->find($sale_id);
+        $user = $sale->user;
+        $ticket = $this->line_sales->ticket($sale_id);
+        return view('product.ticket',compact('sale','ticket','user'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
     	$line_sale = $request->all();
@@ -103,6 +88,7 @@ class SaleController extends Controller
        $cart = $this->cart->getWithPrices();
        return view('product.shoppingCart',compact('cart'));
     }
+
     public function sendEmail()
     {
         $user = \Auth::user();
@@ -139,7 +125,6 @@ class SaleController extends Controller
         \DB::beginTransaction();
         $sale = $this->sales->save(['user_id'=>$user_id]);
         foreach ($cart as $item) {
-
             $inventory = $this->inventories->getBySpecification($item->id);
             if ($inventory->amount >= $item->amount) {
                 $line_sale = [
@@ -147,7 +132,6 @@ class SaleController extends Controller
                     'specification_id'=>$item->id,
                     'price'=>$item->price,
                     'amount'=>$item->amount,
-
                 ];
                 $this->line_sales->save($line_sale);
                 $inventory->amount = $inventory->amount - $line_sale['amount'];
@@ -161,48 +145,25 @@ class SaleController extends Controller
        $this->cart->clear();
         return redirect('user/cart')->with('message','Su compra ha sido realizada :)');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    // public function payWithPaypal(Request $request){
+    //     if ($request->type== 'paypal') {
+    //         return redirect($this->donations->savePaypal($request->all()));
+    //     }
+    //     $charge = $this->donations->saveConekta($request->all());
+    //     if ($charge['status'] === 0)
+    //         return redirect()->back()->with('message',$charge['message']);
+    //     return redirect("user/donations/$request->type/".$charge['id_donation']);
+    // }
+    // public function paypalSuccess(Request $request)
+    // {
+    //     $payment = $this->sales->paypalSuccess($request->token);
+    //     $project = $this->sales->getByToken($request->token)->project;
+    //     $status = 1;
+    //     return view('user.ticket.paypal',compact('payment','project','status'));
+    // }
+    // public function paypalConfirm(Request $request)
+    // {
+    //     $response = $this->sales->paypalConfirm($request->except('_token'));
+    //     return view('user.ticket.success',compact('response'));
+    // }
 }

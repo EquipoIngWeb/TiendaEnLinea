@@ -11,7 +11,7 @@ class LineSales  extends BaseRepository
 
 	public function ticket($sale_id)
 	{
-		return $this->model->where('sale_id',$sale_id)->with(['specification'=>function($query){
+		return $this->getModel()->where('sale_id',$sale_id)->with(['specification'=>function($query){
 			$query->with('product');
 			$query->with('size');
 		}])->get();

@@ -30,6 +30,7 @@
 						<th width="80px">Talla </th>
 						<th>Precio</th>
 						<th>Cantidad</th>
+						<th>Opciones</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -39,10 +40,12 @@
 								<td>{{$sale->user->full_name}}</td>
 								<td>{{$line_sale->specification->product->name}}</td>
 								<td>{{$line_sale->specification->product->brand->name}}</td>
-								<td>{{$line_sale->specification->color->name}}</td>
+								<td>{{$line_sale->specification->product->color->name}}</td>
 								<td>{{$line_sale->specification->size->name}}</td>
 								<td>{{$line_sale->price}}</td>
 								<td>{{$line_sale->amount}}</td>
+								<td><a href="{{ url('admin/sales/ticket/'.$sale->id) }}" class="btn btn-warning">Detalles</a></td>
+
 							</tr>
 						@endforeach
 					@endforeach

@@ -42,7 +42,9 @@ Route::resource('sizes','SizeController');
 Route::resource('colors','ColorController');
 
 Route::resource('products','ProductController');
+Route::get('sales/ticket/{sale_id}','SaleController@ticket');
 Route::resource('sales','SaleController');
+
 Route::get('scores','ScoreController@index');
 
 Route::post('images/setdefault','ImageController@seDefault');
